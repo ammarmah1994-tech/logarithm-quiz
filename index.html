@@ -27,10 +27,10 @@
             --bg-dark: #0a0b0d;
             --card-dark: #131518;
             --inner-dark: #191c21;
-            --accent-red: #c0392b;
-            --bright-red: #e74c3c;
-            --gold-primary: #d4af37;
-            --gold-light: #f1c40f;
+            --accent-red: #e74c3c;
+            --bright-red: #ff3838;
+            --gold-primary: #ffd700;
+            --gold-light: #ffe066;
             --text-light: #f5f6fa;
             --text-muted: #a4b0be;
             --border-line: #272b34;
@@ -57,7 +57,7 @@
             border-bottom: 2px solid var(--gold-primary);
             padding: 24px 15px 20px 15px;
             text-align: center;
-            box-shadow: 0 4px 25px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 25px rgba(255, 215, 0, 0.25);
         }
 
         .brand-badge {
@@ -142,7 +142,7 @@
             background: linear-gradient(135deg, var(--accent-red), #871f16);
             color: #ffffff;
             border-color: var(--bright-red);
-            box-shadow: 0 0 10px rgba(231, 76, 60, 0.45);
+            box-shadow: 0 0 10px rgba(255, 56, 56, 0.45);
         }
 
         .container {
@@ -154,7 +154,7 @@
         .section-view {
             display: none;
             background: var(--card-dark);
-            border: 1px solid rgba(212, 175, 55, 0.25);
+            border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 10px;
             padding: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.65);
@@ -189,7 +189,7 @@
         }
 
         .tag-pill {
-            background: rgba(231, 76, 60, 0.15);
+            background: rgba(255, 56, 56, 0.15);
             border: 1px solid var(--bright-red);
             color: #ff7675;
             font-size: 12px;
@@ -283,7 +283,7 @@
         }
 
         .condition-box {
-            background: rgba(231, 76, 60, 0.1);
+            background: rgba(255, 56, 56, 0.1);
             border: 1px solid var(--accent-red);
             padding: 12px 16px;
             border-radius: 6px;
@@ -293,7 +293,7 @@
         }
 
         .theorem-box {
-            background: rgba(212, 175, 55, 0.08);
+            background: rgba(255, 215, 0, 0.08);
             border: 1.5px solid var(--gold-primary);
             padding: 14px 18px;
             border-radius: 8px;
@@ -306,7 +306,7 @@
         }
 
         .ans-badge {
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             border: 1px dashed var(--gold-primary);
             color: var(--gold-primary);
             padding: 8px 14px;
@@ -316,7 +316,7 @@
             display: inline-block;
         }
 
-        /* الجداول الرياضية: كتابة وترتيب من اليسار لليمين LTR بدقة متناهية */
+        /* الجداول الرياضية مرتبة يسار لليمين */
         table.var-grid {
             width: 100%;
             border-collapse: collapse;
@@ -389,7 +389,7 @@
         }
 
         .mcq-opt.selected-wrong {
-            background: rgba(231, 76, 60, 0.2);
+            background: rgba(255, 56, 56, 0.2);
             border-color: #e74c3c;
             color: #e74c3c;
             font-weight: 700;
@@ -425,7 +425,7 @@
 
 <div class="container">
 
-    <!-- ==================== تبويب الأتمتة (مفعّل ويعمل 100%) ==================== -->
+    <!-- ==================== تبويب الأتمتة ==================== -->
     <div id="tab-mcq" class="section-view active">
         <div class="section-header">
             <h2>قسم الأتمتة: تدريبات بنك الأسئلة الموضوعية (أتمتة تفاعلية)</h2>
@@ -1070,26 +1070,27 @@
             <button class="toggle-solution-btn" onclick="toggleSol('sol-rel-pos-1')">عرض الحل والجدول (يسار ليمين)</button>
             <div class="solution-drawer" id="sol-rel-pos-1">
                 • <b>إثبات المقارب المائل:</b><br>
-                $$h(x) = f(x) - y_{\Delta} = \left(2x - \frac{\ln x}{x}\right) - 2x = -\frac{\ln x}{x}$$
-                $$\lim_{x \to +\infty} h(x) = \lim_{x \to +\infty} \left(-\frac{\ln x}{x}\right) = -0 = 0 \implies \Delta: y = 2x \text{ مقارب مائل بجوار } +\infty$$
-                • <b>دراسة إشارة الفرق $h(x)$:</b><br>
-                المقام $x > 0$ دائماً على $]0, +\infty[$، فإشارة الفرق من إشارة البسط $-\ln x$:<br>
-                - ينعدم الفرق عندما $-\ln x = 0 \iff \ln x = 0 \iff x = 1$.<br>
-                - عندما $x \in ]0, 1[$: $\ln x < 0 \implies -\ln x > 0 \implies h(x) > 0 \implies C_f \text{ يقع فوق } \Delta$.<br>
-                - عندما $x \in ]1, +\infty[$: $\ln x > 0 \implies -\ln x < 0 \implies h(x) < 0 \implies C_f \text{ يقع تحت } \Delta$.<br>
-                - عند $x = 1$: $h(1) = 0 \implies C_f \text{ يقطع } \Delta \text{ في النقطة } (1, 2)$.<br>
-                • <b>مشتق تابع الفرق:</b> $h'(x) = \frac{\ln x - 1}{x^2}$ ينعدم عند $x = e$. القيمة الصغرى للفرق $h(e) = -\frac{1}{e}$.<br>
-                جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:
+                نشكل الفرق $h(x) = f(x) - y_{\Delta}$:<br>
+                $$h(x) = \left(2x - \frac{\ln x}{x}\right) - 2x = -\frac{\ln x}{x}$$
+                $$\lim_{x \to +\infty} h(x) = \lim_{x \to +\infty} \left(-\frac{\ln x}{x}\right) = -0 = 0 \implies \Delta: y = 2x \text{ مقارب مائل للخط } C_f \text{ بجوار } +\infty$$
+                • <b>دراسة إشارة الفرق $h(x)$ مباشرة (دون دراسة اطراد):</b><br>
+                بما أن المقام $x > 0$ موجب تماماً على كامل مجال التعريف $]0, +\infty[$، فإن إشارة الكسر $h(x) = \frac{-\ln x}{x}$ تتحدد تماماً بإشارة البسط $-\ln x$:<br>
+                - ينعدم الفرق عندما: $-\ln x = 0 \iff \ln x = 0 \iff x = 1$.<br>
+                - عندما $x \in ]0, 1[$: $\ln x < 0 \implies -\ln x > 0 \implies h(x) > 0 \implies C_f \text{ يقع فوق المقارب } \Delta$.<br>
+                - عندما $x \in ]1, +\infty[$: $\ln x > 0 \implies -\ln x < 0 \implies h(x) < 0 \implies C_f \text{ يقع تحت المقارب } \Delta$.<br>
+                - عند $x = 1$: $h(1) = 0 \implies C_f \text{ يقطع المقارب } \Delta \text{ في النقطة المشتركة } (1, 2)$.<br><br>
+                • <b>جدول إشارة الفرق والوضع النسبي (من اليسار لليمين LTR):</b>
                 <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$e$</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td><td>-</td><td>0</td><td>+</td><td></td></tr>
-                    <tr><th>$h(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td><td>$\searrow$</td><td>$-\frac{1}{e}$</td><td>$\nearrow$</td><td>0</td></tr>
-                    <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td colspan="3">-</td><td></td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ فوق $\Delta$</td><td>تقاطع $(1, 2)$</td><td colspan="3">$C_f$ تحت $\Delta$</td><td></td></tr>
+                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$-\ln x$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                    <tr><th>$x$</th><td style="background:#200505">||</td><td>+</td><td>|</td><td>+</td><td></td></tr>
+                    <tr><th>$h(x) = f(x) - y_{\Delta}$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ فوق $\Delta$</td><td>نقطة تقاطع $(1, 2)$</td><td>$C_f$ تحت $\Delta$</td><td></td></tr>
                 </table>
             </div>
         </div>
 
+        <!-- تمرين 2: حذف اسم نقطة الانعطاف -->
         <div class="exam-block">
             <div class="exam-question-title">تمرين 2: $f(x) = \ln\left(\frac{x+1}{1-x}\right)$ على $I = ]-1, 1[$ ودراسة إشارة واطراد الفرق $h(x)$ مع المماس في المبدأ</div>
             <div class="exam-paper-text">
@@ -1182,7 +1183,7 @@
         </div>
     </div>
 
-    <!-- ==================== 5. الاستمرار وقابلية الاشتقاق والتقريب التآلفي (حذف اسم مجزأ) ==================== -->
+    <!-- ==================== 5. الاستمرار وقابلية الاشتقاق والتقريب التآلفي ==================== -->
     <div id="tab-deriv-cont-app" class="section-view">
         <div class="section-header">
             <h2>الاستمرار وقابلية الاشتقاق والتقريب التآلفي المحلي</h2>
@@ -1381,7 +1382,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV1,
-                datasets: [{ label: 'f(x) = (1+2ln x)/x^2', data: yV1, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = (1+2ln x)/x^2', data: yV1, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -1.5, max: 2, grid: { color: '#272b34' } } } }
         });
@@ -1399,7 +1400,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV2,
-                datasets: [{ label: 'f(x) = (2+ln x)/(x+1)', data: yV2, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = (2+ln x)/(x+1)', data: yV2, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -2, max: 1.5, grid: { color: '#272b34' } } } }
         });
@@ -1417,7 +1418,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xVIVT,
-                datasets: [{ label: 'f(x) = x - 2 + ln x (يقطع المحور عند α ≈ 1.55)', data: yVIVT, borderColor: '#e74c3c', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = x - 2 + ln x (يقطع المحور عند α ≈ 1.55)', data: yVIVT, borderColor: '#ff3838', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -2, max: 3, grid: { color: '#272b34' } } } }
         });
@@ -1435,7 +1436,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV3,
-                datasets: [{ label: 'f(x) = 1/(x(1-ln x))', data: yV3, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = 1/(x(1-ln x))', data: yV3, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: 0, max: 5, grid: { color: '#272b34' } } } }
         });
@@ -1453,7 +1454,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV4,
-                datasets: [{ label: 'f(x) = ln(x/(x-2)) لـ x > 2', data: yV4, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = ln(x/(x-2)) لـ x > 2', data: yV4, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: 0, max: 4, grid: { color: '#272b34' } } } }
         });
@@ -1471,7 +1472,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV5,
-                datasets: [{ label: 'f(x) = x ln x', data: yV5, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = x ln x', data: yV5, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -0.5, max: 3, grid: { color: '#272b34' } } } }
         });
@@ -1489,7 +1490,7 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV6,
-                datasets: [{ label: 'f(x) = ln(x) / x^2', data: yV6, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = ln(x) / x^2', data: yV6, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -1.2, max: 0.5, grid: { color: '#272b34' } } } }
         });
@@ -1507,13 +1508,13 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xV7,
-                datasets: [{ label: 'f(x) = (x+1)ln x', data: yV7, borderColor: '#d4af37', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'f(x) = (x+1)ln x', data: yV7, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -2, max: 6, grid: { color: '#272b34' } } } }
         });
     }
 
-    // 9. رسم مجموعات نقاط المستوي الثلاث (رسم مستقل وثابت لكل حالة)
+    // 9. رسم مجموعات نقاط المستوي الثلاث (مع نقطة مفتوحة مجوفة عند مبدأ نصف المستقيم)
     // Case 1: y = x - 1 for x > 0
     const ctxC1 = document.getElementById('chartPtsCase1');
     if (ctxC1) {
@@ -1525,10 +1526,29 @@ window.addEventListener('DOMContentLoaded', () => {
         new Chart(ctxC1.getContext('2d'), {
             type: 'line',
             data: {
-                labels: xVals,
-                datasets: [{ label: 'الحالة I: نصف المستقيم y = x - 1 (x > 0)', data: yVals, borderColor: '#2ecc71', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                labels: ['0.0', ...xVals],
+                datasets: [
+                    {
+                        label: 'الحالة I: نصف المستقيم y = x - 1 (x > 0)',
+                        data: [-1, ...yVals],
+                        borderColor: '#00e676',
+                        borderWidth: 3.5,
+                        fill: false,
+                        pointRadius: (ctx) => ctx.dataIndex === 0 ? 7 : 0,
+                        pointBackgroundColor: '#0a0b0d', // نقطة مفتوحة مجوفة
+                        pointBorderColor: '#ff3838',
+                        pointBorderWidth: 3
+                    }
+                ]
             },
-            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x > 0' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > -1' }, min: -1.5, max: 4.5, grid: { color: '#272b34' } } } }
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { title: { display: true, text: 'محور الفواصل x > 0 (دائرة مفتوحة عند x=0)', color: '#ffd700' }, grid: { color: '#272b34' } },
+                    y: { title: { display: true, text: 'محور التراتيب y > -1', color: '#ffd700' }, min: -1.5, max: 4.5, grid: { color: '#272b34' } }
+                }
+            }
         });
     }
 
@@ -1544,9 +1564,9 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xVals,
-                datasets: [{ label: 'الحالة II: فرع القطع الزائد y = 1/x (x > 0)', data: yVals, borderColor: '#f1c40f', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'الحالة II: فرع القطع الزائد y = 1/x (x > 0)', data: yVals, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
-            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x > 0' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > 0' }, min: 0, max: 5.5, grid: { color: '#272b34' } } } }
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x > 0', color: '#ffd700' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > 0', color: '#ffd700' }, min: 0, max: 5.5, grid: { color: '#272b34' } } } }
         });
     }
 
@@ -1562,9 +1582,9 @@ window.addEventListener('DOMContentLoaded', () => {
             type: 'line',
             data: {
                 labels: xVals,
-                datasets: [{ label: 'الحالة III: نصف القطع المكافئ y = x^2 (x < 0)', data: yVals, borderColor: '#e74c3c', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+                datasets: [{ label: 'الحالة III: نصف القطع المكافئ y = x^2 (x < 0)', data: yVals, borderColor: '#ff3838', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
-            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x < 0' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > 0' }, min: 0, max: 9.5, grid: { color: '#272b34' } } } }
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x < 0', color: '#ffd700' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > 0', color: '#ffd700' }, min: 0, max: 9.5, grid: { color: '#272b34' } } } }
         });
     }
 });
