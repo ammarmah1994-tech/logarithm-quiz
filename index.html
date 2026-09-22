@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ammar - بنك واختبارات التابع اللوغاريتمي</title>
-    <!-- محرك MathJax لتنسيق الكسور والنهايات والرموز اللاتينية الرياضية بدقة فائقة -->
+    <!-- MathJax لتنسيق الكسور والنهايات والرموز اللاتينية الرياضية بدقة فائقة -->
     <script>
         window.MathJax = {
             tex: {
@@ -20,7 +20,7 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <!-- مكتبة Chart.js للرسوم البيانية -->
+    <!-- Chart.js للرسوم البيانية -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
@@ -255,7 +255,7 @@
         .solution-drawer {
             display: none;
             margin-top: 16px;
-            padding: 16px;
+            padding: 18px;
             background: #111317;
             border-left: 3px solid var(--accent-red);
             border-radius: 4px;
@@ -269,8 +269,8 @@
         .step-title {
             color: var(--gold-light);
             font-weight: 700;
-            font-size: 14px;
-            margin-bottom: 6px;
+            font-size: 14.5px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 6px;
@@ -280,6 +280,16 @@
             content: "◀";
             color: var(--gold-primary);
             font-size: 11px;
+        }
+
+        .condition-box {
+            background: rgba(231, 76, 60, 0.1);
+            border: 1px solid var(--accent-red);
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin: 10px 0;
+            color: #ff9f89;
+            font-weight: 600;
         }
 
         .ans-badge {
@@ -326,7 +336,6 @@
             position: relative;
         }
 
-        /* نظام أسئلة الأتمتة التفاعلي */
         .mcq-question {
             background: #16181e;
             border: 1px solid #2f3542;
@@ -386,13 +395,13 @@
 <header>
     <div class="brand-badge">ammar</div>
     <h1>البنك الوزاري الشامل للتابع اللوغاريتمي <span>(بكالوريا علمي - سوريا)</span></h1>
-    <p class="header-sub">الأسئلة أولاً ثم الحلول التحريرية، جداول اطراد الفرق $h(x)$ (يسار ليمين)، الأتمتة، والمسائل الكبرى مع الرسوم البيانية</p>
+    <p class="header-sub">الأسئلة أولاً ثم الحلول التحريرية المفصلة، جداول اطراد الفرق $h(x)$ (يسار ليمين)، الأتمتة، والمسائل الكبرى مع الرسوم البيانية المستقلة</p>
 </header>
 
 <div class="nav-bar">
     <div class="nav-inner">
         <button class="nav-tab-btn active" onclick="showTab(event, 'tab-mcq')">قسم الأتمتة (اختيار من متعدد)</button>
-        <button class="nav-tab-btn" onclick="showTab(event, 'tab-unified-eq')">المعادلات والمتراجحات وجمل المعادلات والدرجة الثانية</button>
+        <button class="nav-tab-btn" onclick="showTab(event, 'tab-unified-eq')">المعادلات والمتراجحات وجمل المعادلات (قسم موحد)</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-rel-pos-tables')">الأوضاع النسبية والمقاربات (مع جداول اطراد الفرق $h$)</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-limits-indet')">إزالة عدم التعيين والنهايات</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-variations')">مسائل التغيرات والرسم البياني الكبرى</button>
@@ -403,34 +412,32 @@
 
 <div class="container">
 
-    <!-- تبويب الأتمتة (محدث بالصور الجديدة: مقارنة A و B ومجموعات التعريف) -->
+    <!-- تبويب الأتمتة -->
     <div id="tab-mcq" class="section-view active">
         <div class="section-header">
             <h2>قسم الأتمتة: تدريبات بنك الأسئلة الموضوعية (أتمتة تفاعلية)</h2>
             <span class="tag-pill">اختيار من متعدد</span>
         </div>
 
-        <!-- سؤال المقارنة من الصورة الجديدة A و B -->
         <div class="mcq-question" id="mcq-cmp">
             <b>السؤال 1 (مقارنة مقادير لوغاريتمية):</b> قارن بين المقدارين $A = \ln^3\left(\frac{1}{e^2}\right)$ و $B = \ln\left[\left(\frac{1}{e^2}\right)^3\right]$:
             <div class="mcq-options">
                 <div class="mcq-opt" onclick="checkMCQ('cmp', 0, false)">أ) $A = B$</div>
                 <div class="mcq-opt" onclick="checkMCQ('cmp', 1, false)">ب) $A > B$</div>
                 <div class="mcq-opt" onclick="checkMCQ('cmp', 2, true)">ج) $A < B$ (أي $B > A$)</div>
-                <div class="mcq-opt" onclick="checkMCQ('cmp', 3, false)">د) لا يمكن المقارنة</div>
+                <div class="mcq-opt" onclick="checkMCQ('cmp', 3, false)">د) غير معرّف</div>
             </div>
             <div class="mcq-feedback" id="fb-cmp"></div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-cmp')" style="margin-top:10px;">توضيح الحل الرياضي</button>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-cmp')" style="margin-top:10px;">توضيح الحل الرياضي السلمي</button>
             <div class="solution-drawer" id="sol-mcq-cmp">
                 • المقدار الأول: $\ln\left(\frac{1}{e^2}\right) = \ln(e^{-2}) = -2$. وبالتالي:
                 $$A = \left[\ln\left(\frac{1}{e^2}\right)\right]^3 = (-2)^3 = -8$$
-                • المقدار الثاني بتطبيق خواص القوى للوغاريتم:
+                • المقدار الثاني بتطبيق خواص قوى اللوغاريتم:
                 $$B = \ln\left[\left(\frac{1}{e^2}\right)^3\right] = 3 \ln\left(\frac{1}{e^2}\right) = 3(-2) = -6$$
                 بما أن $-6 > -8$، فإن $B > A$ أي $A < B$.
             </div>
         </div>
 
-        <!-- أسئلة مجموعة التعريف من الصورة الجديدة -->
         <div class="mcq-question" id="mcq-dom1">
             <b>السؤال 2:</b> مجموعة تعريف التابع $f(x) = \ln^2(x-3)$ هي:
             <div class="mcq-options">
@@ -440,6 +447,10 @@
                 <div class="mcq-opt" onclick="checkMCQ('dom1', 3, false)">د) $\mathbb{R}$</div>
             </div>
             <div class="mcq-feedback" id="fb-dom1"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom1')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom1">
+                التربيع على التابع كاملاً: $\ln^2(x-3) = [\ln(x-3)]^2$. يشترط فقط أن يكون ما داخل اللوغاريتم موجب تماماً: $x - 3 > 0 \implies x > 3 \implies D_f = ]3, +\infty[$.
+            </div>
         </div>
 
         <div class="mcq-question" id="mcq-dom2">
@@ -451,6 +462,10 @@
                 <div class="mcq-opt" onclick="checkMCQ('dom2', 3, false)">د) $]-\infty, 3[$</div>
             </div>
             <div class="mcq-feedback" id="fb-dom2"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom2')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom2">
+                التربيع هنا داخل اللوغاريتم: يشترط $(x-3)^2 > 0$. المربع موجب دوماً لجميع الأعداد الحقيقية عدا القيمة التي تعدمه: $x - 3 \ne 0 \implies x \ne 3$. إذن: $D_f = \mathbb{R} \setminus \{3\}$.
+            </div>
         </div>
 
         <div class="mcq-question" id="mcq-dom3">
@@ -462,6 +477,10 @@
                 <div class="mcq-opt" onclick="checkMCQ('dom3', 3, false)">د) $[5, +\infty[$</div>
             </div>
             <div class="mcq-feedback" id="fb-dom3"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom3')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom3">
+                القيمة المطلقة موجبة دوماً ما عدا عندما ينعدم ما بداخلها: $|x-5| > 0 \iff x - 5 \ne 0 \iff x \ne 5 \implies D_f = \mathbb{R} \setminus \{5\}$.
+            </div>
         </div>
 
         <div class="mcq-question" id="mcq-dom4">
@@ -473,9 +492,12 @@
                 <div class="mcq-opt" onclick="checkMCQ('dom4', 3, false)">د) $]\sqrt{3}, +\infty[$</div>
             </div>
             <div class="mcq-feedback" id="fb-dom4"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom4')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom4">
+                المقدار $x^2 + 3 \ge 3 > 0$ موجب تماماً أياً كانت $x \in \mathbb{R}$، لذلك التابع معرف على كامل مجموعة الأعداد الحقيقية $\mathbb{R}$.
+            </div>
         </div>
 
-        <!-- أسئلة إضافية للأتمتة -->
         <div class="mcq-question" id="mcq-dom5">
             <b>السؤال 6:</b> مجموعة تعريف التابع $f(x) = \ln\left(\frac{x+2}{x}\right)$ هي:
             <div class="mcq-options">
@@ -497,96 +519,223 @@
             </div>
             <div class="mcq-feedback" id="fb-lim1"></div>
         </div>
+
+        <div class="mcq-question" id="mcq-max1">
+            <b>السؤال 8:</b> إذا كان $f(x) = \frac{\ln x}{x^2}$، فإن القيمة الكبرى محلياً للتابع هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('max1', 0, false)">أ) $1$</div>
+                <div class="mcq-opt" onclick="checkMCQ('max1', 1, true)">ب) $\frac{1}{2e}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('max1', 2, false)">ج) $\frac{1}{e}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('max1', 3, false)">د) $e$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-max1"></div>
+        </div>
     </div>
 
-    <!-- 1. القسم الموحد: المعادلات، المتراجحات، القيمة المطلقة، الدرجة الثانية، والجمل -->
+    <!-- 1. القسم الموحد: المعادلات والمتراجحات وجمل المعادلات -->
     <div id="tab-unified-eq" class="section-view">
         <div class="section-header">
-            <h2>القسم الموحد: المعادلات والمتراجحات وجمل المعادلات والدرجة الثانية</h2>
+            <h2>القسم الموحد: المعادلات والمتراجحات وجمل المعادلات (حلول نموذجية تفصيلية كاملة)</h2>
             <span class="tag-pill">شامل جبر اللوغاريتم</span>
         </div>
 
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 1: معادلة ومتراجحة من الدرجة الثانية بالنسبة لـ $\ln x$</div>
+            <div class="exam-question-title">تمرين 1: معادلة ومتراجحة من الدرجة الثانية بالنسبة لـ $\ln x$ (مع المتحول $t$ وجدول الإشارة)</div>
             <div class="exam-paper-text">
-                <b>المطلوب 1:</b> حل في $\mathbb{R}$ المعادلة:
-                $$\ln^2(x) - 3\ln(x) + 2 = 0$$
-                <b>المطلوب 2:</b> حل في $\mathbb{R}$ المتراجحة:
-                $$\ln^2(x) - 3\ln(x) + 2 \le 0$$
+                <b>المطلوب 1:</b> حل في $\mathbb{R}$ المعادلة: $\ln^2(x) - 3\ln(x) + 2 = 0$.<br>
+                <b>المطلوب 2:</b> حل في $\mathbb{R}$ المتراجحة: $\ln^2(x) - 3\ln(x) + 2 \le 0$.
             </div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-eq-deg2')">عرض الحل النموذجي السلمي</button>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-eq-deg2')">عرض الحل النموذجي السلمي المفصل</button>
             <div class="solution-drawer" id="sol-eq-deg2">
-                • <b>شرط الوجود والتعريف:</b> $x > 0 \implies D = ]0, +\infty[$.<br>
-                • <b>تغيير المتحول المساعد:</b> نضع $X = \ln x$.<br>
-                $$X^2 - 3X + 2 = 0 \implies (X - 1)(X - 2) = 0 \implies X_1 = 1, X_2 = 2$$
-                <b>1) حلول المعادلة:</b> $\ln x = 1 \implies x = e$ أو $\ln x = 2 \implies x = e^2$.
-                <div class="ans-badge">مجموعة حلول المعادلة: $S = \{e, \, e^2\}$</div><br>
-                <b>2) حلول المتراجحة:</b> داخل مجال الجذرين $1 \le \ln x \le 2 \implies e \le x \le e^2$.
+                <div class="condition-box">
+                    <b>شرط الحل والوجود (مجال التعريف):</b><br>
+                    يشترط أن يكون ما داخل التابع اللوغاريتمي موجب تماماً: $x > 0$.<br>
+                    إذن مجال الحل المسموح هو: $D_E = ]0, +\infty[$.
+                </div>
+
+                <div class="step-title">1) حل المعادلة بتغيير المتحول المساعد $t$:</div>
+                نضع المتحول المساعد: $t = \ln x$.<br>
+                تتحول المعادلة إلى معادلة من الدرجة الثانية بالنسبة لـ $t$:
+                $$t^2 - 3t + 2 = 0$$
+                نحلها بالتحليل المباشر (أو بالمميز $\Delta = (-3)^2 - 4(1)(2) = 1$):
+                $$(t - 1)(t - 2) = 0$$
+                • إما $t = 1 \implies \ln x = 1 \implies x = e^1 = e$. وبما أن $e \in D_E$ فهو مقبول.<br>
+                • أو $t = 2 \implies \ln x = 2 \implies x = e^2$. وبما أن $e^2 \in D_E$ فهو مقبول.<br>
+                <div class="ans-badge">مجموعة حلول المعادلة: $S = \{e, \, e^2\}$</div>
+
+                <div class="step-title" style="margin-top:16px;">2) حل المتراجحة $\ln^2(x) - 3\ln(x) + 2 \le 0$ وتنظيم جدول الإشارة للمتحول $t$:</div>
+                بالمتحول المساعد $t = \ln x$ تصبح المتراجحة:
+                $$t^2 - 3t + 2 \le 0$$
+                جذرا ثلاثي الحدود هما $t_1 = 1$ و $t_2 = 2$.<br>
+                ندرس إشارة المقدار $P(t) = t^2 - 3t + 2$ في الجدول الآتي (من اليسار إلى اليمين):
+                <table class="var-grid">
+                    <tr><th>$t$</th><td>$-\infty$</td><td></td><td>1</td><td></td><td>2</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>إشارة $t^2 - 3t + 2$</th><td></td><td>+</td><td>0</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                </table>
+                المتراجحة تطلب المقادير السالبة أو المعدومة ($\le 0$)، فالحلول بالنسبة لـ $t$ هي:
+                $$t \in [1, \, 2] \iff 1 \le t \le 2$$
+                نعيد تعويض $t = \ln x$:
+                $$1 \le \ln x \le 2$$
+                بما أن التابع الأسي $\exp$ متزايد تماماً على $\mathbb{R}$، نأخذ الأس لجميع الأطراف مع الحفاظ على جهة المتراجحة:
+                $$e^1 \le x \le e^2 \implies e \le x \le e^2$$
+                نقاطع الحلول مع شرط الوجود $D_E = ]0, +\infty[$: $[e, e^2] \subset ]0, +\infty[$ (محقق بالكامل).
                 <div class="ans-badge">مجموعة حلول المتراجحة: $S = [e, \, e^2]$</div>
             </div>
         </div>
 
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 2: جمل المعادلات اللوغاريتمية (طريقة الخواص وطريقة تغيير المتحول)</div>
+            <div class="exam-question-title">تمرين 2: المعادلة اللوغاريتمية الجذرية وتطبيق خواص القوى</div>
+            <div class="exam-paper-text">
+                حل في $\mathbb{R}$ المعادلة: $\ln\sqrt{2x-3} = \ln(6-x) - \frac{1}{2}\ln x$.
+            </div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-eq-sqrt')">عرض الحل النموذجي السلمي المفصل</button>
+            <div class="solution-drawer" id="sol-eq-sqrt">
+                <div class="condition-box">
+                    <b>شرط الحل والوجود (مجال التعريف $D_E$):</b><br>
+                    • ما تحت الجذر وداخل اللوغاريتم الأول موجب تماماً: $2x - 3 > 0 \implies x > \frac{3}{2}$.<br>
+                    • ما داخل اللوغاريتم الثاني موجب تماماً: $6 - x > 0 \implies x < 6$.<br>
+                    • ما داخل اللوغاريتم الثالث موجب تماماً: $x > 0$.<br>
+                    نقاطع الشروط الثلاثة: $\left]\frac{3}{2}, +\infty\right[ \cap ]-\infty, 6[ \cap ]0, +\infty[ = \left]\frac{3}{2}, 6\right[$.<br>
+                    إذن: $D_E = \left]\frac{3}{2}, \, 6\right[$.
+                </div>
+                <div class="step-title">خطوات الحل الجبري:</div>
+                نعلم أن $\ln\sqrt{2x-3} = \frac{1}{2}\ln(2x-3)$.<br>
+                ننقل $-\frac{1}{2}\ln x$ إلى الطرف الأيسر:
+                $$\frac{1}{2}\ln(2x-3) + \frac{1}{2}\ln x = \ln(6-x)$$
+                نضرب طرفي المعادلة بالعدد 2:
+                $$\ln(2x-3) + \ln x = 2\ln(6-x)$$
+                $$\ln(x(2x-3)) = \ln\left((6-x)^2\right)$$
+                وبما أن اللوغاريتم تابع متباين:
+                $$2x^2 - 3x = (6-x)^2 \implies 2x^2 - 3x = 36 - 12x + x^2$$
+                $$x^2 + 9x - 36 = 0 \implies (x + 12)(x - 3) = 0$$
+                • $x = -12 \notin D_E$ (مرفوض حتماً).<br>
+                • $x = 3 \in \left]\frac{3}{2}, 6\right[$ (مقبول ومحقق).
+                <div class="ans-badge">مجموعة الحلول: $S = \{3\}$</div>
+            </div>
+        </div>
+
+        <div class="exam-block">
+            <div class="exam-question-title">تمرين 3: معادلات القيمة المطلقة اللوغاريتمية الثلاث مع شروط الحل الكاملة</div>
+            <div class="exam-paper-text">
+                <b>1)</b> $\ln|2x+3| + \ln|x-1| = 2\ln|x|$<br>
+                <b>2)</b> $\ln|x-2| + \ln(x+4) = 3\ln(4)$<br>
+                <b>3)</b> $\ln|x-3| + \ln|x+3| = \ln(8x)$
+            </div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-eq-abs-all')">عرض الحلول المفصلة خطوة بخطوة</button>
+            <div class="solution-drawer" id="sol-eq-abs-all">
+                <div class="step-title">1) حل المعادلة: $\ln|2x+3| + \ln|x-1| = 2\ln|x|$:</div>
+                <div class="condition-box">
+                    <b>شرط الحل:</b> يجب ألا تنعدم المقادير داخل القيمة المطلقة: $2x+3 \ne 0 \implies x \ne -\frac{3}{2}$، و $x-1 \ne 0 \implies x \ne 1$، و $x \ne 0$.<br>
+                    إذن: $D_E = \mathbb{R} \setminus \{-\frac{3}{2}, 0, 1\}$.
+                </div>
+                تطبيق الخواص: $\ln(|(2x+3)(x-1)|) = \ln(|x|^2) = \ln(x^2) \iff |2x^2 + x - 3| = x^2$.<br>
+                • <b>الحالة الأولى:</b> $2x^2 + x - 3 = x^2 \implies x^2 + x - 3 = 0 \implies \Delta = 13 \implies x = \frac{-1 \pm \sqrt{13}}{2} \in D_E$ (مقبولان).<br>
+                • <b>الحالة الثانية:</b> $2x^2 + x - 3 = -x^2 \implies 3x^2 + x - 3 = 0 \implies \Delta = 37 \implies x = \frac{-1 \pm \sqrt{37}}{6} \in D_E$ (مقبولان).
+                <div class="ans-badge">$S_1 = \left\{ \frac{-1 \pm \sqrt{13}}{2}, \, \frac{-1 \pm \sqrt{37}}{6} \right\}$</div>
+
+                <div class="step-title" style="margin-top:16px;">2) حل المعادلة: $\ln|x-2| + \ln(x+4) = 3\ln(4)$:</div>
+                <div class="condition-box">
+                    <b>شرط الحل:</b> ما داخل اللوغاريتم الثاني موجب: $x+4 > 0 \implies x > -4$. وما داخل القيمة المطلقة غير معدوم: $x-2 \ne 0 \implies x \ne 2$.<br>
+                    إذن: $D_E = ]-4, 2[ \cup ]2, +\infty[$.
+                </div>
+                نعلم أن $3\ln 4 = \ln(4^3) = \ln 64$. فتصبح: $|x-2|(x+4) = 64$.<br>
+                • <b>عندما $x > 2$:</b> $|x-2| = x-2 \implies (x-2)(x+4) = 64 \implies x^2 + 2x - 72 = 0 \implies (x-8)(x+10) = 0$.<br>
+                ينتج $x = 8 \in D_E$ (مقبول)، و $x = -10 \notin D_E$ (مرفوض).<br>
+                • <b>عندما $-4 < x < 2$:</b> $|x-2| = 2-x \implies (2-x)(x+4) = 64 \implies x^2 + 2x + 56 = 0 \implies \Delta = 4 - 224 < 0$ (مستحيلة الحل في $\mathbb{R}$).
+                <div class="ans-badge">$S_2 = \{8\}$</div>
+
+                <div class="step-title" style="margin-top:16px;">3) حل المعادلة: $\ln|x-3| + \ln|x+3| = \ln(8x)$:</div>
+                <div class="condition-box">
+                    <b>شرط الحل:</b> ما داخل اللوغاريتم الثالث موجب: $8x > 0 \implies x > 0$. وما داخل المطلق غير معدوم: $x \ne 3$ و $x \ne -3$. وبما أن $x > 0$ فإن الشرط يصبح: $D_E = ]0, 3[ \cup ]3, +\infty[$.
+                </div>
+                $\ln(|(x-3)(x+3)|) = \ln(8x) \iff |x^2 - 9| = 8x$.<br>
+                • إذا كان $x^2 - 9 = 8x \implies x^2 - 8x - 9 = 0 \implies (x-9)(x+1) = 0 \implies x = 9 \in D_E$ (مقبول)، و $x = -1 \notin D_E$ (مرفوض لأن $x>0$).<br>
+                • إذا كان $x^2 - 9 = -8x \implies x^2 + 8x - 9 = 0 \implies (x+9)(x-1) = 0 \implies x = 1 \in D_E$ (مقبول)، و $x = -9 \notin D_E$ (مرفوض).
+                <div class="ans-badge">$S_3 = \{1, \, 9\}$</div>
+            </div>
+        </div>
+
+        <div class="exam-block">
+            <div class="exam-question-title">تمرين 4: المتراجحة اللوغاريتمية الكسرية ومتراجحات الأس الطبيعي $n$</div>
+            <div class="exam-paper-text">
+                <b>1)</b> حل في $\mathbb{R}$ المتراجحة الكسرية: $\frac{\ln(2x) - 1}{\ln(x)} \ge 0$.<br>
+                <b>2)</b> أوجد قيم $n \in \mathbb{N}$ المحققة لـ: $2^n \le 100$ و $\left(\frac{2}{3}\right)^n > 10^{-3}$.
+            </div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-ineq-frac-n')">عرض الحل النموذجي المفصل</button>
+            <div class="solution-drawer" id="sol-ineq-frac-n">
+                <div class="step-title">1) حل المتراجحة الكسرية:</div>
+                <div class="condition-box">
+                    <b>شرط الحل:</b> ما داخل اللوغاريتمات موجب تماماً: $2x > 0 \implies x > 0$ و $x > 0$. والمقام لا يساوي الصفر: $\ln x \ne 0 \implies x \ne 1$.<br>
+                    إذن: $D = ]0, 1[ \cup ]1, +\infty[$.
+                </div>
+                • البسط ينعدم عند: $\ln(2x) = 1 \implies 2x = e \implies x = \frac{e}{2} \approx 1.359$.<br>
+                • المقام ينعدم عند: $x = 1$.<br>
+                ندرس الإشارة:
+                - على $]0, 1[$: البسط سالب والمقام سالب $\implies$ الكسر موجب $(>0)$ (مقبول).<br>
+                - على $]1, \frac{e}{2}[$: البسط سالب والمقام موجب $\implies$ الكسر سالب $(<0)$ (مرفوض).<br>
+                - على $[\frac{e}{2}, +\infty[$: البسط موجب والمقام موجب $\implies$ الكسر موجب $(\ge 0)$ (مقبول).
+                <div class="ans-badge">$S = ]0, 1[ \cup \left[\frac{e}{2}, +\infty\right[$</div>
+
+                <div class="step-title" style="margin-top:16px;">2) متراجحات العدد الطبيعي $n$:</div>
+                • $2^n \le 100 \implies n \ln 2 \le \ln 100 \implies n \le \frac{\ln 100}{\ln 2} \approx \frac{4.605}{0.693} \approx 6.64$. بما أن $n \in \mathbb{N}$:
+                $$n \in \{0, 1, 2, 3, 4, 5, 6\}$$
+                • $\left(\frac{2}{3}\right)^n > 10^{-3} \implies n \ln\left(\frac{2}{3}\right) > -3\ln 10$. بما أن $\ln(2/3) < 0$ تنقلب المتراجحة:
+                $$n < \frac{3\ln 10}{\ln 3 - \ln 2} \approx \frac{3 \times 2.3026}{1.0986 - 0.6931} \approx \frac{6.9078}{0.4055} \approx 17.03 \implies n \in \{0, 1, 2, \dots, 17\}$$
+            </div>
+        </div>
+
+        <div class="exam-block">
+            <div class="exam-question-title">تمرين 5: جمل المعادلات اللوغاريتمية (طريقة الخواص وطريقة تغيير المتحول)</div>
             <div class="exam-paper-text">
                 <b>الجملة الأولى (تحل بالخواص وإرجاعها لمجموع وجداء):</b>
                 $$\begin{cases} x + y = 30 \\ \ln(x) + \ln(y) = 2\ln 3 + \ln 25 \end{cases}$$
                 <b>الجملة الثانية (تحل بتغيير المتحول الخطي):</b>
                 $$\begin{cases} 3\ln x + 2\ln y = 8 \\ 2\ln x - 3\ln y = 1 \end{cases}$$
             </div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-systems')">عرض الحل النموذجي السلمي</button>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-systems')">عرض الحل النموذجي المفصل</button>
             <div class="solution-drawer" id="sol-systems">
+                <div class="condition-box">
+                    <b>شرط وجود الحلول للجملتين:</b> يجب أن يكون كلاً من المجهولين موجبين تماماً: $x > 0$ و $y > 0$.
+                </div>
                 <div class="step-title">حل الجملة الأولى بالخواص:</div>
-                $x \cdot y = 3^2 \times 25 = 225$، مع $x + y = 30$.<br>
-                معادلة الحلول: $t^2 - 30t + 225 = 0 \implies (t - 15)^2 = 0 \implies t = 15$.
+                نطبق خاصية تحويل الجمع إلى جداء: $\ln(x \cdot y) = \ln(3^2 \times 25) = \ln(225) \implies x \cdot y = 225$.<br>
+                المجموع $S = 30$ والجداء $P = 225$. العددان هما حلا المعادلة التربيعية:
+                $$t^2 - 30t + 225 = 0 \implies (t - 15)^2 = 0 \implies t = 15$$
+                إذن الحل الوحيد: $x = 15, y = 15$ (كلاهما موجب ومحقق).
                 <div class="ans-badge">حل الجملة الأولى: $(x, y) = (15, 15)$</div>
 
                 <div class="step-title" style="margin-top:14px;">حل الجملة الثانية بتغيير المتحول:</div>
-                بوضع $X = \ln x, Y = \ln y$:
-                $$3X + 2Y = 8, \quad 2X - 3Y = 1 \implies X = 2, Y = 1 \implies x = e^2, y = e$$
+                نضع $X = \ln x$ و $Y = \ln y$:
+                $$3X + 2Y = 8 \quad \text{و} \quad 2X - 3Y = 1$$
+                نضرب الأولى بـ 3 والثانية بـ 2 ونجمع: $13X = 26 \implies X = 2$.<br>
+                نعوض $X=2$: $3(2) + 2Y = 8 \implies 2Y = 2 \implies Y = 1$.<br>
+                العودة للمتحولات الأصلية: $\ln x = 2 \implies x = e^2$ و $\ln y = 1 \implies y = e$.
                 <div class="ans-badge">حل الجملة الثانية: $(x, y) = (e^2, \, e)$</div>
             </div>
         </div>
 
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 3: معادلات القيمة المطلقة ومتراجحات الأس الطبيعي $n$ والمتراجحات الكسرية</div>
-            <div class="exam-paper-text">
-                <b>1)</b> حل في $\mathbb{R}$: $\ln|2x+3| + \ln|x-1| = 2\ln|x|$<br>
-                <b>2)</b> حل في $\mathbb{R}$: $\ln|x-2| + \ln(x+4) = 3\ln(4)$<br>
-                <b>3)</b> حل في $\mathbb{R}$: $\ln|x-3| + \ln|x+3| = \ln(8x)$<br>
-                <b>4)</b> حل المتراجحة: $\frac{\ln(2x) - 1}{\ln(x)} \ge 0$<br>
-                <b>5)</b> جد قيم $n \in \mathbb{N}$ التي تحقق: $2^n \le 100$ و $\left(\frac{2}{3}\right)^n > 10^{-3}$
-            </div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-abs-n')">عرض الحل النموذجي السلمي</button>
-            <div class="solution-drawer" id="sol-abs-n">
-                • 1) $|2x^2 + x - 3| = x^2 \implies S = \left\{\frac{-1 \pm \sqrt{13}}{2}, \frac{-1 \pm \sqrt{37}}{6}\right\}$.<br>
-                • 2) $|x-2|(x+4) = 64 \implies S = \{8\}$.<br>
-                • 3) $|x^2 - 9| = 8x \implies S = \{1, 9\}$.<br>
-                • 4) $\frac{\ln(2x)-1}{\ln x} \ge 0 \implies S = ]0, 1[ \cup [\frac{e}{2}, +\infty[$.<br>
-                • 5) $2^n \le 100 \implies n \in \{0, 1, 2, 3, 4, 5, 6\}$، و $\left(\frac{2}{3}\right)^n > 10^{-3} \implies n \in \{0, 1, 2, \dots, 17\}$.
-            </div>
-        </div>
-
-        <div class="exam-block">
-            <div class="exam-question-title">تمرين 4: كثير الحدود والربط بالمتراجحة اللوغاريتمية</div>
+            <div class="exam-question-title">تمرين 6: تحليل كثير الحدود $P(x)$ وربطه بالمتراجحة اللوغاريتمية التراكمية</div>
             <div class="exam-paper-text">
                 ليكن كثير الحدود $P(x) = 2x^3 + 5x^2 + x - 2$.<br>
                 1) تحقق أن $(-1)$ جذر لـ $P(x)$ وحلل $P(x)$ إلى جداء عوامل.<br>
                 2) حل في $\mathbb{R}$ المتراجحة $P(x) \ge 0$.<br>
                 3) استنتج حل المتراجحة: $2\ln x + \ln(2x+5) \ge \ln(2 - x)$.
             </div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-poly-ineq')">عرض الحل النموذجي السلمي</button>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-poly-ineq')">عرض الحل النموذجي المفصل</button>
             <div class="solution-drawer" id="sol-poly-ineq">
-                • $P(-1) = 0 \implies P(x) = (x+1)(2x-1)(x+2)$.<br>
-                • حلول $P(x) \ge 0$: $S_1 = [-2, -1] \cup [\frac{1}{2}, +\infty[$.<br>
-                • شرط المتراجحة اللوغاريتمية: $x \in ]0, 2[$.<br>
-                • بالتقاطع مع مجال التعريف:
+                • التحقق: $P(-1) = 2(-1) + 5(1) - 1 - 2 = 0$ (محقق).<br>
+                • القسمة الإقليدية تعطي: $P(x) = (x+1)(2x^2 + 3x - 2) = (x+1)(2x-1)(x+2)$.<br>
+                • حلول المتراجحة الجبرية $P(x) \ge 0$: $S_1 = [-2, -1] \cup [\frac{1}{2}, +\infty[$.<br>
+                • <b>شرط حل المتراجحة اللوغاريتمية:</b> $x > 0$ و $2x+5 > 0$ و $2-x > 0 \implies D = ]0, 2[$.<br>
+                • التحويل: $\ln(x^2(2x+5)) \ge \ln(2-x) \iff 2x^3 + 5x^2 + x - 2 \ge 0 \iff P(x) \ge 0$.<br>
+                نقاطع مع شرط التعريف: $S = S_1 \cap ]0, 2[ = \left[\frac{1}{2}, 2\right[$.
                 <div class="ans-badge">مجموعة الحلول: $S = \left[\frac{1}{2}, 2\right[$</div>
             </div>
         </div>
     </div>
 
-    <!-- 2. قسم الأوضاع النسبية والمقاربات مع جداول اطراد الفرق h(x) (LTR يسار ليمين) -->
+    <!-- 2. قسم الأوضاع النسبية والمقاربات مع جداول اطراد الفرق h(x) -->
     <div id="tab-rel-pos-tables" class="section-view">
         <div class="section-header">
             <h2>الأوضاع النسبية والمقاربات والمماسات مع جداول اطراد الفرق $h(x)$</h2>
@@ -601,15 +750,15 @@
             <button class="toggle-solution-btn" onclick="toggleSol('sol-rel-pos-1')">عرض الحل والجدول (يسار ليمين)</button>
             <div class="solution-drawer" id="sol-rel-pos-1">
                 • تابع الفرق: $h(x) = f(x) - y_{\Delta} = -\frac{\ln x}{x}$.<br>
-                • $\lim_{x \to +\infty} h(x) = 0 \implies \Delta$ مقارب مائل.<br>
-                • مشتق تابع الفرق: $h'(x) = \frac{\ln x - 1}{x^2}$ ينعدم عند $x = e$. القيمة الصغرى $h(e) = -\frac{1}{e}$.<br>
-                • جدول اطراد وإشارة الفرق (من اليسار لليمين):
+                • $\lim_{x \to +\infty} h(x) = \lim_{x \to +\infty} (-\frac{\ln x}{x}) = 0 \implies \Delta$ مقارب مائل بجوار $+\infty$.<br>
+                • مشتق تابع الفرق: $h'(x) = -\frac{\frac{1}{x} \cdot x - \ln x}{x^2} = \frac{\ln x - 1}{x^2}$ ينعدم عند $\ln x = 1 \iff x = e$. القيمة الصغرى $h(e) = -\frac{1}{e}$.<br>
+                • جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:
                 <table class="var-grid">
                     <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$e$</td><td></td><td>$+\infty$</td></tr>
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td><td>-</td><td>0</td><td>+</td><td></td></tr>
                     <tr><th>$h(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td><td>$\searrow$</td><td>$-\frac{1}{e}$</td><td>$\nearrow$</td><td>0</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td colspan="3">-</td><td></td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ فوق $\Delta$</td><td>نقطة تقاطع $(1, 2)$</td><td colspan="3">$C_f$ تحت $\Delta$</td><td></td></tr>
+                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ فوق $\Delta$</td><td>تقاطع $(1, 2)$</td><td colspan="3">$C_f$ تحت $\Delta$</td><td></td></tr>
                 </table>
             </div>
         </div>
@@ -622,14 +771,14 @@
             <button class="toggle-solution-btn" onclick="toggleSol('sol-rel-pos-2')">عرض الحل والجدول (يسار ليمين)</button>
             <div class="solution-drawer" id="sol-rel-pos-2">
                 • $f(0) = 0$ و $f'(0) = 2 \implies (T): y = 2x$.<br>
-                • تابع الفرق: $h(x) = f(x) - 2x \implies h'(x) = \frac{2x^2}{1-x^2} \ge 0$. الفرق متزايد تماماً.<br>
-                • جدول اطراد وإشارة الفرق (من اليسار لليمين):
+                • تابع الفرق: $h(x) = f(x) - 2x \implies h'(x) = \frac{2}{1-x^2} - 2 = \frac{2x^2}{1-x^2} \ge 0$. الفرق متزايد تماماً، وينعدم عند $x = 0$.<br>
+                • جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:
                 <table class="var-grid">
                     <tr><th>$x$</th><td>-1</td><td></td><td>0</td><td></td><td>1</td></tr>
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
                     <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت المماس $(T)$</td><td>نقطة تماس وانعطاف $O$</td><td>$C_f$ فوق المماس $(T)$</td><td style="background:#200505">||</td></tr>
+                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت المماس $(T)$</td><td>تماس وانعطاف $O$</td><td>$C_f$ فوق المماس $(T)$</td><td style="background:#200505">||</td></tr>
                 </table>
             </div>
         </div>
@@ -641,9 +790,9 @@
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-rel-pos-3')">عرض الحل والجدول (يسار ليمين)</button>
             <div class="solution-drawer" id="sol-rel-pos-3">
-                • تابع الفرق: $h(x) = \ln\left(\frac{x}{x-2}\right) > 0$ دائماً على $]2, +\infty[$.<br>
-                • المشتق: $h'(x) = \frac{-2}{x(x-2)} < 0$ (متناقص تماماً نحو الصفر).<br>
-                • جدول اطراد وإشارة الفرق (من اليسار لليمين):
+                • تابع الفرق: $h(x) = f(x) - y_{\Delta} = \ln\left(\frac{x}{x-2}\right)$. بما أن $\frac{x}{x-2} > 1$ فإن $h(x) > 0$ دوماً.<br>
+                • المشتق: $h'(x) = \frac{-2}{x(x-2)} < 0$ (متناقص تماماً نحو الصفر). $\lim_{x \to +\infty} h(x) = 0$.<br>
+                • جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:
                 <table class="var-grid">
                     <tr><th>$x$</th><td>2</td><td></td><td>$+\infty$</td></tr>
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td></tr>
@@ -661,8 +810,8 @@
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-rel-pos-4')">عرض الحل والجدول (يسار ليمين)</button>
             <div class="solution-drawer" id="sol-rel-pos-4">
-                • تابع الفرق: $h(x) = \ln x - (x - 1) \implies h'(x) = \frac{1-x}{x}$ ينعدم عند $x = 1$.<br>
-                • جدول اطراد وإشارة الفرق (من اليسار لليمين):
+                • تابع الفرق: $h(x) = \ln x - (x - 1) \implies h'(x) = \frac{1-x}{x}$ ينعدم عند $x = 1$. القيمة العظمى هي $h(1) = 0$.<br>
+                • جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:
                 <table class="var-grid">
                     <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
@@ -704,7 +853,7 @@
         </div>
     </div>
 
-    <!-- 4. مسائل التغيرات والرسم البياني الكبرى (مع رسم بياني لكل مسألة) -->
+    <!-- 4. مسائل التغيرات والرسم البياني الكبرى -->
     <div id="tab-variations" class="section-view">
         <div class="section-header">
             <h2>مسائل التغيرات والرسم البياني الكبرى (رسم بياني كامل لكل مسألة)</h2>
@@ -887,31 +1036,47 @@
     <!-- 6. مجموعات نقاط المستوي والتبسيط وإثبات المتتالية بالتدريج -->
     <div id="tab-points-geom" class="section-view">
         <div class="section-header">
-            <h2>مجموعات نقاط المستوي مع الرسم البياني، والتبسيط، وإثبات المتتالية بالتدريج</h2>
+            <h2>مجموعات نقاط المستوي (رسوم بيانية مستقلة)، التبسيط، وإثبات المتتالية بالتدريج</h2>
             <span class="tag-pill">هندسة وتحليل</span>
         </div>
 
-        <!-- مجموعات نقاط المستوي الثلاث مع الرسم -->
+        <!-- مجموعات نقاط المستوي الثلاث مع رسم مستقل لكل حالة -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 1: مجموعات نقاط المستوي $M(x, y)$ وتمثيلها بيانياً</div>
+            <div class="exam-question-title">تمرين 1: مجموعات نقاط المستوي $M(x, y)$ مع رسم بياني مستقل وثابت لكل حالة</div>
             <div class="exam-paper-text">
-                عيّن وارسم طبيعة مجموعة النقاط $M(x, y)$ في الحالات التالية:<br>
+                عيّن وارسم طبيعة مجموعة النقاط $M(x, y)$ في الحالات التالية (كل حالة برسم مستقل وثابت):<br>
                 <b>الحالة I:</b> $\ln(x) = \ln(y+1)$<br>
                 <b>الحالة II:</b> $\ln(y) = -\ln(x)$<br>
                 <b>الحالة III:</b> $2\ln(-x) = \ln(y)$
             </div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-points-all')">عرض الحل والتمثيل البياني</button>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-points-all')">عرض الحل والتمثيلات البيانية المستقلة</button>
             <div class="solution-drawer" id="sol-points-all">
-                • <b>الحالة I:</b> $x > 0, y > -1 \implies y = x - 1$ (نصف مستقيم مفتوح عند $(0, -1)$ ويمتد بالاتجاه الموجب).<br>
-                • <b>الحالة II:</b> $x > 0, y > 0 \implies y = \frac{1}{x}$ (فرع قطع زائد يقع تماماً في الربع الأول).<br>
-                • <b>الحالة III:</b> $x < 0, y > 0 \implies y = x^2$ (نصف قطع مكافئ يقع تماماً في الربع الثاني).
-                <div class="chart-box">
-                    <canvas id="chartPointsGeom"></canvas>
+                <div class="step-title">الحالة I: $\ln(x) = \ln(y+1)$</div>
+                • شرط الوجود: $x > 0$ و $y+1 > 0 \implies y > -1$.<br>
+                • المعادلة: $x = y + 1 \iff y = x - 1$.<br>
+                • <b>طبيعة المجموعة:</b> <b>نصف مستقيم</b> من المستقيم $y = x - 1$ مع الشرط $x > 0$ (مفتوح عند النقطة $(0, -1)$ ويمتد باتجاه $x > 0$).
+                <div class="chart-box" style="height: 300px;">
+                    <canvas id="chartPtsCase1"></canvas>
+                </div>
+
+                <div class="step-title" style="margin-top:20px;">الحالة II: $\ln(y) = -\ln(x)$</div>
+                • شرط الوجود: $x > 0$ و $y > 0$ (الربع الأول).<br>
+                • المعادلة: $\ln(y) = \ln\left(\frac{1}{x}\right) \iff y = \frac{1}{x}$.<br>
+                • <b>طبيعة المجموعة:</b> <b>فرع القطع الزائد</b> المتواجد تماماً في الربع الأول ($x > 0, y > 0$).
+                <div class="chart-box" style="height: 300px;">
+                    <canvas id="chartPtsCase2"></canvas>
+                </div>
+
+                <div class="step-title" style="margin-top:20px;">الحالة III: $2\ln(-x) = \ln(y)$</div>
+                • شرط الوجود: $-x > 0 \implies x < 0$ و $y > 0$ (الربع الثاني).<br>
+                • المعادلة: $\ln((-x)^2) = \ln(y) \iff \ln(x^2) = \ln(y) \iff y = x^2$.<br>
+                • <b>طبيعة المجموعة:</b> <b>نصف القطع المكافئ</b> $y = x^2$ الواقع في الربع الثاني فقط حيث الفواصل سالبة تماماً ($x < 0$).
+                <div class="chart-box" style="height: 300px;">
+                    <canvas id="chartPtsCase3"></canvas>
                 </div>
             </div>
         </div>
 
-        <!-- إثبات مجموع المتتالية بالتدريج رياضي كامل -->
         <div class="exam-block">
             <div class="exam-question-title">تمرين 2: إثبات مجموع المتتالية $S_n$ بالتدريج الرياضي (الاستقراء الرياضي)</div>
             <div class="exam-paper-text">
@@ -951,7 +1116,6 @@
             </div>
         </div>
 
-        <!-- تبسيط المقادير -->
         <div class="exam-block">
             <div class="exam-question-title">تمرين 3: تبسيط المقادير النيبرية والعشرية</div>
             <div class="exam-paper-text">
@@ -1121,32 +1285,58 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. رسم مجموعات نقاط المستوي الثلاث
-    const ctxPts = document.getElementById('chartPointsGeom');
-    if (ctxPts) {
-        const labelsPts = [];
-        const yLine1 = []; // y = x - 1 for x > 0
-        const yHyper = []; // y = 1/x for x > 0
-        const yParab = []; // y = x^2 for x < 0
-
-        for (let x = -3; x <= 3; x += 0.2) {
-            labelsPts.push(x.toFixed(1));
-            yLine1.push(x > 0 ? x - 1 : null);
-            yHyper.push(x > 0 ? 1 / x : null);
-            yParab.push(x < 0 ? x * x : null);
+    // 7. رسم مجموعات نقاط المستوي الثلاث (رسم مستقل وثابت لكل حالة)
+    // Case 1: y = x - 1 for x > 0
+    const ctxC1 = document.getElementById('chartPtsCase1');
+    if (ctxC1) {
+        const xVals = [], yVals = [];
+        for (let x = 0.1; x <= 5.0; x += 0.2) {
+            xVals.push(x.toFixed(1));
+            yVals.push(x - 1);
         }
-
-        new Chart(ctxPts.getContext('2d'), {
+        new Chart(ctxC1.getContext('2d'), {
             type: 'line',
             data: {
-                labels: labelsPts,
-                datasets: [
-                    { label: 'الحالة I: نصف مستقيم y = x - 1 (x > 0)', data: yLine1, borderColor: '#2ecc71', borderWidth: 2, fill: false },
-                    { label: 'الحالة II: فرع قطع زائد y = 1/x (x > 0)', data: yHyper, borderColor: '#f1c40f', borderWidth: 2, fill: false },
-                    { label: 'الحالة III: نصف قطع مكافئ y = x^2 (x < 0)', data: yParab, borderColor: '#e74c3c', borderWidth: 2, fill: false }
-                ]
+                labels: xVals,
+                datasets: [{ label: 'الحالة I: نصف المستقيم y = x - 1 (x > 0)', data: yVals, borderColor: '#2ecc71', borderWidth: 2.5, fill: false, pointRadius: 0 }]
             },
-            options: { responsive: true, maintainAspectRatio: false, scales: { x: { grid: { color: '#272b34' } }, y: { min: -2, max: 5, grid: { color: '#272b34' } } } }
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x > 0' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > -1' }, min: -1.5, max: 4.5, grid: { color: '#272b34' } } } }
+        });
+    }
+
+    // Case 2: y = 1/x for x > 0
+    const ctxC2 = document.getElementById('chartPtsCase2');
+    if (ctxC2) {
+        const xVals = [], yVals = [];
+        for (let x = 0.2; x <= 5.0; x += 0.1) {
+            xVals.push(x.toFixed(1));
+            yVals.push(1 / x);
+        }
+        new Chart(ctxC2.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: xVals,
+                datasets: [{ label: 'الحالة II: فرع القطع الزائد y = 1/x (x > 0)', data: yVals, borderColor: '#f1c40f', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x > 0' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > 0' }, min: 0, max: 5.5, grid: { color: '#272b34' } } } }
+        });
+    }
+
+    // Case 3: y = x^2 for x < 0
+    const ctxC3 = document.getElementById('chartPtsCase3');
+    if (ctxC3) {
+        const xVals = [], yVals = [];
+        for (let x = -3.0; x <= -0.1; x += 0.1) {
+            xVals.push(x.toFixed(1));
+            yVals.push(x * x);
+        }
+        new Chart(ctxC3.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: xVals,
+                datasets: [{ label: 'الحالة III: نصف القطع المكافئ y = x^2 (x < 0)', data: yVals, borderColor: '#e74c3c', borderWidth: 2.5, fill: false, pointRadius: 0 }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { title: { display: true, text: 'محور الفواصل x < 0' }, grid: { color: '#272b34' } }, y: { title: { display: true, text: 'محور التراتيب y > 0' }, min: 0, max: 9.5, grid: { color: '#272b34' } } } }
         });
     }
 });
