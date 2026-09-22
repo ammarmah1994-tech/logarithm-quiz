@@ -316,7 +316,7 @@
             display: inline-block;
         }
 
-        /* الجداول الرياضية مرتبة يسار لليمين */
+        /* الجداول الرياضية: كتابة وترتيب من اليسار لليمين LTR بدقة متناهية */
         table.var-grid {
             width: 100%;
             border-collapse: collapse;
@@ -408,25 +408,148 @@
 <header>
     <div class="brand-badge">ammar</div>
     <h1>البنك الوزاري الشامل للتابع اللوغاريتمي <span>(بكالوريا علمي - سوريا)</span></h1>
-    <p class="header-sub">الأسئلة أولاً ثم الحلول التحريرية المفصلة، مبرهنة القيمة الوسطى، جداول اطراد الفرق $h(x)$ (يسار ليمين)، الأتمتة، والمسائل الكبرى مع الرسوم البيانية</p>
+    <p class="header-sub">الأسئلة أولاً ثم الحلول التحريرية المفصلة، مبرهنة القيمة الوسطى، جداول الفرق $h(x)$ (يسار ليمين)، الأتمتة، والمسائل الكبرى</p>
 </header>
 
 <div class="nav-bar">
     <div class="nav-inner">
-        <button class="nav-tab-btn active" onclick="showTab(event, 'tab-variations')">مسائل الـ 100 علامة والتغيرات (مبرهنة القيمة الوسطى)</button>
+        <button class="nav-tab-btn active" onclick="showTab(event, 'tab-mcq')">قسم الأتمتة (اختيار من متعدد)</button>
+        <button class="nav-tab-btn" onclick="showTab(event, 'tab-variations')">مسائل الـ 100 علامة والتغيرات (مبرهنة القيمة الوسطى)</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-unified-eq')">المعادلات والمتراجحات وجمل المعادلات (قسم موحد)</button>
-        <button class="nav-tab-btn" onclick="showTab(event, 'tab-rel-pos-tables')">الأوضاع النسبية والمقاربات (مع جداول الفرق $h$)</button>
+        <button class="nav-tab-btn" onclick="showTab(event, 'tab-rel-pos-tables')">الأوضاع النسبية والمقاربات (مع دراسة إشارة الفرق $h$)</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-limits-indet')">إزالة عدم التعيين والنهايات</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-deriv-cont-app')">الاستمرار وقابلية الاشتقاق والتقريب التآلفي</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-points-geom')">مجموعات نقاط المستوي والتبسيط وإثبات المتتالية بالتدريج</button>
-        <button class="nav-tab-btn" onclick="showTab(event, 'tab-mcq')">قسم الأتمتة (اختيار من متعدد)</button>
     </div>
 </div>
 
 <div class="container">
 
+    <!-- ==================== تبويب الأتمتة (مفعّل ويعمل 100%) ==================== -->
+    <div id="tab-mcq" class="section-view active">
+        <div class="section-header">
+            <h2>قسم الأتمتة: تدريبات بنك الأسئلة الموضوعية (أتمتة تفاعلية)</h2>
+            <span class="tag-pill">اختيار من متعدد تفاعلي</span>
+        </div>
+
+        <!-- سؤال المقارنة A و B -->
+        <div class="mcq-question" id="mcq-cmp">
+            <b>السؤال 1 (مقارنة مقادير لوغاريتمية):</b> قارن بين المقدارين $A = \ln^3\left(\frac{1}{e^2}\right)$ و $B = \ln\left[\left(\frac{1}{e^2}\right)^3\right]$:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('cmp', 0, false)">أ) $A = B$</div>
+                <div class="mcq-opt" onclick="checkMCQ('cmp', 1, false)">ب) $A > B$</div>
+                <div class="mcq-opt" onclick="checkMCQ('cmp', 2, true)">ج) $A < B$ (أي $B > A$)</div>
+                <div class="mcq-opt" onclick="checkMCQ('cmp', 3, false)">د) غير معرّف</div>
+            </div>
+            <div class="mcq-feedback" id="fb-cmp"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-cmp')" style="margin-top:10px;">توضيح الحل الرياضي السلمي</button>
+            <div class="solution-drawer" id="sol-mcq-cmp">
+                • المقدار الأول: $\ln\left(\frac{1}{e^2}\right) = \ln(e^{-2}) = -2$. وبالتالي:
+                $$A = \left[\ln\left(\frac{1}{e^2}\right)\right]^3 = (-2)^3 = -8$$
+                • المقدار الثاني بتطبيق خواص قوى اللوغاريتم:
+                $$B = \ln\left[\left(\frac{1}{e^2}\right)^3\right] = 3 \ln\left(\frac{1}{e^2}\right) = 3(-2) = -6$$
+                بما أن $-6 > -8$، فإن $B > A$ أي $A < B$.
+            </div>
+        </div>
+
+        <!-- أسئلة مجموعة التعريف الأربعة من الصورة -->
+        <div class="mcq-question" id="mcq-dom1">
+            <b>السؤال 2:</b> مجموعة تعريف التابع $f(x) = \ln^2(x-3)$ هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('dom1', 0, true)">أ) $]3, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom1', 1, false)">ب) $\mathbb{R} \setminus \{3\}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom1', 2, false)">ج) $[3, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom1', 3, false)">د) $\mathbb{R}$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-dom1"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom1')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom1">
+                التربيع على التابع كاملاً: $\ln^2(x-3) = [\ln(x-3)]^2$. يشترط فقط أن يكون ما داخل اللوغاريتم موجب تماماً: $x - 3 > 0 \implies x > 3 \implies D_f = ]3, +\infty[$.
+            </div>
+        </div>
+
+        <div class="mcq-question" id="mcq-dom2">
+            <b>السؤال 3:</b> مجموعة تعريف التابع $f(x) = \ln\left((x-3)^2\right)$ هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('dom2', 0, false)">أ) $]3, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom2', 1, true)">ب) $\mathbb{R} \setminus \{3\}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom2', 2, false)">ج) $]0, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom2', 3, false)">د) $]-\infty, 3[$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-dom2"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom2')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom2">
+                التربيع هنا داخل اللوغاريتم: يشترط $(x-3)^2 > 0$. المربع موجب دوماً لجميع الأعداد الحقيقية عدا القيمة التي تعدمه: $x - 3 \ne 0 \implies x \ne 3$. إذن: $D_f = \mathbb{R} \setminus \{3\}$.
+            </div>
+        </div>
+
+        <div class="mcq-question" id="mcq-dom3">
+            <b>السؤال 4:</b> مجموعة تعريف التابع $f(x) = \ln|x-5|$ هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('dom3', 0, false)">أ) $]5, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom3', 1, true)">ب) $\mathbb{R} \setminus \{5\}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom3', 2, false)">ج) $]-\infty, 5[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom3', 3, false)">د) $[5, +\infty[$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-dom3"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom3')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom3">
+                القيمة المطلقة موجبة دوماً ما عدا عندما ينعدم ما بداخلها: $|x-5| > 0 \iff x - 5 \ne 0 \iff x \ne 5 \implies D_f = \mathbb{R} \setminus \{5\}$.
+            </div>
+        </div>
+
+        <div class="mcq-question" id="mcq-dom4">
+            <b>السؤال 5:</b> مجموعة تعريف التابع $f(x) = \ln(x^2 + 3)$ هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('dom4', 0, true)">أ) $\mathbb{R}$ كاملاً</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom4', 1, false)">ب) $]0, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom4', 2, false)">ج) $\mathbb{R} \setminus \{-\sqrt{3}, \sqrt{3}\}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom4', 3, false)">د) $]\sqrt{3}, +\infty[$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-dom4"></div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-mcq-dom4')" style="margin-top:10px;">التوضيح الرياضي</button>
+            <div class="solution-drawer" id="sol-mcq-dom4">
+                المقدار $x^2 + 3 \ge 3 > 0$ موجب تماماً أياً كانت $x \in \mathbb{R}$، لذلك التابع معرف على كامل مجموعة الأعداد الحقيقية $\mathbb{R}$.
+            </div>
+        </div>
+
+        <!-- أسئلة إضافية للأتمتة -->
+        <div class="mcq-question" id="mcq-dom5">
+            <b>السؤال 6:</b> مجموعة تعريف التابع $f(x) = \ln\left(\frac{x+2}{x}\right)$ هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('dom5', 0, false)">أ) $]0, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom5', 1, false)">ب) $]-2, 0[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom5', 2, true)">ج) $]-\infty, -2[ \cup ]0, +\infty[$</div>
+                <div class="mcq-opt" onclick="checkMCQ('dom5', 3, false)">د) $\mathbb{R} \setminus \{-2, 0\}$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-dom5"></div>
+        </div>
+
+        <div class="mcq-question" id="mcq-lim1">
+            <b>السؤال 7:</b> قيمة النهاية $\lim_{x \to 0^+} \sqrt{x}\ln(x)$ تساوي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('lim1', 0, false)">أ) $-\infty$</div>
+                <div class="mcq-opt" onclick="checkMCQ('lim1', 1, true)">ب) $0$</div>
+                <div class="mcq-opt" onclick="checkMCQ('lim1', 2, false)">ج) $1$</div>
+                <div class="mcq-opt" onclick="checkMCQ('lim1', 3, false)">د) $+\infty$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-lim1"></div>
+        </div>
+
+        <div class="mcq-question" id="mcq-max1">
+            <b>السؤال 8:</b> إذا كان $f(x) = \frac{\ln x}{x^2}$، فإن القيمة الكبرى محلياً للتابع هي:
+            <div class="mcq-options">
+                <div class="mcq-opt" onclick="checkMCQ('max1', 0, false)">أ) $1$</div>
+                <div class="mcq-opt" onclick="checkMCQ('max1', 1, true)">ب) $\frac{1}{2e}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('max1', 2, false)">ج) $\frac{1}{e}$</div>
+                <div class="mcq-opt" onclick="checkMCQ('max1', 3, false)">د) $e$</div>
+            </div>
+            <div class="mcq-feedback" id="fb-max1"></div>
+        </div>
+    </div>
+
     <!-- ==================== تبويب مسائل الـ 100 علامة ومبرهنة القيمة الوسطى ==================== -->
-    <div id="tab-variations" class="section-view active">
+    <div id="tab-variations" class="section-view">
         <div class="section-header">
             <h2>مسائل الـ 100 علامة الكبرى (مبرهنة القيمة الوسطى، سلالم التصحيح، والرسوم البيانية)</h2>
             <span class="tag-pill">100 درجة كاملة</span>
@@ -459,7 +582,7 @@
                 <div class="step-title" style="margin-top:16px;">2) دراسة المشتق والاطراد وجدول التغيرات (مرتب يسار ليمين LTR):</div>
                 التابع $f$ اشتقاقي على $]0, +\infty[$ ككسر توابع اشتقاقية:
                 $$f'(x) = \frac{\left(2 \cdot \frac{1}{x}\right) \cdot (x^2) - (1 + 2\ln x) \cdot (2x)}{(x^2)^2} = \frac{2x - 2x - 4x\ln x}{x^4} = \frac{-4x\ln x}{x^4} = \frac{-4\ln x}{x^3}$$
-                المقام $x^3 > 0$ دوماً على $]0, +\infty[$، فإشارة المشتق $f'(x)$ تتحدد بالبسط $-4\ln x$:
+                المقام $x^3 > 0$ دوماً على المجال $]0, +\infty[$، فإشارة المشتق $f'(x)$ تتحدد بالبسط $-4\ln x$:
                 $$-4\ln x = 0 \iff \ln x = 0 \iff x = 1$$
                 القيمة الحدية العظمى:
                 $$f(1) = \frac{1 + 2\ln(1)}{1^2} = \frac{1 + 0}{1} = 1$$
@@ -535,7 +658,7 @@
                 $$\lim_{x \to 0^+} f(x) = \frac{-\infty}{1} = -\infty \implies x = 0 \text{ مقارب شاقولي}$$
                 • عند $+\infty$: حالة عدم تعيين $\left[\frac{\infty}{\infty}\right]$. نخرج $\ln x$ من البسط و $x$ من المقام:<br>
                 $$f(x) = \frac{\ln x (\frac{2}{\ln x} + 1)}{x(1 + \frac{1}{x})} = \frac{\ln x}{x} \cdot \frac{\frac{2}{\ln x} + 1}{1 + \frac{1}{x}}$$
-                بما أن $\lim_{x \to +\\infty} \frac{\ln x}{x} = 0$ و $\lim_{x \to +\infty} \frac{1}{\ln x} = 0$ و $\lim_{x \to +\infty} \frac{1}{x} = 0$:<br>
+                بما أن $\lim_{x \to +\infty} \frac{\ln x}{x} = 0$ و $\lim_{x \to +\infty} \frac{1}{\ln x} = 0$ و $\lim_{x \to +\infty} \frac{1}{x} = 0$:<br>
                 $$\lim_{x \to +\infty} f(x) = 0 \cdot \frac{0 + 1}{1 + 0} = 0 \implies y = 0 \text{ مقارب أفقي بجوار } +\infty$$
                 • حساب المشتق:
                 $$f'(x) = \frac{\frac{1}{x}(x+1) - (2+\ln x)(1)}{(x+1)^2} = \frac{1 + \frac{1}{x} - 2 - \ln x}{(x+1)^2} = \frac{\frac{1}{x} - 1 - \ln x}{(x+1)^2} = \frac{g(x)}{(x+1)^2}$$
@@ -982,7 +1105,7 @@
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
                     <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت المماس $(T)$</td><td>تماس وانعطاف $O$</td><td>$C_f$ فوق المماس $(T)$</td><td style="background:#200505">||</td></tr>
+                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت المماس $(T)$</td><td>نقطة تماس في المبدأ $O(0, 0)$</td><td>$C_f$ فوق المماس $(T)$</td><td style="background:#200505">||</td></tr>
                 </table>
             </div>
         </div>
