@@ -1031,10 +1031,19 @@
                 $$h'(x) = 1 - \frac{1}{x+1} = \frac{x+1-1}{x+1} = \frac{x}{x+1}$$
                 بما أن $x > 0$ فإن $x+1 > 1 > 0$، ومنه:
                 $$h'(x) > 0 \quad \forall x \in ]0, +\infty[$$
-                إذن التابع المساعد $h$ <b>متزايد تماماً</b> على المجال $[0, +\infty[$.<br>
+                وينعدم المشتق عند الصفر $h'(0) = 0$. إذن التابع المساعد $h$ <b>متزايد تماماً</b> على المجال $[0, +\infty[$.<br>
                 نحسب قيمة التابع عند الصفر:
                 $$h(0) = 0 - \ln(0+1) = 0 - \ln(1) = 0$$
-                وبما أن التابع $h$ متزايد تماماً على $[0, +\infty[$، فإنه أياً كان $x > 0$:
+                ونحسب نهاية التابع عند $+\infty$:
+                $$\lim_{x \to +\infty} h(x) = \lim_{x \to +\infty} x \left(1 - \frac{\ln(x+1)}{x}\right) = +\infty(1 - 0) = +\infty$$
+                <br>
+                <b>جدول اطراد التابع المساعد $h(x)$ مرتب من اليسار لليمين (LTR):</b>
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>0</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$h'(x)$</th><td>0</td><td>+</td><td></td></tr>
+                    <tr><th>$h(x)$</th><td>0</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                </table>
+                وبما أن القيمة الصغرى المطلقة للتابع هي $h(0) = 0$ والتابع متزايد تماماً على $[0, +\infty[$، فإنه أياً كان $x > 0$:
                 $$h(x) > h(0) \implies x - \ln(x+1) > 0 \implies \ln(x+1) < x$$
                 وهو المطلوب إثباته بالتمام.
             </div>
@@ -1866,7 +1875,7 @@ window.addEventListener('DOMContentLoaded', () => {
         chartInstances['pts2'] = new Chart(ctxC2.getContext('2d'), {
             type: 'line',
             data: {
-                labels: xV2,
+                labels: xVals,
                 datasets: [{ label: 'y = 1 / x  (x > 0)', data: yVals, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { 
