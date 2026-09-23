@@ -706,20 +706,20 @@
     <!-- ==================== تبويب مسائل الـ 100 علامة ومبرهنة القيمة الوسطى ==================== -->
     <div id="tab-variations" class="section-view">
         <div class="section-header">
-            <h2>مسائل الـ 100 علامة الكبرى (مبرهنة القيمة الوسطى، سلالم التصحيح، والرسوم البيانية)</h2>
+            <h2>مسائل الـ 100 علامة الكبرى (مبرهنة القيمة الوسطى، سلالم التصحيح، والرسوم البيانية مع المقاربات)</h2>
             <span class="tag-pill">100 درجة كاملة</span>
         </div>
 
         <!-- مسألة 1: f(x) = (1+2ln x)/x^2 ومبرهنة القيمة الوسطى -->
         <div class="exam-block">
-            <div class="exam-question-title">مسألة 1 (100 درجة كاملة): دراسة $f(x) = \frac{1 + 2\ln x}{x^2}$ مع إثبات مبرهنة القيمة الوسطى والانسحاب</div>
+            <div class="exam-question-title">مسألة 1 (100 درجة كاملة): دراسة $f(x) = \frac{1 + 2\ln x}{x^2}$ مع إثبات مبرهنة القيمة الوسطى على مجال محدود والانسحاب</div>
             <div class="exam-paper-text">
                 ليكن $f$ التابع المعرف على $]0, +\infty[$ وفق: $f(x) = \frac{1 + 2\ln x}{x^2}$ وليكن $C_f$ خطه البياني في معلم متجانس.<br>
                 <b>المطلوب تحريرياً وفق النموذج الامتحاني:</b><br>
                 1) احسب نهايات التابع $f$ عند أطراف مجموعة تعريفه مع خطوات الحساب، واكتب معادلة كل مقارب أفقي أو شاقولي مع ذكر موقعه.<br>
                 2) ادرس تغيرات التابع $f$ ونظم بها جدولاً مبيناً القيم الحدية ونوعها.<br>
-                3) <b>أثبت باستخدام مبرهنة القيمة الوسطى أن المعادلة $f(x) = 0$ تقبل حلاً وحيداً $\alpha$ ينتمي إلى المجال $]\frac{1}{\sqrt{e}}, 1[$ ثم تحقق من قيمته جبرياً.</b><br>
-                4) ارسم في معلم متجانس الخط البياني $C_f$ ومقارباته، واستنتج رسم الخط $C_g$ للتابع $g(x) = \frac{1 + x^2 + 2\ln x}{x^2}$.
+                3) <b>أثبت باستخدام مبرهنة القيمة الوسطى بشرط جداء الصورتين أصغر من الصفر أن المعادلة $f(x) = 0$ تقبل حلاً وحيداً $\alpha$ ينتمي إلى المجال المحدود $]0.5, \, 0.8[$ ثم احسب قيمته الجبرية المضبوطة.</b><br>
+                4) ارسم في معلم متجانس الخط البياني $C_f$ ومقارباته (شاقولي $x=0$ وأفقي $y=0$)، واستنتج رسم الخط $C_g$ للتابع $g(x) = \frac{1 + x^2 + 2\ln x}{x^2}$.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-1')">عرض الحل النموذجي السلمي المفصل</button>
             <div class="solution-drawer" id="sol-var-100-1">
@@ -749,29 +749,28 @@
                     <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>1</td><td>$\searrow$</td><td>0</td></tr>
                 </table>
 
-                <div class="step-title" style="margin-top:16px;">3) الإثبات الدقيق بمبرهنة القيمة الوسطى والحل الجبري للحل الوحيد $\alpha$:</div>
+                <div class="step-title" style="margin-top:16px;">3) الإثبات الدقيق بمبرهنة القيمة الوسطى (شرط جداء الصورتين أصغر من الصفر على مجال محدود):</div>
                 <div class="theorem-box">
-                    <b>نص وتطبيق مبرهنة القيمة الوسطى (وفق سلم التصحيح الوزاري):</b><br>
-                    1. <b>الاستمرار:</b> التابع $f$ مستمر على المجال $I_1 = \left]\frac{1}{\sqrt{e}}, 1\right[$ (لأنه اشتقاقي عليه).<br>
-                    2. <b>الاطراد التام:</b> التابع $f$ متزايد تماماً على المجال $I_1$ لأن مشتقّه $f'(x) > 0$ تماماً على هذا المجال.<br>
-                    3. <b>حساب الصور وإشارة الجداء:</b><br>
-                    • عند $x = \frac{1}{\sqrt{e}} = e^{-1/2}$:
-                    $$f\left(\frac{1}{\sqrt{e}}\right) = \frac{1 + 2\ln(e^{-1/2})}{(e^{-1/2})^2} = \frac{1 + 2(-\frac{1}{2})}{e^{-1}} = \frac{1 - 1}{e^{-1}} = 0$$
-                    • عند $x = 1$: $f(1) = 1 > 0$.<br>
-                    • صورة المجال $I = \left]0, 1\right]$ وفق التابع المستمر والمتزايد تماماً $f$ هي المجال $f(]0, 1]) = ]-\infty, 1]$.<br>
-                    بما أن العدد $0 \in ]-\infty, 1]$، والتابع متزايد تماماً، فإنه <b>بحسب مبرهنة القيمة الوسطى</b> يوجد حل وحيد $\alpha$ يحقق $f(\alpha) = 0$.<br>
-                    <b>الحل الجبري الصريح:</b>
-                    $$f(x) = 0 \iff \frac{1 + 2\ln x}{x^2} = 0 \iff 1 + 2\ln x = 0 \iff \ln x = -\frac{1}{2} \iff \alpha = e^{-1/2} = \frac{1}{\sqrt{e}}$$
-                    وبما أن $e \approx 2.718 \implies 2 < e < 3 \implies 1.414 < \sqrt{e} < 1.732 \implies \alpha = \frac{1}{\sqrt{e}} \approx 0.606 \in ]\frac{1}{\sqrt{e}}, 1[$.
+                    <b>مبرهنة القيمة الوسطى على المجال المحدود $[0.5, \, 0.8]$:</b><br>
+                    1. <b>الاستمرار:</b> التابع $f$ مستمر على المجال المحدود $[0.5, \, 0.8]$ (لأنه اشتقاقي عليه).<br>
+                    2. <b>الاطراد التام:</b> التابع $f$ متزايد تماماً على المجال $[0.5, \, 0.8]$ لأن مشتقّه $f'(x) > 0$ تماماً على هذا المجال ($x < 1$).<br>
+                    3. <b>شرط جداء الصورتين أصغر من الصفر:</b><br>
+                    • عند $x = 0.5$: $\ln(0.5) \approx -0.693 \implies f(0.5) = \frac{1 + 2(-0.693)}{(0.5)^2} = \frac{-0.386}{0.25} = -1.544 < 0$.<br>
+                    • عند $x = 0.8$: $\ln(0.8) \approx -0.223 \implies f(0.8) = \frac{1 + 2(-0.223)}{(0.8)^2} = \frac{0.554}{0.64} = +0.865 > 0$.<br>
+                    بما أن:
+                    $$f(0.5) \cdot f(0.8) < 0$$
+                    فإنه <b>بحسب مبرهنة القيمة الوسطى</b> يوجد حل وحيد $\alpha \in ]0.5, \, 0.8[$ يحقق $f(\alpha) = 0$.<br>
+                    <b>الحساب الجبري الصريح:</b>
+                    $$f(x) = 0 \iff 1 + 2\ln x = 0 \iff \ln x = -\frac{1}{2} \iff \alpha = e^{-1/2} = \frac{1}{\sqrt{e}} \approx 0.6065 \in ]0.5, \, 0.8[$$
                 </div>
 
-                <div class="step-title" style="margin-top:16px;">4) استنتاج الخط $C_g$ والرسم البياني:</div>
+                <div class="step-title" style="margin-top:16px;">4) استنتاج الخط $C_g$ والرسم البياني مع المقاربات:</div>
                 نلاحظ أن عبارة $g(x)$ تكتب:
                 $$g(x) = \frac{1 + x^2 + 2\ln x}{x^2} = \frac{1 + 2\ln x}{x^2} + \frac{x^2}{x^2} = f(x) + 1$$
                 إذن ينتج الخط البياني $C_g$ عن الخط البياني $C_f$ بانسحاب شاقولي نحو الأعلى مقداره وحدة واحدة وفق شعاع الانسحاب $\vec{v} = (0, 1)$.
                 
                 <div class="chart-caption-bar">
-                    <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \frac{1+2\ln x}{x^2}$</span>
+                    <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \frac{1+2\ln x}{x^2}$ مع مقاربه الأفقي $y=0$</span>
                     <span class="badge">مقارب شاقولي $x=0$ | مقارب أفقي $y=0$</span>
                 </div>
                 <div class="chart-box">
@@ -782,47 +781,53 @@
 
         <!-- مسألة 2: f(x) = (2+ln x)/(x+1) ومبرهنة القيمة الوسطى لـ g(x) = 0 -->
         <div class="exam-block">
-            <div class="exam-question-title">مسألة 2 (100 درجة كاملة): دراسة $f(x) = \frac{2 + \ln x}{x+1}$ بالاعتماد على مبرهنة القيمة الوسطى للتابع المساعد $g$</div>
+            <div class="exam-question-title">مسألة 2 (100 درجة كاملة): دراسة $f(x) = \frac{2 + \ln x}{x+1}$ بالاعتماد على مبرهنة القيمة الوسطى (صورة المجال غير المحدود) للتابع المساعد $g$</div>
             <div class="exam-paper-text">
                 ليكن $f$ التابع المعرف على $]0, +\infty[$ وفق: $f(x) = \frac{2 + \ln x}{x+1}$، وليكن $g$ التابع المعرف على $]0, +\infty[$ وفق: $g(x) = \frac{1}{x} - 1 - \ln x$.<br>
                 1) ادرس تغيرات التابع المساعد $g$ مع حساب النهايات بالتفصيل ونظم بها جدولاً.<br>
-                2) <b>أثبت بمبرهنة القيمة الوسطى أن المعادلة $g(x) = 0$ تقبل حلاً وحيداً $\alpha$ في المجال $]0, +\infty[$ ثم تحقق أن $\alpha = 1$، واستنتج إشارة $g(x)$.</b><br>
+                2) <b>أثبت بمبرهنة القيمة الوسطى (باستخدام صورة المجال) أن المعادلة $g(x) = 0$ تقبل حلاً وحيداً $\alpha$ في المجال غير المحدود $]0, +\infty[$ ثم تحقق أن $\alpha = 1$، واستنتج إشارة $g(x)$.</b><br>
                 3) احسب نهايات التابع $f$ عند أطراف مجموعة تعريفه مع توضيح خطوات الحساب.<br>
-                4) أثبت أن $f'(x) = \frac{g(x)}{(x+1)^2}$ ثم نظم جدول تغيرات التابع $f$ وارسم خطه البياني $C_f$.
+                4) أثبت أن $f'(x) = \frac{g(x)}{(x+1)^2}$ ثم نظم جدول تغيرات التابع $f$ وارسم خطه البياني $C_f$ مع مقارباته.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-2')">عرض الحل النموذجي السلمي المفصل</button>
             <div class="solution-drawer" id="sol-var-100-2">
-                <div class="step-title">1) دراسة تغيرات التابع المساعد $g$ مع حساب النهايات بالتفصيل:</div>
+                <div class="step-title">1) دراسة تغيرات التابع المساعد $g$ وجدول تغيراته:</div>
                 • $\lim_{x \to 0^+} g(x) = \lim_{x \to 0^+} (\frac{1}{x} - 1 - \ln x) = (+\infty) - 1 - (-\infty) = +\infty$.<br>
                 • $\lim_{x \to +\infty} g(x) = \lim_{x \to +\infty} (\frac{1}{x} - 1 - \ln x) = 0 - 1 - (+\infty) = -\infty$.<br>
                 • مشتق التابع المساعد:
                 $$g'(x) = -\frac{1}{x^2} - \frac{1}{x} = -\frac{1+x}{x^2}$$
                 بما أن $x > 0$ فإن $1+x > 0$ والمقام $x^2 > 0$، فالمشتق $g'(x) < 0$ تماماً على $]0, +\infty[$.<br>
-                فالتابع $g$ <b>متناقص تماماً</b> على كامل المجال $]0, +\infty[$.
+                فالتابع $g$ <b>متناقص تماماً</b> على كامل المجال $]0, +\infty[$.<br>
+                جدول تغيرات التابع المساعد $g$ (مرتب يسار ليمين LTR):
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$g'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td><td>-</td><td></td></tr>
+                    <tr><th>$g(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td><td>$\searrow$</td><td>$-\infty$</td></tr>
+                </table>
 
-                <div class="step-title" style="margin-top:16px;">2) تطبيق مبرهنة القيمة الوسطى لإثبات الحل الوحيد $\alpha$ واستنتاج الإشارة:</div>
+                <div class="step-title" style="margin-top:16px;">2) تطبيق مبرهنة القيمة الوسطى (صورة المجال غير المحدود):</div>
                 <div class="theorem-box">
-                    <b>مبرهنة القيمة الوسطى:</b><br>
-                    1. التابع $g$ مستمر على المجال $]0, +\infty[$.<br>
-                    2. التابع $g$ متناقص تماماً على هذا المجال.<br>
-                    3. صورة المجال $g(]0, +\infty[) = ]-\infty, +\infty[ = \mathbb{R}$.<br>
-                    بما أن $0 \in \mathbb{R}$، فبحسب مبرهنة القيمة الوسطى تقبل المعادلة $g(x) = 0$ حلاً وحيداً $\alpha \in ]0, +\infty[$.<br>
+                    <b>مبرهنة القيمة الوسطى على المجال غير المحدود $I = ]0, +\infty[$:</b><br>
+                    1. <b>الاستمرار:</b> التابع $g$ مستمر على المجال $I = ]0, +\infty[$.<br>
+                    2. <b>الاطراد التام:</b> التابع $g$ متناقص تماماً على هذا المجال.<br>
+                    3. <b>صورة المجال:</b> نجد صورة المجال $I$ وفق التابع المستمر والمتناقص تماماً $g$:<br>
+                    $$g(I) = g(]0, +\infty[) = \left] \lim_{x \to +\infty} g(x), \, \lim_{x \to 0^+} g(x) \right[ = ]-\infty, +\infty[ = \mathbb{R}$$
+                    بما أن العدد $0 \in g(I) = \mathbb{R}$، والتابع متناقص تماماً، فبحسب مبرهنة القيمة الوسطى تقبل المعادلة $g(x) = 0$ حلاً وحيداً $\alpha \in ]0, +\infty[$.<br>
                     <b>التحقق:</b> $g(1) = \frac{1}{1} - 1 - \ln(1) = 1 - 1 - 0 = 0 \implies \alpha = 1$.<br>
                     <b>استنتاج إشارة $g(x)$:</b> بما أن $g$ متناقص تماماً وينعدم عند $1$:<br>
                     • أياً كان $x \in ]0, 1[$: $g(x) > 0$.<br>
                     • أياً كان $x \in ]1, +\infty[$: $g(x) < 0$.
                 </div>
 
-                <div class="step-title" style="margin-top:16px;">3 + 4) دراسة التابع $f$ ورسمه مع حساب النهايات:</div>
+                <div class="step-title" style="margin-top:16px;">3 + 4) دراسة التابع $f$ ورسمه مع المقاربات:</div>
                 • عند $0^+$: البسط يسعى لـ $2 + (-\infty) = -\infty$ والمقام يسعى لـ $0+1 = 1$:<br>
                 $$\lim_{x \to 0^+} f(x) = \frac{-\infty}{1} = -\infty \implies x = 0 \text{ مقارب شاقولي}$$
                 • عند $+\infty$: حالة عدم تعيين $\left[\frac{\infty}{\infty}\right]$. نخرج $\ln x$ من البسط و $x$ من المقام:<br>
                 $$f(x) = \frac{\ln x (\frac{2}{\ln x} + 1)}{x(1 + \frac{1}{x})} = \frac{\ln x}{x} \cdot \frac{\frac{2}{\ln x} + 1}{1 + \frac{1}{x}}$$
-                بما أن $\lim_{x \to +\infty} \frac{\ln x}{x} = 0$ و $\lim_{x \to +\infty} \frac{1}{\ln x} = 0$ و $\lim_{x \to +\infty} \frac{1}{x} = 0$:<br>
                 $$\lim_{x \to +\infty} f(x) = 0 \cdot \frac{0 + 1}{1 + 0} = 0 \implies y = 0 \text{ مقارب أفقي بجوار } +\infty$$
                 • حساب المشتق:
                 $$f'(x) = \frac{\frac{1}{x}(x+1) - (2+\ln x)(1)}{(x+1)^2} = \frac{1 + \frac{1}{x} - 2 - \ln x}{(x+1)^2} = \frac{\frac{1}{x} - 1 - \ln x}{(x+1)^2} = \frac{g(x)}{(x+1)^2}$$
-                بما أن المقام موجب تماماً، فإن إشارة المشتق $f'(x)$ مطابقة تماماً لإشارة $g(x)$ المستنتجة بمبرهنة القيمة الوسطى:<br>
+                المقام موجباً تماماً، فإشارة $f'(x)$ مطابقة تماماً لإشارة $g(x)$ المستنتجة بمبرهنة القيمة الوسطى:<br>
                 تنعدم عند $x = 1$ وتكون القيمة الكبرى: $f(1) = \frac{2 + \ln 1}{1+1} = \frac{2}{2} = 1$.<br>
                 جدول التغيرات (من اليسار لليمين LTR):
                 <table class="var-grid">
@@ -831,8 +836,8 @@
                     <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>1</td><td>$\searrow$</td><td>0</td></tr>
                 </table>
                 <div class="chart-caption-bar">
-                    <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \frac{2+\ln x}{x+1}$</span>
-                    <span class="badge">قيمة كبرى محلياً (1, 1) | مقارب شاقولي $x=0$</span>
+                    <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \frac{2+\ln x}{x+1}$ مع المقارب الأفقي $y=0$</span>
+                    <span class="badge">قيمة كبرى محلياً (1, 1) | مقارب شاقولي $x=0$ | مقارب أفقي $y=0$</span>
                 </div>
                 <div class="chart-box">
                     <canvas id="chartVar2"></canvas>
@@ -847,8 +852,8 @@
                 ليكن $f$ التابع المعرف على $]0, +\infty[$ وفق: $f(x) = x - 2 + \ln x$.<br>
                 1) احسب نهايات التابع $f$ عند أطراف مجالات تعريفه بالتفصيل.<br>
                 2) ادرس تغيرات التابع $f$ ونظم بها جدولاً.<br>
-                3) <b>أثبت باستخدام مبرهنة القيمة الوسطى أن للمعادلة $f(x) = 0$ حلاً وحيداً $\alpha$ في المجال $]0, +\infty[$.</b><br>
-                4) <b>أثبت أن الحل $\alpha$ يقع في المجال $]1.5, \, 1.6[$ (حصر للحل بسعة $0.1$).</b><br>
+                3) <b>أثبت باستخدام مبرهنة القيمة الوسطى (صورة المجال غير المحدود) أن للمعادلة $f(x) = 0$ حلاً وحيداً $\alpha$ في المجال $]0, +\infty[$.</b><br>
+                4) <b>أثبت أن الحل $\alpha$ يقع في المجال المحدود $]1.5, \, 1.6[$ بالاعتماد على شرط جداء الصورتين أصغر من الصفر $f(a) \cdot f(b) < 0$.</b><br>
                 5) ارسم الخط البياني $C_f$.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-var-ivt-classic')">عرض الحل والبرهان السلمي</button>
@@ -869,25 +874,26 @@
                     <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
                 </table>
 
-                <div class="step-title" style="margin-top:16px;">3 + 4) تطبيق مبرهنة القيمة الوسطى وحصر الجذر $\alpha \in ]1.5, 1.6[$:</div>
+                <div class="step-title" style="margin-top:16px;">3 + 4) تطبيق مبرهنة القيمة الوسطى (صورة المجال غير المحدود ثم حصر الجذر بجداء الصورتين):</div>
                 <div class="theorem-box">
-                    <b>شروط مبرهنة القيمة الوسطى للحل الوحيد:</b><br>
+                    <b>أولاً: مبرهنة القيمة الوسطى على المجال غير المحدود $I = ]0, +\infty[$:</b><br>
                     1. <b>الاستمرار:</b> التابع $f$ مستمر على المجال $]0, +\infty[$.<br>
                     2. <b>الاطراد التام:</b> التابع $f$ متزايد تماماً على $]0, +\infty[$.<br>
-                    3. <b>صورة المجال:</b> $f(]0, +\infty[) = ]-\infty, +\infty[ = \mathbb{R}$.<br>
-                    بما أن $0 \in \mathbb{R}$، فبحسب مبرهنة القيمة الوسطى تقبل المعادلة $f(x) = 0$ حلاً وحيداً $\alpha \in ]0, +\infty[$.<br><br>
-                    <b>حصر الحل $\alpha$ في المجال $]1.5, \, 1.6[$:</b><br>
-                    نعلم أن $\ln(1.5) \approx 0.4055$ و $\ln(1.6) \approx 0.4700$:<br>
-                    • عند $x = 1.5$:
-                    $$f(1.5) = 1.5 - 2 + \ln(1.5) = -0.5 + 0.4055 = -0.0945 < 0$$
-                    • عند $x = 1.6$:
-                    $$f(1.6) = 1.6 - 2 + \ln(1.6) = -0.4 + 0.4700 = +0.0700 > 0$$
-                    بما أن التابع $f$ مستمر على $[1.5, 1.6]$ و $f(1.5) \cdot f(1.6) < 0$، فبحسب مبرهنة القيمة الوسطى فإن:
+                    3. <b>صورة المجال:</b> صورة المجال $I$ وفق التابع $f$ هي:<br>
+                    $$f(I) = f(]0, +\infty[) = \left] \lim_{x \to 0^+} f(x), \, \lim_{x \to +\infty} f(x) \right[ = ]-\infty, +\infty[ = \mathbb{R}$$
+                    بما أن $0 \in f(I) = \mathbb{R}$، فبحسب مبرهنة القيمة الوسطى تقبل المعادلة $f(x) = 0$ حلاً وحيداً $\alpha \in ]0, +\infty[$.<br><br>
+                    <b>ثانياً: حصر الحل $\alpha$ على المجال المحدود $[1.5, \, 1.6]$ بشرط جداء الصورتين:</b><br>
+                    • التابع مستمر ومتزايد تماماً على $[1.5, 1.6]$.<br>
+                    • عند $x = 1.5$: $f(1.5) = 1.5 - 2 + \ln(1.5) \approx -0.5 + 0.4055 = -0.0945 < 0$.<br>
+                    • عند $x = 1.6$: $f(1.6) = 1.6 - 2 + \ln(1.6) \approx -0.4 + 0.4700 = +0.0700 > 0$.<br>
+                    بما أن شرط جداء الصورتين محقق:
+                    $$f(1.5) \cdot f(1.6) < 0$$
+                    فإن الحل الوحيد $\alpha$ محصور تماماً في المجال المحدود:
                     $$\alpha \in ]1.5, \, 1.6[$$
                 </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = x - 2 + \ln x$</span>
-                    <span class="badge">يقطع محور الفواصل عند $\alpha \approx 1.55$</span>
+                    <span class="badge">يقطع محور الفواصل عند $\alpha \approx 1.55$ | مقارب شاقولي $x=0$</span>
                 </div>
                 <div class="chart-box">
                     <canvas id="chartVarIVT"></canvas>
@@ -923,7 +929,7 @@
                     <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td style="background:#200505">|| $-\infty$</td><td style="background:#1a1c22">مرفوض</td><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
                 </table>
                 <div class="chart-caption-bar">
-                    <span>الفرع الأيمن للخط $C_f$ للتابع $f(x) = \ln\left(\frac{x+2}{x}\right)$ على $]0, +\infty[$</span>
+                    <span>الفرع الأيمن للخط $C_f$ للتابع $f(x) = \ln\left(\frac{x+2}{x}\right)$ على $]0, +\infty[$ مع المقارب الأفقي $y=0$</span>
                     <span class="badge">مقارب شاقولي $x=0$ | مقارب أفقي $y=0$</span>
                 </div>
                 <div class="chart-box">
@@ -962,44 +968,71 @@
             </div>
         </div>
 
-        <!-- مسألة 6: الحالات الثلاث المتبقية من دراسة التوابع مع حساب النهايات -->
+        <!-- مسألة 6: الحالات الثلاث المتبقية من دراسة التوابع مع حساب النهايات وجداول التغيرات كاملة -->
         <div class="exam-block">
-            <div class="exam-question-title">مسألة 6: دراسة تغيرات ورسم الحالات: $f(x) = \frac{1}{x(1-\ln x)}$ و $f(x) = x\ln x$ و $f(x) = \frac{\ln x}{x^2}$ مع حساب النهايات تفصيلياً</div>
+            <div class="exam-question-title">مسألة 6: دراسة تغيرات ورسم الحالات: $f(x) = \frac{1}{x(1-\ln x)}$ و $f(x) = x\ln x$ و $f(x) = \frac{\ln x}{x^2}$ مع جداول التغيرات والمقاربات كاملة</div>
             <div class="exam-paper-text">
-                دراسة تفصيلية ورسم بياني لكل تابع من التوابع الثلاثة مع المقاربات وجداول التغيرات وحساب النهايات.
+                دراسة تفصيلية ورسم بياني لكل تابع من التوابع الثلاثة مع المقاربات وجداول التغيرات كاملة.
             </div>
-            <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-5')">عرض الحلول والرسوم البيانية</button>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-5')">عرض الحلول وجداول التغيرات والرسوم البيانية</button>
             <div class="solution-drawer" id="sol-var-100-5">
                 <b>1) التابع $f(x) = \frac{1}{x(1-\ln x)}$:</b><br>
                 • $D_f = ]0, e[ \cup ]e, +\infty[$.<br>
                 • النهايات: $\lim_{x \to 0^+} (x - x\ln x) = 0 - 0 = 0^+ \implies \lim_{x \to 0^+} f(x) = +\infty$ ($x = 0$ مقارب شاقولي).<br>
                 • عند $e^-$: $1 - \ln x \to 0^+ \implies \lim_{x \to e^-} f(x) = +\infty$. وعند $e^+$: $1 - \ln x \to 0^- \implies \lim_{x \to e^+} f(x) = -\infty$ ($x = e$ مقارب شاقولي).<br>
                 • عند $+\infty$: $\lim_{x \to +\infty} x(1-\ln x) = -\infty \implies \lim_{x \to +\infty} f(x) = 0$ ($y = 0$ مقارب أفقي).<br>
-                • المشتق $f'(x) = \frac{\ln x}{x^2(1-\ln x)^2}$ ينعدم عند $x = 1$. القيمة الصغرى $f(1) = 1$.
+                • المشتق:
+                $$f'(x) = \frac{-(1 - \ln x + x(-\frac{1}{x}))}{[x(1-\ln x)]^2} = \frac{-(1-\ln x - 1)}{x^2(1-\ln x)^2} = \frac{\ln x}{x^2(1-\ln x)^2}$$
+                ينعدم المشتق عند $\ln x = 0 \iff x = 1$، وقيمته الصغرى محلياً $f(1) = 1$.<br>
+                <b>جدول التغيرات الكامل (LTR):</b>
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>e</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td><td>+</td><td></td></tr>
+                    <tr><th>$f(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>1</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$ / $-\infty$</td><td>$\nearrow$</td><td>0</td></tr>
+                </table>
                 <div class="chart-caption-bar">
-                    <span>التمثيل البياني لـ $f(x) = \frac{1}{x(1-\ln x)}$ على $]0, e[$</span>
-                    <span class="badge">قيمة صغرى محلياً عند (1, 1) | مقاربان $x=0$ و $x=e$</span>
+                    <span>التمثيل البياني لـ $f(x) = \frac{1}{x(1-\ln x)}$ على $]0, e[$ مع المقارب الأفقي $y=0$</span>
+                    <span class="badge">قيمة صغرى محلياً عند (1, 1) | مقاربان شاقوليان $x=0$ و $x=e$</span>
                 </div>
                 <div class="chart-box"><canvas id="chartVar3"></canvas></div>
-                <br>
+                <br><br>
+
                 <b>2) التابع $f(x) = x\ln x$:</b><br>
                 • $D_f = ]0, +\infty[$.<br>
                 • $\lim_{x \to 0^+} x\ln x = 0$ (نهاية تزايد مقارن شهيرة في المنهاج) و $\lim_{x \to +\infty} x\ln x = +\infty$.<br>
-                • المشتق $f'(x) = \ln x + 1$ ينعدم عند $x = \frac{1}{e}$. القيمة الصغرى $f(1/e) = -\frac{1}{e}$.
+                • المشتق $f'(x) = 1\ln x + x(\frac{1}{x}) = \ln x + 1$.<br>
+                ينعدم المشتق عندما $\ln x = -1 \iff x = e^{-1} = \frac{1}{e}$.<br>
+                القيمة الصغرى محلياً: $f(1/e) = \frac{1}{e}\ln(e^{-1}) = -\frac{1}{e} \approx -0.368$.<br>
+                <b>جدول التغيرات الكامل (LTR):</b>
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>0</td><td></td><td>$1/e$</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                    <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td>$-1/e$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                </table>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني لـ $f(x) = x\ln x$</span>
                     <span class="badge">قيمة صغرى محلياً عند $(e^{-1}, -e^{-1})$</span>
                 </div>
                 <div class="chart-box"><canvas id="chartVar5"></canvas></div>
-                <br>
+                <br><br>
+
                 <b>3) التابع $f(x) = \frac{\ln x}{x^2}$:</b><br>
                 • $D_f = ]0, +\infty[$.<br>
                 • $\lim_{x \to 0^+} \frac{\ln x}{x^2} = \frac{-\infty}{0^+} = -\infty$ ($x = 0$ مقارب شاقولي).<br>
                 • $\lim_{x \to +\infty} \frac{\ln x}{x^2} = 0$ (نهاية تزايد مقارن مبرهنة) $\implies y = 0$ مقارب أفقي بجوار $+\infty$.<br>
-                • المشتق $f'(x) = \frac{1-2\ln x}{x^3}$ ينعدم عند $x = \sqrt{e}$. القيمة الكبرى $f(\sqrt{e}) = \frac{1}{2e}$.
+                • المشتق:
+                $$f'(x) = \frac{\frac{1}{x} \cdot x^2 - (\ln x)(2x)}{x^4} = \frac{x - 2x\ln x}{x^4} = \frac{1 - 2\ln x}{x^3}$$
+                ينعدم المشتق عندما $1 - 2\ln x = 0 \iff \ln x = \frac{1}{2} \iff x = \sqrt{e}$.<br>
+                القيمة الكبرى محلياً: $f(\sqrt{e}) = \frac{\ln(e^{1/2})}{(\sqrt{e})^2} = \frac{1/2}{e} = \frac{1}{2e} \approx 0.184$.<br>
+                <b>جدول التغيرات الكامل (LTR):</b>
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>0</td><td></td><td>$\sqrt{e}$</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                    <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>$\frac{1}{2e}$</td><td>$\searrow$</td><td>0</td></tr>
+                </table>
                 <div class="chart-caption-bar">
-                    <span>التمثيل البياني لـ $f(x) = \frac{\ln x}{x^2}$</span>
-                    <span class="badge">ذروة عظمى عند $(\sqrt{e}, \frac{1}{2e})$</span>
+                    <span>التمثيل البياني لـ $f(x) = \frac{\ln x}{x^2}$ مع المقارب الأفقي $y=0$</span>
+                    <span class="badge">ذروة عظمى عند $(\sqrt{e}, \frac{1}{2e})$ | مقارب أفقي $y=0$</span>
                 </div>
                 <div class="chart-box"><canvas id="chartVar6"></canvas></div>
             </div>
@@ -1328,19 +1361,42 @@
             </div>
         </div>
 
+        <!-- تمرين 4 مع حل الطلب الأول كاملاً -->
         <div class="exam-block">
             <div class="exam-question-title">تمرين 4: المماس المشترك ودراسة الفرق $h(x)$ بين $f(x) = \ln x$ والمماس $y = x - 1$</div>
             <div class="exam-paper-text">
-                أثبت أن $f(x) = \ln x$ و $g(x) = 2\sqrt{x} - 2$ يقبلان مماساً مشتركاً $(T): y = x - 1$ عند $x = 1$، وادرس الوضع النسبي لـ $C_f$ مع $(T)$ بجدول اطراد الفرق $h(x)$.
+                <b>المطلوب 1:</b> أثبت أن الخطين البيانيين للتابعين $f(x) = \ln x$ و $g(x) = 2\sqrt{x} - 2$ يقبلان مماساً مشتركاً $(T)$ عند النقطة ذات الفاصلة $x_0 = 1$، واكتب معادلته.<br>
+                <b>المطلوب 2:</b> ادرس الوضع النسبي للخط $C_f$ مع المماس $(T)$ بتنظيم جدول لاطراد وإشارة تابع الفرق $h(x) = f(x) - y_{(T)}$.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-rel-pos-4')">عرض الحل والجدول (يسار ليمين)</button>
             <div class="solution-drawer" id="sol-rel-pos-4">
-                • تابع الفرق: $h(x) = \ln x - (x - 1) \implies h'(x) = \frac{1-x}{x}$ ينعدم عند $x = 1$. القيمة العظمى هي $h(1) = 0$.<br>
-                • جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:
+                <div class="step-title">1) إثبات وجود المماس المشترك وكتابة معادلته:</div>
+                ليقبل الخطان البيانيان $C_f$ و $C_g$ مماساً مشتركاً عند النقطة التي فاصلتها $x_0 = 1$، يجب أن يتحقق شرطان:<br>
+                <b>أولاً: تساوي الصورتين (نقطة التماس المشتركة):</b><br>
+                $$f(1) = \ln(1) = 0$$
+                $$g(1) = 2\sqrt{1} - 2 = 2 - 2 = 0$$
+                إذن $f(1) = g(1) = 0$، فالمنحنيان يمران من النقطة ذاتها $A(1, 0)$.<br><br>
+                <b>ثانياً: تساوي المشتقين (ميل المماس المشترك $m$):</b><br>
+                • مشتق التابع $f$: $f'(x) = \frac{1}{x} \implies f'(1) = \frac{1}{1} = 1$.<br>
+                • مشتق التابع $g$: $g'(x) = 2 \cdot \frac{1}{2\sqrt{x}} = \frac{1}{\sqrt{x}} \implies g'(1) = \frac{1}{\sqrt{1}} = 1$.<br>
+                بما أن $f'(1) = g'(1) = 1$، فإن المنحنيين يقبلان نفس المماس المشترك عند النقطة $A(1, 0)$ وميله $m = 1$.<br><br>
+                <b>كتابة معادلة المماس المشترك $(T)$:</b><br>
+                $$(T): y - y_0 = m(x - x_0) \implies y - 0 = 1(x - 1) \implies (T): y = x - 1$$
+                وهو المطلوب إثباته بالتمام والكمال.
+
+                <div class="step-title" style="margin-top:16px;">2) دراسة الوضع النسبي لـ $C_f$ مع المماس $(T)$ بجدول اطراد وإشارة الفرق:</div>
+                نشكل تابع الفرق $h(x) = f(x) - y_{(T)} = \ln(x) - (x - 1)$ المعرف على $]0, +\infty[$:<br>
+                • مشتق تابع الفرق:
+                $$h'(x) = \frac{1}{x} - 1 = \frac{1-x}{x}$$
+                ينعدم المشتق عندما $1 - x = 0 \iff x = 1$.<br>
+                قيمة التابع عند $x = 1$: $h(1) = \ln(1) - (1 - 1) = 0$.<br>
+                النهايات: $\lim_{x \to 0^+} h(x) = -\infty - (-1) = -\infty$، و $\lim_{x \to +\infty} h(x) = -\infty$.<br>
+                القيمة $h(1) = 0$ هي <b>قيمة كبرى محلياً وشاملاً</b>، وبالتالي $h(x) \le 0$ أياً كانت $x > 0$.<br><br>
+                • <b>جدول اطراد وإشارة الفرق $h(x)$ مرتب من اليسار لليمين LTR:</b>
                 <table class="var-grid">
                     <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0 (قيمة عظمى)</td><td>$\searrow$</td><td>$-\infty$</td></tr>
+                    <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0 (قيمة كبرى)</td><td>$\searrow$</td><td>$-\infty$</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>-</td><td></td></tr>
                     <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت $(T)$</td><td>تماس عند $(1, 0)$</td><td>$C_f$ تحت $(T)$</td><td></td></tr>
                 </table>
@@ -1456,8 +1512,8 @@
                 • المعادلة: $\ln(y) = \ln\left(\frac{1}{x}\right) \iff y = \frac{1}{x}$.<br>
                 • <b>طبيعة المجموعة:</b> <b>فرع القطع الزائد</b> المتواجد تماماً في الربع الأول ($x > 0, y > 0$).
                 <div class="chart-caption-bar">
-                    <span>الحالة II: فرع القطع الزائد $y = \frac{1}{x}$ في الربع الأول</span>
-                    <span class="badge">شرط الوجود: $x > 0, y > 0$</span>
+                    <span>الحالة II: فرع القطع الزائد $y = \frac{1}{x}$ في الربع الأول مع مقاربيه</span>
+                    <span class="badge">المقاربان: محورا الإحداثيات $x=0$ و $y=0$</span>
                 </div>
                 <div class="chart-box" style="height: 300px;">
                     <canvas id="chartPtsCase2"></canvas>
@@ -1626,19 +1682,23 @@ function checkMCQ(qId, optIdx, isCorrect) {
 window.addEventListener('DOMContentLoaded', () => {
     initVisitorCounter();
 
-    // 1. رسم f(x) = (1+2ln x)/x^2
+    // 1. رسم f(x) = (1+2ln x)/x^2 مع المقارب الأفقي y=0
     const ctx1 = document.getElementById('chartVar1');
     if (ctx1) {
-        const xV1 = [], yV1 = [];
+        const xV1 = [], yV1 = [], yAsym1 = [];
         for (let x = 0.35; x <= 4.5; x += 0.1) {
             xV1.push(x.toFixed(2));
             yV1.push((1 + 2 * Math.log(x)) / (x * x));
+            yAsym1.push(0);
         }
         chartInstances['c1'] = new Chart(ctx1.getContext('2d'), {
             type: 'line',
             data: {
                 labels: xV1,
-                datasets: [{ label: 'f(x) = (1 + 2 ln x) / x^2', data: yV1, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
+                datasets: [
+                    { label: 'f(x) = (1 + 2 ln x) / x^2', data: yV1, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Horizontal Asymptote y = 0', data: yAsym1, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                ]
             },
             options: { 
                 responsive: true, 
@@ -1651,19 +1711,23 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. رسم f(x) = (2+ln x)/(x+1)
+    // 2. رسم f(x) = (2+ln x)/(x+1) مع المقارب الأفقي y=0
     const ctx2 = document.getElementById('chartVar2');
     if (ctx2) {
-        const xV2 = [], yV2 = [];
+        const xV2 = [], yV2 = [], yAsym2 = [];
         for (let x = 0.1; x <= 5.5; x += 0.1) {
             xV2.push(x.toFixed(2));
             yV2.push((2 + Math.log(x)) / (x + 1));
+            yAsym2.push(0);
         }
         chartInstances['c2'] = new Chart(ctx2.getContext('2d'), {
             type: 'line',
             data: {
                 labels: xV2,
-                datasets: [{ label: 'f(x) = (2 + ln x) / (x + 1)', data: yV2, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
+                datasets: [
+                    { label: 'f(x) = (2 + ln x) / (x + 1)', data: yV2, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Horizontal Asymptote y = 0', data: yAsym2, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                ]
             },
             options: { 
                 responsive: true, 
@@ -1701,19 +1765,23 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. رسم f(x) = 1/(x(1-ln x))
+    // 4. رسم f(x) = 1/(x(1-ln x)) مع المقارب الأفقي y=0
     const ctx3 = document.getElementById('chartVar3');
     if (ctx3) {
-        const xV3 = [], yV3 = [];
+        const xV3 = [], yV3 = [], yAsym3 = [];
         for (let x = 0.2; x <= 2.5; x += 0.1) {
             xV3.push(x.toFixed(2));
             yV3.push(1 / (x * (1 - Math.log(x))));
+            yAsym3.push(0);
         }
         chartInstances['c3'] = new Chart(ctx3.getContext('2d'), {
             type: 'line',
             data: {
                 labels: xV3,
-                datasets: [{ label: 'f(x) = 1 / [x(1 - ln x)]', data: yV3, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
+                datasets: [
+                    { label: 'f(x) = 1 / [x(1 - ln x)]', data: yV3, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Horizontal Asymptote y = 0', data: yAsym3, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                ]
             },
             options: { 
                 responsive: true, 
@@ -1726,19 +1794,23 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. رسم f(x) = ln(x/(x-2))
+    // 5. رسم f(x) = ln(x/(x-2)) مع المقارب الأفقي y=0
     const ctx4 = document.getElementById('chartVar4');
     if (ctx4) {
-        const xV4 = [], yV4 = [];
+        const xV4 = [], yV4 = [], yAsym4 = [];
         for (let x = 2.1; x <= 6.0; x += 0.1) {
             xV4.push(x.toFixed(2));
             yV4.push(Math.log(x / (x - 2)));
+            yAsym4.push(0);
         }
         chartInstances['c4'] = new Chart(ctx4.getContext('2d'), {
             type: 'line',
             data: {
                 labels: xV4,
-                datasets: [{ label: 'f(x) = ln[x / (x - 2)]  (x > 2)', data: yV4, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
+                datasets: [
+                    { label: 'f(x) = ln[x / (x - 2)]  (x > 2)', data: yV4, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Horizontal Asymptote y = 0', data: yAsym4, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                ]
             },
             options: { 
                 responsive: true, 
@@ -1776,19 +1848,23 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. رسم f(x) = ln(x) / x^2
+    // 7. رسم f(x) = ln(x) / x^2 مع المقارب الأفقي y=0
     const ctx6 = document.getElementById('chartVar6');
     if (ctx6) {
-        const xV6 = [], yV6 = [];
+        const xV6 = [], yV6 = [], yAsym6 = [];
         for (let x = 0.4; x <= 6.0; x += 0.1) {
             xV6.push(x.toFixed(2));
             yV6.push(Math.log(x) / (x * x));
+            yAsym6.push(0);
         }
         chartInstances['c6'] = new Chart(ctx6.getContext('2d'), {
             type: 'line',
             data: {
                 labels: xV6,
-                datasets: [{ label: 'f(x) = (ln x) / x^2', data: yV6, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
+                datasets: [
+                    { label: 'f(x) = (ln x) / x^2', data: yV6, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Horizontal Asymptote y = 0', data: yAsym6, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                ]
             },
             options: { 
                 responsive: true, 
@@ -1864,19 +1940,23 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // الحالة II
+    // الحالة II مع رسم المقاربين
     const ctxC2 = document.getElementById('chartPtsCase2');
     if (ctxC2) {
-        const xVals = [], yVals = [];
+        const xVals = [], yVals = [], yAsymPts = [];
         for (let x = 0.2; x <= 5.0; x += 0.1) {
             xVals.push(x.toFixed(1));
             yVals.push(1 / x);
+            yAsymPts.push(0);
         }
         chartInstances['pts2'] = new Chart(ctxC2.getContext('2d'), {
             type: 'line',
             data: {
                 labels: xVals,
-                datasets: [{ label: 'y = 1 / x  (x > 0)', data: yVals, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
+                datasets: [
+                    { label: 'y = 1 / x  (x > 0)', data: yVals, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Asymptote y = 0', data: yAsymPts, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                ]
             },
             options: { 
                 responsive: true, 
@@ -1914,8 +1994,8 @@ window.addEventListener('DOMContentLoaded', () => {
                         label: 'Excluded Point (0, 0)',
                         data: [{ x: 0, y: 0 }],
                         pointRadius: 7,
-                        pointBackgroundColor: '#0a0b0d', // مفرغة من الداخل
-                        pointBorderColor: '#ff3838',     // إطار بارز
+                        pointBackgroundColor: '#0a0b0d',
+                        pointBorderColor: '#ff3838',
                         pointBorderWidth: 3,
                         showLine: false
                     }
