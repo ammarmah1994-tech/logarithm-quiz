@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ammar - بنك واختبارات التابع اللوغاريتمي</title>
+    
+    <!-- خط Cairo العربي الأصيل لمنع تقطع الحروف نهائياً على كافة الأجهزة والتابلت -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
     <!-- MathJax لتنسيق الكسور والنهايات والرموز الرياضية بدقة متناهية -->
     <script>
         window.MathJax = {
@@ -38,9 +44,11 @@
 
         * {
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            text-rendering: optimizeLegibility;
+            font-family: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            text-rendering: geometricPrecision;
             -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: "liga" on, "calt" on;
         }
 
         body {
@@ -50,6 +58,7 @@
             color: var(--text-light);
             line-height: 1.85;
             direction: rtl;
+            unicode-bidi: embed;
         }
 
         header {
@@ -94,6 +103,7 @@
             border-radius: 20px;
             font-size: 13.5px;
             font-weight: 700;
+            direction: rtl;
         }
 
         .counter-badge span {
@@ -106,6 +116,7 @@
             font-size: 24px;
             font-weight: 800;
             color: #ffffff;
+            direction: rtl;
         }
 
         h1 span {
@@ -116,6 +127,7 @@
             color: var(--text-muted);
             font-size: 14px;
             margin-top: 6px;
+            direction: rtl;
         }
 
         .print-btn {
@@ -133,6 +145,7 @@
             gap: 6px;
             box-shadow: 0 3px 12px rgba(255, 215, 0, 0.35);
             transition: all 0.2s ease;
+            direction: rtl;
         }
 
         .print-btn:hover {
@@ -180,6 +193,7 @@
             font-weight: 700;
             white-space: nowrap;
             transition: all 0.2s ease;
+            direction: rtl;
         }
 
         .nav-tab-btn:hover {
@@ -198,6 +212,7 @@
             max-width: 1080px;
             margin: 25px auto;
             padding: 0 12px 60px 12px;
+            direction: rtl;
         }
 
         .section-view {
@@ -207,6 +222,7 @@
             border-radius: 10px;
             padding: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.65);
+            direction: rtl;
         }
 
         .section-view.active {
@@ -228,6 +244,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
+            direction: rtl;
         }
 
         .section-header h2 {
@@ -254,6 +271,7 @@
             padding: 20px;
             margin-bottom: 24px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            direction: rtl;
         }
 
         .exam-question-title {
@@ -264,6 +282,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            direction: rtl;
         }
 
         .exam-question-title::before {
@@ -279,6 +298,7 @@
             border-radius: 6px;
             margin-bottom: 14px;
             font-size: 15px;
+            direction: rtl;
         }
 
         .toggle-solution-btn {
@@ -294,6 +314,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            direction: rtl;
         }
 
         .toggle-solution-btn:hover {
@@ -308,6 +329,7 @@
             background: #111317;
             border-left: 3px solid var(--accent-red);
             border-radius: 4px;
+            direction: rtl;
         }
 
         .solution-drawer.open {
@@ -323,6 +345,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            direction: rtl;
         }
 
         .step-title::before {
@@ -339,6 +362,7 @@
             margin: 12px 0;
             color: #ff9f89;
             font-weight: 600;
+            direction: rtl;
         }
 
         .theorem-box {
@@ -348,6 +372,7 @@
             border-radius: 8px;
             margin: 14px 0;
             color: #f5f6fa;
+            direction: rtl;
         }
 
         .theorem-box b {
@@ -363,6 +388,7 @@
             font-weight: 700;
             margin-top: 10px;
             display: inline-block;
+            direction: rtl;
         }
 
         /* الجداول الرياضية مرتبة يسار لليمين */
@@ -386,6 +412,15 @@
             background: #250606;
             color: var(--gold-primary);
             width: 18%;
+        }
+
+        /* عزل النصوص العربية داخل الجداول حتى لا تتقطع حروفها */
+        .ar-txt {
+            display: inline-block;
+            direction: rtl !important;
+            unicode-bidi: isolate;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
         }
 
         .chart-box {
@@ -412,6 +447,7 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px;
+            direction: rtl;
         }
 
         .chart-caption-bar span.badge {
@@ -420,6 +456,7 @@
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 12px;
+            direction: rtl;
         }
 
         .mcq-question {
@@ -428,6 +465,7 @@
             border-radius: 8px;
             padding: 18px;
             margin-bottom: 18px;
+            direction: rtl;
         }
 
         .mcq-options {
@@ -435,6 +473,7 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 10px;
             margin: 14px 0 10px 0;
+            direction: rtl;
         }
 
         .mcq-opt {
@@ -448,6 +487,7 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
+            direction: rtl;
         }
 
         .mcq-opt:hover {
@@ -473,6 +513,7 @@
             font-weight: 700;
             margin-top: 8px;
             display: none;
+            direction: rtl;
         }
 
         /* تنسيق الطباعة وتصدير PDF */
@@ -924,9 +965,9 @@
                 • <b>المشتق:</b> $f'(x) = \frac{-2}{x(x+2)} < 0$ دوماً على $D_f$. التابع متناقص تماماً على كل من مجالي تعريفه.<br>
                 جدول التغيرات (من اليسار لليمين LTR):
                 <table class="var-grid">
-                    <tr><th>$x$</th><td>$-\infty$</td><td></td><td>-2</td><td style="background:#1a1c22">مرفوض</td><td>0</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td></td><td>-</td><td style="background:#200505">||</td><td style="background:#1a1c22">مرفوض</td><td style="background:#200505">||</td><td>-</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td style="background:#200505">|| $-\infty$</td><td style="background:#1a1c22">مرفوض</td><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
+                    <tr><th>$x$</th><td>$-\infty$</td><td></td><td>-2</td><td style="background:#1a1c22"><span class="ar-txt">مرفوض</span></td><td>0</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$f'(x)$</th><td></td><td>-</td><td style="background:#200505">||</td><td style="background:#1a1c22"><span class="ar-txt">مرفوض</span></td><td style="background:#200505">||</td><td>-</td><td></td></tr>
+                    <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td style="background:#200505">|| $-\infty$</td><td style="background:#1a1c22"><span class="ar-txt">مرفوض</span></td><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
                 </table>
                 <div class="chart-caption-bar">
                     <span>الفرع الأيمن للخط $C_f$ للتابع $f(x) = \ln\left(\frac{x+2}{x}\right)$ على $]0, +\infty[$ مع المقارب الأفقي $y=0$</span>
@@ -1315,7 +1356,7 @@
                     <tr><th>$-\ln x$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
                     <tr><th>$x$</th><td style="background:#200505">||</td><td>+</td><td>|</td><td>+</td><td></td></tr>
                     <tr><th>$h(x) = f(x) - y_{\Delta}$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ فوق $\Delta$</td><td>نقطة تقاطع $(1, 2)$</td><td>$C_f$ تحت $\Delta$</td><td></td></tr>
+                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">$C_f$ فوق $\Delta$</span></td><td><span class="ar-txt">نقطة تقاطع $(1, 2)$</span></td><td><span class="ar-txt">$C_f$ تحت $\Delta$</span></td><td></td></tr>
                 </table>
             </div>
         </div>
@@ -1336,7 +1377,7 @@
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
                     <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت المماس $(T)$</td><td>نقطة تماس في المبدأ $O(0, 0)$</td><td>$C_f$ فوق المماس $(T)$</td><td style="background:#200505">||</td></tr>
+                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">$C_f$ تحت المماس $(T)$</span></td><td><span class="ar-txt">نقطة تماس في المبدأ $O(0, 0)$</span></td><td><span class="ar-txt">$C_f$ فوق المماس $(T)$</span></td><td style="background:#200505">||</td></tr>
                 </table>
             </div>
         </div>
@@ -1356,7 +1397,7 @@
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td></tr>
                     <tr><th>$h(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>+</td><td></td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ يقع بأكمله <b>فوق</b> المقارب $\Delta$</td><td></td></tr>
+                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td colspan="2"><span class="ar-txt">$C_f$ يقع بأكمله <b>فوق</b> المقارب $\Delta$</span></td></tr>
                 </table>
             </div>
         </div>
@@ -1398,7 +1439,7 @@
                     <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
                     <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0 (قيمة كبرى)</td><td>$\searrow$</td><td>$-\infty$</td></tr>
                     <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>الوضع النسبي</th><td style="background:#200505">||</td><td>$C_f$ تحت $(T)$</td><td>تماس عند $(1, 0)$</td><td>$C_f$ تحت $(T)$</td><td></td></tr>
+                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">$C_f$ تحت $(T)$</span></td><td><span class="ar-txt">تماس عند $(1, 0)$</span></td><td><span class="ar-txt">$C_f$ تحت $(T)$</span></td><td></td></tr>
                 </table>
             </div>
         </div>
@@ -1714,11 +1755,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // 2. رسم f(x) = (2+ln x)/(x+1) مع المقارب الأفقي y=0
     const ctx2 = document.getElementById('chartVar2');
     if (ctx2) {
-        const xV2 = [], yV2 = [], yAsym2 = [];
+        const xV2 = [], yV2 = [];
         for (let x = 0.1; x <= 5.5; x += 0.1) {
             xV2.push(x.toFixed(2));
             yV2.push((2 + Math.log(x)) / (x + 1));
-            yAsym2.push(0);
         }
         chartInstances['c2'] = new Chart(ctx2.getContext('2d'), {
             type: 'line',
@@ -1726,7 +1766,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 labels: xV2,
                 datasets: [
                     { label: 'f(x) = (2 + ln x) / (x + 1)', data: yV2, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
-                    { label: 'Horizontal Asymptote y = 0', data: yAsym2, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                    { label: 'Horizontal Asymptote y = 0', data: Array(xV2.length).fill(0), borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
                 ]
             },
             options: { 
@@ -1768,11 +1808,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // 4. رسم f(x) = 1/(x(1-ln x)) مع المقارب الأفقي y=0
     const ctx3 = document.getElementById('chartVar3');
     if (ctx3) {
-        const xV3 = [], yV3 = [], yAsym3 = [];
+        const xV3 = [], yV3 = [];
         for (let x = 0.2; x <= 2.5; x += 0.1) {
             xV3.push(x.toFixed(2));
             yV3.push(1 / (x * (1 - Math.log(x))));
-            yAsym3.push(0);
         }
         chartInstances['c3'] = new Chart(ctx3.getContext('2d'), {
             type: 'line',
@@ -1780,7 +1819,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 labels: xV3,
                 datasets: [
                     { label: 'f(x) = 1 / [x(1 - ln x)]', data: yV3, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
-                    { label: 'Horizontal Asymptote y = 0', data: yAsym3, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                    { label: 'Horizontal Asymptote y = 0', data: Array(xV3.length).fill(0), borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
                 ]
             },
             options: { 
@@ -1807,7 +1846,8 @@ window.addEventListener('DOMContentLoaded', () => {
             data: {
                 labels: xV4,
                 datasets: [
-                    { label: 'f(x) = ln[x / (x - 2)]  (x > 2)', data: yV4, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }
+                    { label: 'f(x) = ln[x / (x - 2)]  (x > 2)', data: yV4, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
+                    { label: 'Horizontal Asymptote y = 0', data: Array(xV4.length).fill(0), borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
                 ]
             },
             options: { 
@@ -1849,11 +1889,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // 7. رسم f(x) = ln(x) / x^2 مع المقارب الأفقي y=0
     const ctx6 = document.getElementById('chartVar6');
     if (ctx6) {
-        const xV6 = [], yV6 = [], yAsym6 = [];
+        const xV6 = [], yV6 = [];
         for (let x = 0.4; x <= 6.0; x += 0.1) {
             xV6.push(x.toFixed(2));
             yV6.push(Math.log(x) / (x * x));
-            yAsym6.push(0);
         }
         chartInstances['c6'] = new Chart(ctx6.getContext('2d'), {
             type: 'line',
@@ -1861,7 +1900,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 labels: xV6,
                 datasets: [
                     { label: 'f(x) = (ln x) / x^2', data: yV6, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 },
-                    { label: 'Horizontal Asymptote y = 0', data: yAsym6, borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
+                    { label: 'Horizontal Asymptote y = 0', data: Array(xV6.length).fill(0), borderColor: '#ff7675', borderWidth: 2, borderDash: [6, 4], fill: false, pointRadius: 0 }
                 ]
             },
             options: { 
@@ -1992,8 +2031,8 @@ window.addEventListener('DOMContentLoaded', () => {
                         label: 'Excluded Point (0, 0)',
                         data: [{ x: 0, y: 0 }],
                         pointRadius: 7,
-                        pointBackgroundColor: '#0a0b0d', // مفرغة من الداخل
-                        pointBorderColor: '#ff3838',     // إطار بارز
+                        pointBackgroundColor: '#0a0b0d',
+                        pointBorderColor: '#ff3838',
                         pointBorderWidth: 3,
                         showLine: false
                     }
