@@ -1379,7 +1379,7 @@
         </div>
 
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 1: دراسة استمرار واشتقاق التابع $f(x) = \frac{x}{x - \ln x}$ عند الصفر ونصف المماس الأفقي</div>
+            <div class="exam-question-title">تمرين 1: دراسة استمرار واشتقاق التابع $f(x) = \frac{x}{x - \ln x}$ عند الصفر والمماس الأفقي</div>
             <div class="exam-paper-text">
                 ليكن $f$ التابع المعرف على $[0, +\infty[$ وفق: $f(x) = \frac{x}{x - \ln x}$ لـ $x > 0$ و $f(0) = 0$.<br>
                 1) أثبت أن التابع مستمر عند الصفر.<br>
@@ -1391,7 +1391,7 @@
             <div class="solution-drawer" id="sol-cont-1">
                 • <b>الاستمرار عند 0:</b> $\lim_{x \to 0^+} \frac{x}{x - \ln x} = \frac{0}{0 - (-\infty)} = 0 = f(0)$ فـ $f$ مستمر عند الصفر من اليمين.<br>
                 • <b>الاشتقاق عند 0:</b> $\lim_{x \to 0^+} \frac{f(x)-0}{x} = \lim_{x \to 0^+} \frac{1}{x - \ln x} = 0 \implies f'_d(0) = 0$.<br>
-                <b>التفسير الهندسي:</b> يقبل الخط $C_f$ في المبدأ $O(0, 0)$ <b>نصف مماس أفقي</b> منطبق على الاتجاه الموجب لمحور الفواصل.<br>
+                <b>التفسير الهندسي:</b> يقبل الخط $C_f$ في المبدأ $O(0, 0)$ <b>مماس أفقي (نصف مماس أفقي)</b> منطبق على الاتجاه الموجب لمحور الفواصل.<br>
                 • <b>المقارب الأفقي:</b> $\lim_{x \to +\infty} \frac{1}{1 - \frac{\ln x}{x}} = 1 \implies y = 1$ مقارب أفقي بجوار $+\infty$.<br>
                 • <b>المماس عند $x = 1$:</b> $f(1) = 1, f'(1) = 1 \implies (T): y = x$.<br>
                 • <b>التقريب التآلفي:</b> $f(1.1) \approx f(1) + 0.1 f'(1) = 1 + 0.1(1) = 1.1$.
@@ -1399,14 +1399,14 @@
         </div>
 
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 2: دراسة استمرار واشتقاق التابع $f(x) = x^2(1 - \ln x)$ ونصف المماس الأفقي والتقريب</div>
+            <div class="exam-question-title">تمرين 2: دراسة استمرار واشتقاق التابع $f(x) = x^2(1 - \ln x)$ والمماس الأفقي والتقريب</div>
             <div class="exam-paper-text">
                 ليكن $f$ التابع المعرف على $[0, +\infty[$ وفق: $f(x) = x^2(1 - \ln x)$ لـ $x > 0$ و $f(0) = 0$. ادرس استمرار واشتقاق التابع عند الصفر وأوجد التقريب التآلفي لـ $f(1.1)$.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-cont-2')">عرض الحل النموذجي</button>
             <div class="solution-drawer" id="sol-cont-2">
                 • $\lim_{x \to 0^+} (x^2 - x^2\ln x) = 0 - 0 = 0 = f(0)$ فالتابع مستمر عند الصفر من اليمين.<br>
-                • $\lim_{x \to 0^+} \frac{x^2(1-\ln x)}{x} = 0 \implies f'_d(0) = 0$ (نصف مماس أفقي عند المبدأ).<br>
+                • $\lim_{x \to 0^+} \frac{x^2(1-\ln x)}{x} = 0 \implies f'_d(0) = 0$ (<b>مماس أفقي / نصف مماس أفقي</b> عند المبدأ).<br>
                 • $f(1) = 1, f'(1) = 1 \implies f(1.1) \approx 1 + 0.1(1) = 1.1$.
             </div>
         </div>
@@ -1866,7 +1866,7 @@ window.addEventListener('DOMContentLoaded', () => {
         chartInstances['pts2'] = new Chart(ctxC2.getContext('2d'), {
             type: 'line',
             data: {
-                labels: xVals,
+                labels: xV2,
                 datasets: [{ label: 'y = 1 / x  (x > 0)', data: yVals, borderColor: '#ffd700', borderWidth: 3.5, fill: false, pointRadius: 0 }]
             },
             options: { 
