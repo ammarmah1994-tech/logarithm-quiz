@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ammar - بنك واختبارات التابع اللوغاريتمي</title>
     
-    <!-- خط Cairo العربي لمنع تقطع الحروف نهائياً على كافة الأجهزة والتابلت -->
+    <!-- خط Cairo العربي -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -26,7 +26,6 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-    <!-- Chart.js للرسوم البيانية الهندسية -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
@@ -48,7 +47,6 @@
             text-rendering: geometricPrecision;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            font-feature-settings: "liga" on, "calt" on;
         }
 
         body {
@@ -58,7 +56,6 @@
             color: var(--text-light);
             line-height: 1.85;
             direction: rtl;
-            unicode-bidi: embed;
         }
 
         header {
@@ -75,7 +72,6 @@
             justify-content: center;
             align-items: center;
             gap: 15px;
-            flex-wrap: wrap;
             margin-bottom: 8px;
         }
 
@@ -97,7 +93,6 @@
             font-size: 24px;
             font-weight: 800;
             color: #ffffff;
-            direction: rtl;
         }
 
         h1 span {
@@ -108,7 +103,6 @@
             color: var(--text-muted);
             font-size: 14px;
             margin-top: 6px;
-            direction: rtl;
         }
 
         .print-btn {
@@ -126,12 +120,6 @@
             gap: 6px;
             box-shadow: 0 3px 12px rgba(255, 215, 0, 0.35);
             transition: all 0.2s ease;
-            direction: rtl;
-        }
-
-        .print-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 16px rgba(255, 215, 0, 0.5);
         }
 
         .nav-bar {
@@ -154,15 +142,6 @@
             scrollbar-width: thin;
         }
 
-        .nav-inner::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .nav-inner::-webkit-scrollbar-thumb {
-            background: var(--gold-primary);
-            border-radius: 2px;
-        }
-
         .nav-tab-btn {
             background: #191c22;
             border: 1px solid #313742;
@@ -174,7 +153,6 @@
             font-weight: 700;
             white-space: nowrap;
             transition: all 0.2s ease;
-            direction: rtl;
         }
 
         .nav-tab-btn:hover {
@@ -193,7 +171,6 @@
             max-width: 1080px;
             margin: 25px auto;
             padding: 0 12px 60px 12px;
-            direction: rtl;
         }
 
         .section-view {
@@ -203,7 +180,6 @@
             border-radius: 10px;
             padding: 24px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.65);
-            direction: rtl;
         }
 
         .section-view.active {
@@ -225,7 +201,6 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
-            direction: rtl;
         }
 
         .section-header h2 {
@@ -252,7 +227,6 @@
             padding: 20px;
             margin-bottom: 24px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            direction: rtl;
         }
 
         .exam-question-title {
@@ -263,7 +237,6 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            direction: rtl;
         }
 
         .exam-question-title::before {
@@ -279,7 +252,6 @@
             border-radius: 6px;
             margin-bottom: 14px;
             font-size: 15px;
-            direction: rtl;
         }
 
         .toggle-solution-btn {
@@ -295,7 +267,6 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            direction: rtl;
         }
 
         .toggle-solution-btn:hover {
@@ -310,7 +281,6 @@
             background: #111317;
             border-left: 3px solid var(--accent-red);
             border-radius: 4px;
-            direction: rtl;
         }
 
         .solution-drawer.open {
@@ -326,7 +296,6 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            direction: rtl;
         }
 
         .step-title::before {
@@ -343,7 +312,6 @@
             margin: 12px 0;
             color: #ff9f89;
             font-weight: 600;
-            direction: rtl;
         }
 
         .theorem-box {
@@ -353,7 +321,6 @@
             border-radius: 8px;
             margin: 14px 0;
             color: #f5f6fa;
-            direction: rtl;
         }
 
         .theorem-box b {
@@ -369,7 +336,6 @@
             font-weight: 700;
             margin-top: 10px;
             display: inline-block;
-            direction: rtl;
         }
 
         .table-wrapper {
@@ -432,7 +398,6 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 8px;
-            direction: rtl;
         }
 
         .chart-caption-bar span.badge {
@@ -441,7 +406,6 @@
             padding: 2px 8px;
             border-radius: 4px;
             font-size: 12px;
-            direction: rtl;
         }
 
         .mcq-question {
@@ -450,7 +414,6 @@
             border-radius: 8px;
             padding: 18px;
             margin-bottom: 18px;
-            direction: rtl;
         }
 
         .mcq-options {
@@ -458,7 +421,6 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 10px;
             margin: 14px 0 10px 0;
-            direction: rtl;
         }
 
         .mcq-opt {
@@ -472,7 +434,6 @@
             align-items: center;
             gap: 8px;
             font-size: 14px;
-            direction: rtl;
         }
 
         .mcq-opt:hover {
@@ -498,7 +459,6 @@
             font-weight: 700;
             margin-top: 8px;
             display: none;
-            direction: rtl;
         }
 
         .division-box {
@@ -1023,12 +983,12 @@
         <div class="exam-block">
             <div class="exam-question-title">مسألة 5 (100 درجة كاملة): دراسة تغيرات التابع $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ على $]1, +\infty[$ وحصر حل مبرهنة القيمة الوسطى</div>
             <div class="exam-paper-text">
-                ليكن $f$ التابع المعرف على المجال $I = ]1, +\infty[$ وفق: $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ وليكن $C_f$ خطه البياني[span_8](start_span)[span_8](end_span).<br>
-                وليكن التابع المساعد $g(x) = x\ln x - x - 1$ المعرف على $]1, +\infty[$[span_9](start_span)[span_9](end_span).<br>
+                ليكن $f$ التابع المعرف على المجال $I = ]1, +\infty[$ وفق: $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ وليكن $C_f$ خطه البياني.<br>
+                وليكن التابع المساعد $g(x) = x\ln x - x - 1$ المعرف على $]1, +\infty[$.<br>
                 <b>المطلوب تحريرياً:</b><br>
-                1) ادرس تغيرات التابع المساعد $g(x)$ على $]1, +\infty[$، وأثبت بحسب مبرهنة الصورة وجود جذر وحيد $\alpha$ للمعادلة $g(x) = 0$، ثم أثبت بحسب مبرهنة القيمة الوسطى أن $\alpha \in ]3.5, \, 3.6[$ واستنتج إشارة $g(x)$[span_10](start_span)[span_10](end_span).<br>
-                2) احسب نهايات التابع $f$ عند أطراف مجاله $I$ بالتفصيل ومعادلات المقاربات وموقعها[span_11](start_span)[span_11](end_span).<br>
-                3) أثبت أن المشتق يعطى بالعلاقة: $f'(x) = \frac{g(x)}{x(x+1)\ln x}$ ثم نظم جدول تغيرات التابع $f$[span_12](start_span)[span_12](end_span).<br>
+                1) ادرس تغيرات التابع المساعد $g(x)$ على $]1, +\infty[$، وأثبت بحسب مبرهنة الصورة وجود جذر وحيد $\alpha$ للمعادلة $g(x) = 0$، ثم أثبت بحسب مبرهنة القيمة الوسطى أن $\alpha \in ]3.5, \, 3.6[$ واستنتج إشارة $g(x)$.<br>
+                2) احسب نهايات التابع $f$ عند أطراف مجاله $I$ بالتفصيل ومعادلات المقاربات وموقعها.<br>
+                3) أثبت أن المشتق يعطى بالعلاقة: $f'(x) = \frac{g(x)}{x(x+1)\ln x}$ ثم نظم جدول تغيرات التابع $f$.<br>
                 4) ارسم في معلم متجانس الخط البياني $C_f$ ومقارباته.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-new')">عرض الحل النموذجي السلمي المفصل</button>
@@ -1198,10 +1158,10 @@
             <div class="exam-question-title">تمرين 1: حساب لوغاريتمي للنسبة $a/b$</div>
             <div class="exam-paper-text">
                 نفترض وجود عددين حقيقيين موجبين تماماً $a$ و $b$ يحققان العلاقة:
-                $$\ln\left(\frac{a+b}{3}\right) = \frac{\ln a + \ln b}{2}$$[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)
-                1) أثبت أن $\frac{1}{2}(\ln a + \ln b) = \ln\sqrt{ab}$[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span).<br>
-                2) استنتج أن $a + b = 3\sqrt{ab}$ ومن ثم $a^2 + b^2 - 7ab = 0$[span_17](start_span)[span_17](end_span)[span_18](start_span)[span_18](end_span).<br>
-                3) احسب قيمة النسبة $\frac{a}{b}$[span_19](start_span)[span_19](end_span)[span_20](start_span)[span_20](end_span).
+                $$\ln\left(\frac{a+b}{3}\right) = \frac{\ln a + \ln b}{2}$$[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span)
+                1) أثبت أن $\frac{1}{2}(\ln a + \ln b) = \ln\sqrt{ab}$[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span).<br>
+                2) استنتج أن $a + b = 3\sqrt{ab}$ ومن ثم $a^2 + b^2 - 7ab = 0$[span_12](start_span)[span_12](end_span)[span_13](start_span)[span_13](end_span).<br>
+                3) احسب قيمة النسبة $\frac{a}{b}$[span_14](start_span)[span_14](end_span)[span_15](start_span)[span_15](end_span).
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-img-ex1')">عرض الحل السلمي التفصيلي</button>
             <div class="solution-drawer" id="sol-img-ex1">
@@ -1210,16 +1170,16 @@
                 </div>
                 <div class="step-title">1) إثبات المطابقة بالخواص:</div>
                 بتطبيق خاصة تحويل مجموع اللوغاريتمات إلى لوغاريتم جداء وخواص القوى:
-                $$\frac{1}{2}(\ln a + \ln b) = \frac{1}{2}\ln(ab) = \ln\left((ab)^{1/2}\right) = \ln\sqrt{ab}$$[span_21](start_span)[span_21](end_span)
+                $$\frac{1}{2}(\ln a + \ln b) = \frac{1}{2}\ln(ab) = \ln\left((ab)^{1/2}\right) = \ln\sqrt{ab}$$[span_16](start_span)[span_16](end_span)
                 <div class="step-title" style="margin-top:14px;">2) إثبات العلاقة التربيعية:</div>
                 نعوض في العلاقة المعطاة:
-                $$\ln\left(\frac{a+b}{3}\right) = \ln\sqrt{ab}$$[span_22](start_span)[span_22](end_span)
+                $$\ln\left(\frac{a+b}{3}\right) = \ln\sqrt{ab}$$[span_17](start_span)[span_17](end_span)
                 وبما أن التابع اللوغاريتمي متباين (تقابل):
-                $$\frac{a+b}{3} = \sqrt{ab} \implies a+b = 3\sqrt{ab}$$[span_23](start_span)[span_23](end_span)
+                $$\frac{a+b}{3} = \sqrt{ab} \implies a+b = 3\sqrt{ab}$$[span_18](start_span)[span_18](end_span)
                 بتربيع الطرفين:
                 $$(a+b)^2 = (3\sqrt{ab})^2 \implies a^2 + 2ab + b^2 = 9ab$$
                 بطرح $9ab$ من الطرفين نجد:
-                $$a^2 - 7ab + b^2 = 0$$[span_24](start_span)[span_24](end_span)
+                $$a^2 - 7ab + b^2 = 0$$[span_19](start_span)[span_19](end_span)
                 <div class="step-title" style="margin-top:14px;">3) استنتاج وحساب قيمة النسبة $k = \frac{a}{b}$:</div>
                 نقسم طرفي المعادلة $a^2 - 7ab + b^2 = 0$ على المقدار غير المعدوم $b^2$ ($b > 0$):
                 $$\frac{a^2}{b^2} - 7\frac{ab}{b^2} + \frac{b^2}{b^2} = 0 \implies \left(\frac{a}{b}\right)^2 - 7\left(\frac{a}{b}\right) + 1 = 0$$
@@ -2042,7 +2002,6 @@ function checkMCQ(qId, optIdx, isCorrect) {
     }
 }
 
-// خيارات موحدة فائقة الوضوح لجميع الرسوم البيانية لتناسب مخ الطالب
 const studentChartOptions = (xTitle, yTitle, yMin, yMax) => ({
     responsive: true,
     maintainAspectRatio: false,
@@ -2078,7 +2037,6 @@ const studentChartOptions = (xTitle, yTitle, yMin, yMax) => ({
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. رسم f(x) = (1+2ln x)/x^2 مع المقارب الأفقي y=0
     const ctx1 = document.getElementById('chartVar1');
     if (ctx1) {
         const xV1 = [], yV1 = [], yAsym1 = [];
@@ -2100,7 +2058,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. رسم f(x) = (2+ln x)/(x+1) مع المقارب الأفقي y=0
     const ctx2 = document.getElementById('chartVar2');
     if (ctx2) {
         const xV2 = [], yV2 = [];
@@ -2121,7 +2078,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. رسم مسألة f(x) = x - 2 + ln x
     const ctxIVT = document.getElementById('chartVarIVT');
     if (ctxIVT) {
         const xVIVT = [], yVIVT = [];
@@ -2142,7 +2098,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. رسم f(x) = 1/(x(1-ln x)) مع المقارب الأفقي y=0
     const ctx3 = document.getElementById('chartVar3');
     if (ctx3) {
         const xV3 = [], yV3 = [];
@@ -2163,7 +2118,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. رسم f(x) = ln(x/(x-2)) مع المقارب الأفقي y=0
     const ctx4 = document.getElementById('chartVar4');
     if (ctx4) {
         const xV4 = [], yV4 = [];
@@ -2184,7 +2138,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. رسم المسألة 5 الجديدة f(x) = ln((x+1)/ln x)
     const ctxNew = document.getElementById('chartVarNew');
     if (ctxNew) {
         const xVNew = [], yVNew = [];
@@ -2204,7 +2157,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. رسم f(x) = x ln x
     const ctx5 = document.getElementById('chartVar5');
     if (ctx5) {
         const xV5 = [], yV5 = [];
@@ -2222,7 +2174,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. رسم f(x) = ln(x) / x^2 مع المقارب الأفقي y=0
     const ctx6 = document.getElementById('chartVar6');
     if (ctx6) {
         const xV6 = [], yV6 = [];
@@ -2243,7 +2194,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. رسم f(x) = (x+1)ln x
     const ctx7 = document.getElementById('chartVar7');
     if (ctx7) {
         const xV7 = [], yV7 = [];
@@ -2261,8 +2211,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 10. مجموعات نقاط المستوي الثلاث
-    // الحالة I
     const ctxC1 = document.getElementById('chartPtsCase1');
     if (ctxC1) {
         const xVals = [], yVals = [];
@@ -2292,7 +2240,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // الحالة II
     const ctxC2 = document.getElementById('chartPtsCase2');
     if (ctxC2) {
         const xVals = [], yVals = [], yAsymPts = [];
@@ -2314,7 +2261,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // الحالة III
     const ctxC3 = document.getElementById('chartPtsCase3');
     if (ctxC3) {
         const curvePoints = [];
