@@ -372,11 +372,16 @@
             direction: rtl;
         }
 
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
         table.var-grid {
             width: 100%;
             border-collapse: collapse;
             text-align: center;
-            margin: 16px 0;
             background: #0b0c0e;
             border: 1px solid #333842;
             direction: ltr !important;
@@ -386,12 +391,13 @@
             border: 1px solid #333842;
             padding: 9px;
             font-size: 14px;
+            white-space: nowrap;
         }
 
         table.var-grid th {
             background: #250606;
             color: var(--gold-primary);
-            width: 18%;
+            min-width: 130px;
         }
 
         .ar-txt {
@@ -746,11 +752,13 @@
                 $$f(1) = \frac{1 + 2\ln(1)}{1^2} = \frac{1 + 0}{1} = 1$$
                 وهي <b>قيمة كبرى محلياً</b>.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>1</td><td>$\searrow$</td><td>0</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>1</td><td>$\searrow$</td><td>0</td></tr>
+                    </table>
+                </div>
 
                 <div class="step-title" style="margin-top:16px;">3) تطبيق مبرهنة القيمة الوسطى على المجال المحدود $[0.5, \, 0.8]$:</div>
                 <div class="theorem-box">
@@ -800,11 +808,13 @@
                 بما أن $x > 0$ فإن $1+x > 0$ والمقام $x^2 > 0$، ومنه المشتق $g'(x) < 0$ تماماً على $]0, +\infty[$.<br>
                 إذن التابع $g$ متناقص تماماً على كامل المجال $]0, +\infty[$.<br>
                 جدول تغيرات التابع المساعد $g$:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$g'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td><td>-</td><td></td></tr>
-                    <tr><th>$g(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td><td>$\searrow$</td><td>$-\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$g'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td><td>-</td><td></td></tr>
+                        <tr><th>$g(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td><td>$\searrow$</td><td>$-\infty$</td></tr>
+                    </table>
+                </div>
 
                 <div class="step-title" style="margin-top:16px;">2) تطبيق مبرهنة الصورة على المجال غير المحدود $]0, +\infty[$:</div>
                 <div class="theorem-box">
@@ -839,11 +849,13 @@
                 $$f(1) = \frac{2 + \ln 1}{1+1} = \frac{2}{2} = 1$$
                 وهي <b>قيمة كبرى محلياً</b>.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>1</td><td>$\searrow$</td><td>0</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>1</td><td>$\searrow$</td><td>0</td></tr>
+                    </table>
+                </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \frac{2+\ln x}{x+1}$</span>
                     <span class="badge">قيمة كبرى محلياً (1, 1) | مقارب شاقولي $x=0$ يقع الخط يمينه | مقارب أفقي $y=0$</span>
@@ -888,11 +900,13 @@
                 بما أن $x > 0$ فإن $x+1 > 0$ والمقام موجب، إذن $f'(x) > 0$ تماماً على كامل المجال $]0, +\infty[$.<br>
                 فالتابع $f$ <b>متزايد تماماً</b> على $]0, +\infty[$.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                    </table>
+                </div>
 
                 <div class="step-title" style="margin-top:16px;">3) مبرهنة الصورة على المجال غير المحدود:</div>
                 <div class="theorem-box">
@@ -985,11 +999,13 @@
                 $$f'(x) < 0 \quad \forall x \in D_f$$
                 إذن التابع $f$ متناقص تماماً على كل من مجالي تعريفه.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>$-\infty$</td><td></td><td>-2</td><td style="background:#1a1c22"><span class="ar-txt">غير معرّف</span></td><td>0</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td></td><td>-</td><td style="background:#200505">||</td><td style="background:#1a1c22"><span class="ar-txt">غير معرّف</span></td><td style="background:#200505">||</td><td>-</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td style="background:#200505">|| $-\infty$</td><td style="background:#1a1c22"><span class="ar-txt">غير معرّف</span></td><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>-2</td><td style="background:#1a1c22"><span class="ar-txt">غير معرّف</span></td><td>0</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td></td><td>-</td><td style="background:#200505">||</td><td style="background:#1a1c22"><span class="ar-txt">غير معرّف</span></td><td style="background:#200505">||</td><td>-</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td style="background:#200505">|| $-\infty$</td><td style="background:#1a1c22"><span class="ar-txt">غير معرّف</span></td><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
+                    </table>
+                </div>
 
                 <div class="step-title" style="margin-top:14px;">5) إثبات المتتالية بالتدريج الرياضي:</div>
                 خطوات برهان التدريج مفصلة بالكامل في قسم المتتاليات والتبسيط وتؤكد صحة العلاقة أياً كان $n \ge 1$.
@@ -1007,12 +1023,12 @@
         <div class="exam-block">
             <div class="exam-question-title">مسألة 5 (100 درجة كاملة): دراسة تغيرات التابع $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ على $]1, +\infty[$ وحصر حل مبرهنة القيمة الوسطى</div>
             <div class="exam-paper-text">
-                ليكن $f$ التابع المعرف على المجال $I = ]1, +\infty[$ وفق: $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ وليكن $C_f$ خطه البياني[span_0](start_span)[span_0](end_span).<br>
-                وليكن التابع المساعد $g(x) = x\ln x - x - 1$ المعرف على $]1, +\infty[$[span_1](start_span)[span_1](end_span).<br>
+                ليكن $f$ التابع المعرف على المجال $I = ]1, +\infty[$ وفق: $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ وليكن $C_f$ خطه البياني.<br>
+                وليكن التابع المساعد $g(x) = x\ln x - x - 1$ المعرف على $]1, +\infty[$.<br>
                 <b>المطلوب تحريرياً:</b><br>
                 1) ادرس تغيرات التابع المساعد $g(x)$ على $]1, +\infty[$، وأثبت بحسب مبرهنة الصورة وجود جذر وحيد $\alpha$ للمعادلة $g(x) = 0$، ثم أثبت بحسب مبرهنة القيمة الوسطى أن $\alpha \in ]3.5, \, 3.6[$ واستنتج إشارة $g(x)$.<br>
-                2) احسب نهايات التابع $f$ عند أطراف مجاله $I$ بالتفصيل ومعادلات المقاربات وموقعها[span_2](start_span)[span_2](end_span).<br>
-                3) أثبت أن المشتق يعطى بالعلاقة: $f'(x) = \frac{g(x)}{x(x+1)\ln x}$ ثم نظم جدول تغيرات التابع $f$[span_3](start_span)[span_3](end_span).<br>
+                2) احسب نهايات التابع $f$ عند أطراف مجاله $I$ بالتفصيل ومعادلات المقاربات وموقعها.<br>
+                3) أثبت أن المشتق يعطى بالعلاقة: $f'(x) = \frac{g(x)}{x(x+1)\ln x}$ ثم نظم جدول تغيرات التابع $f$.<br>
                 4) ارسم في معلم متجانس الخط البياني $C_f$ ومقارباته.
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-new')">عرض الحل النموذجي السلمي المفصل</button>
@@ -1039,15 +1055,17 @@
                 • عند $+\infty$: $\lim_{x \to +\infty} \frac{x+1}{\ln x} = \lim_{x \to +\infty} \left[\frac{x}{\ln x} + \frac{1}{\ln x}\right] = +\infty + 0 = +\infty$ لأن مقلوب التزايد المقارن $\frac{x}{\ln x} \to +\infty$. ومنه $\lim_{x \to +\infty} f(x) = +\infty$.
 
                 <div class="step-title" style="margin-top:14px;">3) تفصيل المشتق وجدول التغيرات:</div>
-                نكتب التابع كفرق لوغاريتمين: $f(x) = \ln(x+1) - \ln(\ln x)$[span_4](start_span)[span_4](end_span):
-                $$f'(x) = \frac{1}{x+1} - \frac{\frac{1}{x}}{\ln x} = \frac{1}{x+1} - \frac{1}{x\ln x} = \frac{x\ln x - (x+1)}{x(x+1)\ln x} = \frac{x\ln x - x - 1}{x(x+1)\ln x} = \frac{g(x)}{x(x+1)\ln x}$$[span_5](start_span)[span_5](end_span)
+                نكتب التابع كفرق لوغاريتمين: $f(x) = \ln(x+1) - \ln(\ln x)$:
+                $$f'(x) = \frac{1}{x+1} - \frac{\frac{1}{x}}{\ln x} = \frac{1}{x+1} - \frac{1}{x\ln x} = \frac{x\ln x - (x+1)}{x(x+1)\ln x} = \frac{x\ln x - x - 1}{x(x+1)\ln x} = \frac{g(x)}{x(x+1)\ln x}$$
                 بما أن المقام $x(x+1)\ln x > 0$ تماماً لـ $x > 1$، فإن إشارة المشتق توافق إشارة $g(x)$ تماماً. ينعدم عند $\alpha \approx 3.59$ وتكون $f(\alpha)$ قيمة صغرى محلياً.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>1</td><td></td><td>$\alpha$</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>$f(\alpha)$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>1</td><td></td><td>$\alpha$</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>$f(\alpha)$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                    </table>
+                </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$</span>
                     <span class="badge">مقارب شاقولي $x=1$ | قيمة صغرى محلياً عند $(\alpha, f(\alpha))$</span>
@@ -1072,11 +1090,13 @@
                 • المشتق $f'(x) = 1 \cdot \ln x + (x+1) \cdot \frac{1}{x} = \ln x + 1 + \frac{1}{x} = g(x) > 0$ دوماً، فالتابع $f$ متزايد تماماً.<br>
                 • النهايات: $\lim_{x \to 0^+} f(x) = (0+1)(-\infty) = -\infty$ ($x = 0$ مقارب شاقولي يقع الخط يمينه)، و $\lim_{x \to +\infty} f(x) = (+\infty)(+\infty) = +\infty$.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>2</td><td>+</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>2</td><td>+</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                    </table>
+                </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = (x+1)\ln(x)$</span>
                     <span class="badge">متزايد تماماً | يقطع محور الفواصل عند النقطة (1, 0)</span>
@@ -1104,11 +1124,13 @@
                 $$f'(x) = \frac{-(1 - \ln x + x(-\frac{1}{x}))}{[x(1-\ln x)]^2} = \frac{-(1-\ln x - 1)}{x^2(1-\ln x)^2} = \frac{\ln x}{x^2(1-\ln x)^2}$$
                 ينعدم المشتق عند $\ln x = 0 \iff x = 1$، وقيمته الصغرى محلياً $f(1) = 1$.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>e</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td><td>+</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>1</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$ / $-\infty$</td><td>$\nearrow$</td><td>0</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>e</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td><td>+</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>1</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$ / $-\infty$</td><td>$\nearrow$</td><td>0</td></tr>
+                    </table>
+                </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني لـ $f(x) = \frac{1}{x(1-\ln x)}$ على المجال $]0, e[$</span>
                     <span class="badge">قيمة صغرى محلياً عند (1, 1) | مقاربان شاقوليان $x=0$ و $x=e$</span>
@@ -1123,11 +1145,13 @@
                 ينعدم المشتق عندما $\ln x = -1 \iff x = e^{-1} = \frac{1}{e}$.<br>
                 القيمة الصغرى محلياً: $f(1/e) = \frac{1}{e}\ln(e^{-1}) = -\frac{1}{e} \approx -0.368$.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>$1/e$</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td>$-1/e$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>$1/e$</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td>0</td><td>$\searrow$</td><td>$-1/e$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                    </table>
+                </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني لـ $f(x) = x\ln x$</span>
                     <span class="badge">قيمة صغرى محلياً عند $(e^{-1}, -e^{-1})$</span>
@@ -1146,11 +1170,13 @@
                 ينعدم المشتق عندما $1 - 2\ln x = 0 \iff \ln x = \frac{1}{2} \iff x = e^{1/2} = \sqrt{e}$.<br>
                 القيمة الكبرى محلياً: $f(\sqrt{e}) = \frac{\ln(e^{1/2})}{(\sqrt{e})^2} = \frac{1/2}{e} = \frac{1}{2e} \approx 0.184$.<br>
                 جدول التغيرات:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>$\sqrt{e}$</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>$\frac{1}{2e}$</td><td>$\searrow$</td><td>0</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>$\sqrt{e}$</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th>$f(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>$\frac{1}{2e}$</td><td>$\searrow$</td><td>0</td></tr>
+                    </table>
+                </div>
                 <div class="chart-caption-bar">
                     <span>التمثيل البياني لـ $f(x) = \frac{\ln x}{x^2}$ مع المقارب الأفقي $y=0$</span>
                     <span class="badge">قيمة كبرى محلياً عند $(\sqrt{e}, \frac{1}{2e})$ | مقارب أفقي $y=0$</span>
@@ -1172,10 +1198,10 @@
             <div class="exam-question-title">تمرين 1: حساب لوغاريتمي للنسبة $a/b$</div>
             <div class="exam-paper-text">
                 نفترض وجود عددين حقيقيين موجبين تماماً $a$ و $b$ يحققان العلاقة:
-                $$\ln\left(\frac{a+b}{3}\right) = \frac{\ln a + \ln b}{2}$$[span_6](start_span)[span_6](end_span)
-                1) أثبت أن $\frac{1}{2}(\ln a + \ln b) = \ln\sqrt{ab}$[span_7](start_span)[span_7](end_span).<br>
-                2) استنتج أن $a + b = 3\sqrt{ab}$ ومن ثم $a^2 + b^2 - 7ab = 0$[span_8](start_span)[span_8](end_span).<br>
-                3) احسب قيمة النسبة $\frac{a}{b}$[span_9](start_span)[span_9](end_span).
+                $$\ln\left(\frac{a+b}{3}\right) = \frac{\ln a + \ln b}{2}$$[span_0](start_span)[span_0](end_span)
+                1) أثبت أن $\frac{1}{2}(\ln a + \ln b) = \ln\sqrt{ab}$[span_1](start_span)[span_1](end_span).<br>
+                2) استنتج أن $a + b = 3\sqrt{ab}$ ومن ثم $a^2 + b^2 - 7ab = 0$[span_2](start_span)[span_2](end_span).<br>
+                3) احسب قيمة النسبة $\frac{a}{b}$[span_3](start_span)[span_3](end_span).
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-img-ex1')">عرض الحل السلمي التفصيلي</button>
             <div class="solution-drawer" id="sol-img-ex1">
@@ -1184,17 +1210,17 @@
                 </div>
                 <div class="step-title">1) إثبات المطابقة بالخواص:</div>
                 بتطبيق خاصة تحويل مجموع اللوغاريتمات إلى لوغاريتم جداء وخواص القوى:
-                $$\frac{1}{2}(\ln a + \ln b) = \frac{1}{2}\ln(ab) = \ln\left((ab)^{1/2}\right) = \ln\sqrt{ab}$$[span_10](start_span)[span_10](end_span)
+                $$\frac{1}{2}(\ln a + \ln b) = \frac{1}{2}\ln(ab) = \ln\left((ab)^{1/2}\right) = \ln\sqrt{ab}$$[span_4](start_span)[span_4](end_span)
                 <div class="step-title" style="margin-top:14px;">2) إثبات العلاقة التربيعية:</div>
                 نعوض في العلاقة المعطاة:
-                $$\ln\left(\frac{a+b}{3}\right) = \ln\sqrt{ab}$$[span_11](start_span)[span_11](end_span)
+                $$\ln\left(\frac{a+b}{3}\right) = \ln\sqrt{ab}$$[span_5](start_span)[span_5](end_span)
                 وبما أن التابع اللوغاريتمي متباين (تقابل):
-                $$\frac{a+b}{3} = \sqrt{ab} \implies a+b = 3\sqrt{ab}$$[span_12](start_span)[span_12](end_span)
+                $$\frac{a+b}{3} = \sqrt{ab} \implies a+b = 3\sqrt{ab}$$[span_6](start_span)[span_6](end_span)
                 بتربيع الطرفين:
                 $$(a+b)^2 = (3\sqrt{ab})^2 \implies a^2 + 2ab + b^2 = 9ab$$
                 بطرح $9ab$ من الطرفين نجد:
-                $$a^2 - 7ab + b^2 = 0$$[span_13](start_span)[span_13](end_span)
-                <div class="step-title" style="margin-top:14px;">3) استنتاج وحسب قيمة النسبة $t = \frac{a}{b}$:</div>
+                $$a^2 - 7ab + b^2 = 0$$[span_7](start_span)[span_7](end_span)
+                <div class="step-title" style="margin-top:14px;">3) استنتاج وحساب قيمة النسبة $t = \frac{a}{b}$:</div>
                 نقسم طرفي المعادلة $a^2 - 7ab + b^2 = 0$ على المقدار غير المعدوم $b^2$ ($b > 0$):
                 $$\frac{a^2}{b^2} - 7\frac{ab}{b^2} + \frac{b^2}{b^2} = 0 \implies \left(\frac{a}{b}\right)^2 - 7\left(\frac{a}{b}\right) + 1 = 0$$
                 نضع المجهول المساعد $t = \frac{a}{b} > 0$ فتتحول إلى معادلة تربيعية:
@@ -1212,8 +1238,8 @@
         <div class="exam-block">
             <div class="exam-question-title">تمرين 2: إثبات متراجحة $\ln x \le x - 1$ وحصر العدد النيبري $e$</div>
             <div class="exam-paper-text">
-                <b>1)</b> أثبت أنه أياً كان $x > 0$ فإن: $\ln x \le x - 1$[span_14](start_span)[span_14](end_span).<br>
-                <b>2)</b> باختيار $x = e^{1/3}$ و $x = e^{-1/3}$ احصر العدد $e$[span_15](start_span)[span_15](end_span).
+                1) أثبت أنه أياً كان $x > 0$ فإن: $\ln x \le x - 1$[span_8](start_span)[span_8](end_span)[span_9](start_span)[span_9](end_span).<br>
+                2) باختيار $x = e^{1/3}$ و $x = e^{-1/3}$ احصر العدد $e$[span_10](start_span)[span_10](end_span)[span_11](start_span)[span_11](end_span).
             </div>
             <button class="toggle-solution-btn" onclick="toggleSol('sol-img-ex2')">عرض الحل والبرهان السلمي</button>
             <div class="solution-drawer" id="sol-img-ex2">
@@ -1226,17 +1252,19 @@
                 - ينعدم المشتق عند $x = 1$.
                 - $h(1) = \ln(1) - 1 + 1 = 0$.
                 جدول تغيرات تابع الفرق $h(x)$:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\searrow$</td><td>$-\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\searrow$</td><td>$-\infty$</td></tr>
+                    </table>
+                </div>
                 نلاحظ من جدول التغيرات أن التابع $h$ يبلغ قيمة كبرى محلياً شاملة عند $x = 1$ هي $h(1) = 0$.<br>
                 إذن أياً كان $x > 0$ فإن:
-                $$h(x) \le 0 \implies \ln x - x + 1 \le 0 \implies \ln x \le x - 1$$[span_16](start_span)[span_16](end_span)
+                $$h(x) \le 0 \implies \ln x - x + 1 \le 0 \implies \ln x \le x - 1$$[span_12](start_span)[span_12](end_span)
 
                 <div class="step-title" style="margin-top:14px;">2) حصر العدد $e$ بالتعويض والكسور حصراً:</div>
-                • <b>نعوض أولاً $x = e^{1/3}$ في المتراجحة:</b>[span_17](start_span)[span_17](end_span)
+                • <b>نعوض أولاً $x = e^{1/3}$ في المتراجحة:</b>[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)
                 $$\ln\left(e^{1/3}\right) \le e^{1/3} - 1$$
                 $$\frac{1}{3} \le e^{1/3} - 1$$
                 نضيف $1$ إلى الطرفين:
@@ -1244,7 +1272,7 @@
                 بتكعيب الطرفين (تابع التكعيب متزايد تماماً على $\mathbb{R}$):
                 $$\left(\frac{4}{3}\right)^3 \le \left(e^{1/3}\right)^3 \implies \frac{64}{27} \le e$$
                 <br>
-                • <b>نعوض ثانياً $x = e^{-1/3}$ في المتراجحة:</b>[span_18](start_span)[span_18](end_span)
+                • <b>نعوض ثانياً $x = e^{-1/3}$ في المتراجحة:</b>[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)
                 $$\ln\left(e^{-1/3}\right) \le e^{-1/3} - 1$$
                 $$-\frac{1}{3} \le \frac{1}{e^{1/3}} - 1$$
                 نضيف $1$ إلى الطرفين:
@@ -1281,11 +1309,13 @@
                 قيمة التابع عند الصفر:
                 $$h(0) = 0 - \ln(0+1) = 0 - \ln(1) = 0$$
                 جدول اطراد التابع المساعد $h(x)$:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$h'(x)$</th><td>0</td><td>+</td><td></td></tr>
-                    <tr><th>$h(x)$</th><td>0</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$h'(x)$</th><td>0</td><td>+</td><td></td></tr>
+                        <tr><th>$h(x)$</th><td>0</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                    </table>
+                </div>
                 وبما أن القيمة الصغرى محلياً للتابع على المجال هي $h(0) = 0$ والتابع متزايد تماماً على $[0, +\infty[$، فإنه أياً كان $x > 0$:
                 $$x > 0 \implies h(x) > h(0) \implies x - \ln(x+1) > 0 \implies \ln(x+1) < x$$
                 وهو المطلوب إثباته.
@@ -1321,10 +1351,12 @@
                 بالمتحول المساعد $t = \ln x$ تصبح المتراجحة:
                 $$t^2 - 3t + 2 \le 0$$
                 جذرا ثلاثي الحدود هما $t_1 = 1$ و $t_2 = 2$. ندرس إشارة المقدار $P(t) = t^2 - 3t + 2$:
-                <table class="var-grid">
-                    <tr><th>$t$</th><td>$-\infty$</td><td></td><td>1</td><td></td><td>2</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>إشارة $t^2 - 3t + 2$</th><td></td><td>+</td><td>0</td><td>-</td><td>0</td><td>+</td><td></td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$t$</th><td>$-\infty$</td><td></td><td>1</td><td></td><td>2</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>إشارة $t^2 - 3t + 2$</th><td></td><td>+</td><td>0</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                    </table>
+                </div>
                 المتراجحة تطلب المقادير السالبة أو المعدومة ($\le 0$):
                 $$t \in [1, \, 2] \iff 1 \le t \le 2$$
                 نعيد تعويض $t = \ln x$:
@@ -1507,13 +1539,15 @@
                 <div class="step-title" style="margin-top:14px;">2) دراسة إشارة $P(x)$ وحل المتراجحة $P(x) \ge 0$:</div>
                 الجذور مرتبة تصاعدياً هي: $x = -2$ و $x = -1$ و $x = \frac{1}{2}$.<br>
                 جدول دراسة الإشارة:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>$-\infty$</td><td></td><td>-2</td><td></td><td>-1</td><td></td><td>1/2</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$x+2$</th><td></td><td>-</td><td>0</td><td>+</td><td>|</td><td>+</td><td>|</td><td>+</td><td></td></tr>
-                    <tr><th>$x+1$</th><td></td><td>-</td><td>|</td><td>-</td><td>0</td><td>+</td><td>|</td><td>+</td><td></td></tr>
-                    <tr><th>$2x-1$</th><td></td><td>-</td><td>|</td><td>-</td><td>|</td><td>-</td><td>0</td><td>+</td><td></td></tr>
-                    <tr><th>$P(x)$</th><td></td><td>-</td><td>0</td><td>+</td><td>0</td><td>-</td><td>0</td><td>+</td><td></td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>$-\infty$</td><td></td><td>-2</td><td></td><td>-1</td><td></td><td>1/2</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$x+2$</th><td></td><td>-</td><td>0</td><td>+</td><td>|</td><td>+</td><td>|</td><td>+</td><td></td></tr>
+                        <tr><th>$x+1$</th><td></td><td>-</td><td>|</td><td>-</td><td>0</td><td>+</td><td>|</td><td>+</td><td></td></tr>
+                        <tr><th>$2x-1$</th><td></td><td>-</td><td>|</td><td>-</td><td>|</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                        <tr><th>$P(x)$</th><td></td><td>-</td><td>0</td><td>+</td><td>0</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                    </table>
+                </div>
                 إذن مجموعة حلول المتراجحة $P(x) \ge 0$ هي:
                 $$S_1 = [-2, \, -1] \cup \left[\frac{1}{2}, \, +\infty\right[$$
 
@@ -1561,13 +1595,15 @@
                 - عندما $x \in ]1, +\infty[$: يكون $\ln x > 0 \implies -\ln x < 0 \implies h(x) < 0$، وبالتالي: <b>الخط $C_f$ يقع تحت المقارب $\Delta$</b>.<br>
                 - عند $x = 1$: يكون $h(1) = 0$، وبالتالي: <b>الخط $C_f$ يقطع المقارب $\Delta$ في النقطة المشتركة $(1, 2)$</b> لأن $y_{\Delta} = 2(1) = 2$.<br><br>
                 • <b>جدول إشارة الفرق والوضع النسبي بعبارات واضحة غير مقطوعة:</b>
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$-\ln x$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$x$</th><td style="background:#200505">||</td><td>+</td><td>|</td><td>+</td><td></td></tr>
-                    <tr><th>$h(x) = f(x) - y_{\Delta}$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">الخط $C_f$ يقع فوق المقارب $\Delta$</span></td><td><span class="ar-txt">نقطة التقاطع $(1, 2)$</span></td><td><span class="ar-txt">الخط $C_f$ يقع تحت المقارب $\Delta$</span></td><td></td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$-\ln x$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th>$x$</th><td style="background:#200505">||</td><td>+</td><td>|</td><td>+</td><td></td></tr>
+                        <tr><th>$h(x) = f(x) - y_{\Delta}$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">الخط $C_f$ يقع فوق المقارب $\Delta$</span></td><td><span class="ar-txt">نقطة التقاطع $(1, 2)$</span></td><td><span class="ar-txt">الخط $C_f$ يقع تحت المقارب $\Delta$</span></td><td></td></tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -1584,13 +1620,15 @@
                 $$h'(x) = \frac{2}{1-x^2} - 2 = \frac{2 - 2(1-x^2)}{1-x^2} = \frac{2x^2}{1-x^2}$$
                 بما أن $x \in ]-1, 1[$ فإن $1-x^2 > 0$ والبسط $2x^2 \ge 0$ ينعدم فقط عند $x = 0$. إذن $h$ متزايد تماماً وينعدم عند $x = 0$.<br>
                 • جدول اطراد وإشارة الفرق والوضع النسبي:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>-1</td><td></td><td>0</td><td></td><td>1</td></tr>
-                    <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
-                    <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$</td></tr>
-                    <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
-                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">الخط $C_f$ يقع تحت المماس $(T)$</span></td><td><span class="ar-txt">نقطة تماس في المبدأ $O(0, 0)$</span></td><td><span class="ar-txt">الخط $C_f$ يقع فوق المماس $(T)$</span></td><td style="background:#200505">||</td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>-1</td><td></td><td>0</td><td></td><td>1</td></tr>
+                        <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
+                        <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\nearrow$</td><td style="background:#200505">|| $+\infty$</td></tr>
+                        <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td style="background:#200505">||</td></tr>
+                        <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">الخط $C_f$ يقع تحت المماس $(T)$</span></td><td><span class="ar-txt">نقطة تماس في المبدأ $O(0, 0)$</span></td><td><span class="ar-txt">الخط $C_f$ يقع فوق المماس $(T)$</span></td><td style="background:#200505">||</td></tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -1608,13 +1646,15 @@
                 $$h'(x) = \frac{1}{x} - \frac{1}{x-2} = \frac{(x-2) - x}{x(x-2)} = \frac{-2}{x(x-2)}$$
                 بما أن $x > 2$ فإن $x(x-2) > 0$ والبسط سالب، فالفرق متناقص تماماً نحو الصفر، وقيمه دوماً موجبة تماماً ($h(x) > 0$).<br>
                 • جدول اطراد وإشارة الفرق:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>2</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td></tr>
-                    <tr><th>$h(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
-                    <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>+</td><td></td></tr>
-                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td colspan="2"><span class="ar-txt">الخط $C_f$ يقع بأكمله <b>فوق</b> المقارب $\Delta$</span></td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>2</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>-</td><td></td></tr>
+                        <tr><th>$h(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>0</td></tr>
+                        <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>+</td><td></td></tr>
+                        <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td colspan="2"><span class="ar-txt">الخط $C_f$ يقع بأكمله <b>فوق</b> المقارب $\Delta$</span></td></tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -1646,13 +1686,15 @@
                 ينعدم المشتق عند $x = 1$. وقيمة الفرق $h(1) = \ln(1) - (1-1) = 0$.<br>
                 وهي <b>قيمة كبرى محلياً</b>، وبالتالي $h(x) \le 0$ أياً كانت $x > 0$.<br>
                 جدول اطراد وإشارة الفرق والوضع النسبي:
-                <table class="var-grid">
-                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
-                    <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0 (قيمة كبرى محلياً)</td><td>$\searrow$</td><td>$-\infty$</td></tr>
-                    <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>-</td><td></td></tr>
-                    <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">الخط $C_f$ يقع تحت المماس $(T)$</span></td><td><span class="ar-txt">نقطة تماس $(1, 0)$</span></td><td><span class="ar-txt">الخط $C_f$ يقع تحت المماس $(T)$</span></td><td></td></tr>
-                </table>
+                <div class="table-wrapper">
+                    <table class="var-grid">
+                        <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                        <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0 (قيمة كبرى محلياً)</td><td>$\searrow$</td><td>$-\infty$</td></tr>
+                        <tr><th>إشارة $h(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>-</td><td></td></tr>
+                        <tr><th><span class="ar-txt">الوضع النسبي</span></th><td style="background:#200505">||</td><td><span class="ar-txt">الخط $C_f$ يقع تحت المماس $(T)$</span></td><td><span class="ar-txt">نقطة تماس $(1, 0)$</span></td><td><span class="ar-txt">الخط $C_f$ يقع تحت المماس $(T)$</span></td><td></td></tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -1764,7 +1806,7 @@
                 نأخذ نهاية نسبة التغير عندما $x \to 0^+$:
                 $$\lim_{x \to 0^+} \frac{f(x) - f(0)}{x - 0} = \lim_{x \to 0^+} \frac{1}{x - \ln x} = \frac{1}{0 - (-\infty)} = \frac{1}{+\infty} = 0$$
                 الناتج هو عدد حقيقي منتهٍ ($0$)، إذن التابع $f$ اشتقاقي عند الصفر من اليمين، والمشتق من اليمين هو: $f'_d(0) = 0$.<br>
-                <b>التفسير الهندسي:</b> يقبل الخط البياني $C_f$ في المبدأ $O(0, 0)$ <b>نصف مماس أفقي</b> (موازٍ لمحور الفواصل) ممتداً باتجاه اليمين.
+                <b>التفسير الهندسي:</b> يقبل الخط البياني $C_f$ في المبدأ $O(0, 0)$ <b>مماس أفقي</b> (موازٍ لمحور الفواصل) ممتداً باتجاه اليمين.
 
                 <div class="step-title" style="margin-top:14px;">3) إثبات المقارب الأفقي بجوار $+\infty$:</div>
                 نخرج $x$ عاملاً مشتركاً من المقام:
@@ -1799,7 +1841,7 @@
                 إذن التابع مستمر عند الصفر من اليمين.<br><br>
                 • <b>الاشتقاق عند الصفر من اليمين:</b>
                 $$\lim_{x \to 0^+} \frac{f(x) - f(0)}{x - 0} = \lim_{x \to 0^+} \frac{x^2(1 - \ln x)}{x} = \lim_{x \to 0^+} [x(1 - \ln x)] = \lim_{x \to 0^+} [x - x\ln x] = 0 - 0 = 0$$
-                التابع اشتقاقي عند الصفر من اليمين و $f'_d(0) = 0$. التفسير الهندسي: يقبل المنحني عند المبدأ نصف مماس أفقي منطبق على الاتجاه الموجب لمحور الفواصل.<br><br>
+                التابع اشتقاقي عند الصفر من اليمين و $f'_d(0) = 0$. التفسير الهندسي: يقبل المنحني عند المبدأ <b>مماس أفقي</b> منطبق على الاتجاه الموجب لمحور الفواصل.<br><br>
                 • <b>المماس عند $x = 1$:</b> $f(1) = 1^2(1 - 0) = 1$.<br>
                 المشتق لـ $x > 0$: $f'(x) = 2x(1 - \ln x) + x^2(-\frac{1}{x}) = 2x - 2x\ln x - x = x(1 - 2\ln x) \implies f'(1) = 1(1 - 0) = 1$.<br>
                 معادلة المماس: $(T): y = x$.<br>
