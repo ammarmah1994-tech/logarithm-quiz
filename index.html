@@ -92,20 +92,6 @@
             background: rgba(0, 0, 0, 0.6);
         }
 
-        .generator-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(46, 204, 113, 0.15);
-            border: 1.5px solid #2ecc71;
-            color: #2ecc71;
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 13.5px;
-            font-weight: 700;
-            direction: rtl;
-        }
-
         h1 {
             margin: 0;
             font-size: 24px;
@@ -521,36 +507,6 @@
             line-height: 1.6;
         }
 
-        /* تنسيق قسم مولد الأسئلة */
-        .gen-container {
-            background: #151821;
-            border: 2px dashed #2ecc71;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-
-        .gen-btn {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: #fff;
-            border: none;
-            padding: 9px 22px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 14px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
-            transition: all 0.2s ease;
-        }
-
-        .gen-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.45);
-        }
-
         @media print {
             body {
                 background: #ffffff !important;
@@ -568,7 +524,7 @@
                 border-color: #000 !important;
                 background: none !important;
             }
-            .generator-badge, .nav-bar, .print-btn, .toggle-solution-btn, .gen-btn {
+            .nav-bar, .print-btn, .toggle-solution-btn {
                 display: none !important;
             }
             .section-view {
@@ -605,9 +561,6 @@
 <header>
     <div class="header-top-row">
         <div class="brand-badge">ammar</div>
-        <div class="generator-badge">
-            ⚡ مولد أتمتة وزاري متجدد
-        </div>
     </div>
     <h1>البنك الوزاري الشامل للتابع اللوغاريتمي <span>(بكالوريا علمي - سوريا)</span></h1>
     <p class="header-sub">الأسئلة أولاً ثم الحلول التحريرية المفصلة، مبرهنة القيمة الوسطى، مبرهنة الصورة، جداول الفرق $h(x)$، الأتمتة، والمسائل الكبرى</p>
@@ -618,7 +571,7 @@
 
 <div class="nav-bar">
     <div class="nav-inner">
-        <button class="nav-tab-btn active" onclick="showTab(event, 'tab-mcq')">قسم الأتمتة والمولد الذكي</button>
+        <button class="nav-tab-btn active" onclick="showTab(event, 'tab-mcq')">قسم الأتمتة والأسئلة الموضوعية</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-variations')">مسائل الـ 100 علامة والتغيرات ومبرهنة القيمة الوسطى</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-unified-eq')">المعادلات والمتراجحات وجمل المعادلات (قسم موحد)</button>
         <button class="nav-tab-btn" onclick="showTab(event, 'tab-rel-pos-tables')">الأوضاع النسبية والمقاربات (مع دراسة إشارة الفرق $h$)</button>
@@ -630,21 +583,11 @@
 
 <div class="container">
 
-    <!-- ==================== تبويب الأتمتة والمولد الذكي ==================== -->
+    <!-- ==================== تبويب الأتمتة ==================== -->
     <div id="tab-mcq" class="section-view active">
         <div class="section-header">
-            <h2>قسم الأتمتة: تدريبات بنك الأسئلة الموضوعية والمولد الذكي</h2>
+            <h2>قسم الأتمتة: تدريبات بنك الأسئلة الموضوعية الوزارية</h2>
             <span class="tag-pill">اختيار من متعدد تفاعلي</span>
-        </div>
-
-        <!-- مولد الأسئلة الديناميكي المتجدد -->
-        <div class="gen-container">
-            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
-                <b style="color:var(--gold-primary); font-size:16px;">🔄 مولد أسئلة الأتمتة المتجددة (تدريب غير منتهي):</b>
-                <button class="gen-btn" onclick="generateNewQuestion()">⚡ توليد سؤال جديد عشوائي</button>
-            </div>
-            <p style="color:var(--text-muted); font-size:13.5px; margin:0 0 14px 0;">توليد مسائل فورية بأرقام متغيرة تغطي مجالات التعريف، مقارنة القوى، والنهايات اللوغاريتمية وفق معايير المنهاج.</p>
-            <div id="dynamic-question-box"></div>
         </div>
 
         <div class="mcq-question" id="mcq-cmp">
@@ -1013,13 +956,18 @@
                 $$\lim_{x \to 0^+} f(x) = \lim_{t \to +\infty} \ln(t) = +\infty$$
                 المستقيم $x = 0$ مقارب شاقولي للخط $C_f$ يقع الخط عن يمينه.
 
-                <div class="step-title" style="margin-top:14px;">3) إثبات مركز التناظر $I(a, b) = I(-1, 0)$ بالتفصيل الرياضي للشرطين:</div>
-                لتكون النقطة $I(-1, 0)$ مركز تناظر للخط البياني $C_f$ يجب إثبات شرطين دستور مركز التناظر ($a = -1, b = 0$):<br>
-                <b>الشرط الأول: إثبات أن $x \in D_f \implies (2a - x) \in D_f$ أي $(-2 - x) \in D_f$:</b><br>
-                • لتكن $x \in D_f = ]-\infty, -2[ \cup ]0, +\infty[$:<br>
-                - إذا كان $x \in ]-\infty, -2[ \implies x < -2 \implies -x > 2 \implies -2 - x > 0 \implies (-2 - x) \in ]0, +\infty[ \subset D_f$.<br>
-                - إذا كان $x \in ]0, +\infty[ \implies x > 0 \implies -x < 0 \implies -2 - x < -2 \implies (-2 - x) \in ]-\infty, -2[ \subset D_f$.<br>
-                إذن في كلتا الحالتين، أياً كان $x \in D_f$ فإن $(-2 - x) \in D_f$ والشرط الأول محقق تماماً.<br><br>
+                <div class="step-title" style="margin-top:14px;">3) إثبات مركز التناظر $I(a, b) = I(-1, 0)$ بصياغة المجالين معاً:</div>
+                لتكون النقطة $I(-1, 0)$ مركز تناظر للخط البياني $C_f$ يجب إثبات شرطي مركز التناظر ($a = -1, b = 0$):<br>
+                <b>الشرط الأول: إثبات أن أياً كان $x \in D_f$ فإن $(2a - x) \in D_f$ أي $(-2 - x) \in D_f$ للمجالين معاً:</b><br>
+                لدينا مجموعة التعريف متناظرة حول الفاصلة $-1$ لأن:
+                $$x \in ]-\infty, -2[ \cup ]0, +\infty[ \iff (x < -2 \quad \text{أو} \quad x > 0)$$
+                بضرب طرفي المتراجحتين بالعدد $(-1)$ تنقلب جهتا التراجح:
+                $$\iff (-x > 2 \quad \text{أو} \quad -x < 0)$$
+                بطرح العدد $2$ من كافة الأطراف:
+                $$\iff (-2 - x > 0 \quad \text{أو} \quad -2 - x < -2)$$
+                وهذا يكافئ تماماً بحسب تعريف الاجتماع:
+                $$\iff (-2 - x) \in ]0, +\infty[ \cup ]-\infty, -2[ = D_f$$
+                إذن الشرط الأول محقق بالتمام لكلا مجالي التعريف معاً.<br><br>
                 <b>الشرط الثاني: إثبات أن $f(2a - x) + f(x) = 2b$ أي $f(-2 - x) + f(x) = 0$:</b><br>
                 نحسب $f(-2 - x)$:
                 $$f(-2 - x) = \ln\left( \frac{(-2 - x) + 2}{-2 - x} \right) = \ln\left( \frac{-x}{-(x + 2)} \right) = \ln\left( \frac{x}{x + 2} \right)$$
@@ -1057,7 +1005,60 @@
 
         <!-- مسألة 5 -->
         <div class="exam-block">
-            <div class="exam-question-title">مسألة 5: التابع $f(x) = (x+1)\ln(x)$ والتابع المساعد $g(x) = \frac{x\ln x + x + 1}{x}$</div>
+            <div class="exam-question-title">مسألة 5 (100 درجة كاملة): دراسة تغيرات التابع $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ على $]1, +\infty[$ وحصر حل مبرهنة القيمة الوسطى</div>
+            <div class="exam-paper-text">
+                ليكن $f$ التابع المعرف على المجال $I = ]1, +\infty[$ وفق: $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$ وليكن $C_f$ خطه البياني[span_0](start_span)[span_0](end_span).<br>
+                وليكن التابع المساعد $g(x) = x\ln x - x - 1$ المعرف على $]1, +\infty[$[span_1](start_span)[span_1](end_span).<br>
+                <b>المطلوب تحريرياً:</b><br>
+                1) ادرس تغيرات التابع المساعد $g(x)$ على $]1, +\infty[$، وأثبت بحسب مبرهنة الصورة وجود جذر وحيد $\alpha$ للمعادلة $g(x) = 0$، ثم أثبت بحسب مبرهنة القيمة الوسطى أن $\alpha \in ]3.5, \, 3.6[$ واستنتج إشارة $g(x)$.<br>
+                2) احسب نهايات التابع $f$ عند أطراف مجاله $I$ بالتفصيل ومعادلات المقاربات وموقعها[span_2](start_span)[span_2](end_span).<br>
+                3) أثبت أن المشتق يعطى بالعلاقة: $f'(x) = \frac{g(x)}{x(x+1)\ln x}$ ثم نظم جدول تغيرات التابع $f$[span_3](start_span)[span_3](end_span).<br>
+                4) ارسم في معلم متجانس الخط البياني $C_f$ ومقارباته.
+            </div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-var-100-new')">عرض الحل النموذجي السلمي المفصل</button>
+            <div class="solution-drawer" id="sol-var-100-new">
+                <div class="step-title">1) دراسة التابع المساعد ومبرهنتا الصورة والقيمة الوسطى:</div>
+                • $\lim_{x \to 1^+} g(x) = 1\ln(1) - 1 - 1 = 0 - 2 = -2$.<br>
+                • $\lim_{x \to +\infty} g(x) = \lim_{x \to +\infty} [x(\ln x - 1) - 1] = (+\infty)(+\infty) - 1 = +\infty$.<br>
+                • المشتق: $g'(x) = 1 \cdot \ln x + x \cdot \frac{1}{x} - 1 = \ln x + 1 - 1 = \ln x$. بما أن $x > 1 \implies \ln x > 0 \implies g'(x) > 0$. فالتابع $g$ متزايد تماماً على $]1, +\infty[$.<br>
+                <div class="theorem-box">
+                    <b>مبرهنة الصورة على المجال $]1, +\infty[$:</b><br>
+                    التابع $g$ مستمر ومتزايد تماماً على $]1, +\infty[$ وصورة المجال:
+                    $$g(]1, +\infty[) = \left] \lim_{x \to 1^+} g(x), \, \lim_{x \to +\infty} g(x) \right[ = ]-2, +\infty[$$
+                    بما أن $0 \in ]-2, +\infty[$، فإنه بحسب مبرهنة الصورة تقبل المعادلة $g(x) = 0$ حلاً وحيداً $\alpha \in ]1, +\infty[$.<br>
+                    <b>مبرهنة القيمة الوسطى لحصر الحل في $]3.5, 3.6[$:</b><br>
+                    • التابع مستمر ومتزايد تماماً على المجال $[3.5, 3.6]$.<br>
+                    • $g(3.5) = 3.5\ln(3.5) - 3.5 - 1 \approx 3.5(1.2527) - 4.5 = 4.3847 - 4.5 = -0.1153 < 0$.<br>
+                    • $g(3.6) = 3.6\ln(3.6) - 3.6 - 1 \approx 3.6(1.2809) - 4.6 = 4.6113 - 4.6 = +0.0113 > 0$.<br>
+                    بما أن $g(3.5) \cdot g(3.6) < 0$، فبحسب مبرهنة القيمة الوسطى يقع الجذر في المجال المفتوح $]3.5, 3.6[$.<br>
+                    <b>إشارة $g(x)$:</b> سالبة على $]1, \alpha[$ وموجبة على $]\alpha, +\infty[$ وتنعدم عند $\alpha$.
+                </div>
+
+                <div class="step-title" style="margin-top:14px;">2) حساب النهايات والمقاربات بالتفصيل:</div>
+                • عند $1^+$: البسط $x+1 \to 2$ والمقام $\ln x \to 0^+$. الكسر يسعى لـ $+\infty$ ومنه $\lim_{x \to 1^+} f(x) = +\infty$. المستقيم $x = 1$ مقارب شاقولي يقع الخط يمينه.<br>
+                • عند $+\infty$: $\lim_{x \to +\infty} \frac{x+1}{\ln x} = \lim_{x \to +\infty} \left[\frac{x}{\ln x} + \frac{1}{\ln x}\right] = +\infty + 0 = +\infty$ لأن مقلوب التزايد المقارن $\frac{x}{\ln x} \to +\infty$. ومنه $\lim_{x \to +\infty} f(x) = +\infty$.
+
+                <div class="step-title" style="margin-top:14px;">3) تفصيل المشتق وجدول التغيرات:</div>
+                نكتب التابع كفرق لوغاريتمين: $f(x) = \ln(x+1) - \ln(\ln x)$[span_4](start_span)[span_4](end_span):
+                $$f'(x) = \frac{1}{x+1} - \frac{\frac{1}{x}}{\ln x} = \frac{1}{x+1} - \frac{1}{x\ln x} = \frac{x\ln x - (x+1)}{x(x+1)\ln x} = \frac{x\ln x - x - 1}{x(x+1)\ln x} = \frac{g(x)}{x(x+1)\ln x}$$[span_5](start_span)[span_5](end_span)
+                بما أن المقام $x(x+1)\ln x > 0$ تماماً لـ $x > 1$، فإن إشارة المشتق توافق إشارة $g(x)$ تماماً. ينعدم عند $\alpha \approx 3.59$ وتكون $f(\alpha)$ قيمة صغرى محلياً.<br>
+                جدول التغيرات:
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>1</td><td></td><td>$\alpha$</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$f'(x)$</th><td style="background:#200505">||</td><td>-</td><td>0</td><td>+</td><td></td></tr>
+                    <tr><th>$f(x)$</th><td style="background:#200505">|| $+\infty$</td><td>$\searrow$</td><td>$f(\alpha)$</td><td>$\nearrow$</td><td>$+\infty$</td></tr>
+                </table>
+                <div class="chart-caption-bar">
+                    <span>التمثيل البياني للخط $C_f$ للتابع $f(x) = \ln\left(\frac{x+1}{\ln x}\right)$</span>
+                    <span class="badge">مقارب شاقولي $x=1$ | قيمة صغرى محلياً عند $(\alpha, f(\alpha))$</span>
+                </div>
+                <div class="chart-box"><canvas id="chartVarNew"></canvas></div>
+            </div>
+        </div>
+
+        <!-- مسألة 6 -->
+        <div class="exam-block">
+            <div class="exam-question-title">مسألة 6: التابع $f(x) = (x+1)\ln(x)$ والتابع المساعد $g(x) = \frac{x\ln x + x + 1}{x}$</div>
             <div class="exam-paper-text">
                 ليكن $f(x) = (x+1)\ln(x)$ و $g(x) = \frac{x\ln x + x + 1}{x}$.<br>
                 1) ادرس اطراد التابع $g$ ثم استنتج أن $g(x) > 0$.<br>
@@ -1086,9 +1087,9 @@
             </div>
         </div>
 
-        <!-- مسألة 6 -->
+        <!-- مسألة 7 -->
         <div class="exam-block">
-            <div class="exam-question-title">مسألة 6: دراسة تغيرات ورسم الحالات: $f(x) = \frac{1}{x(1-\ln x)}$ و $f(x) = x\ln x$ و $f(x) = \frac{\ln x}{x^2}$ مع التبسيط السلمي المعتمد</div>
+            <div class="exam-question-title">مسألة 7: دراسة تغيرات ورسم الحالات: $f(x) = \frac{1}{x(1-\ln x)}$ و $f(x) = x\ln x$ و $f(x) = \frac{\ln x}{x^2}$ مع التبسيط السلمي المعتمد</div>
             <div class="exam-paper-text">
                 دراسة تفصيلية ورسم بياني لكل تابع من التوابع الثلاثة مع المقاربات وجداول التغيرات كاملة.
             </div>
@@ -1168,7 +1169,99 @@
 
         <!-- تمرين 1 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 1: إثبات صحة المتراجحة اللوغاريتمية بالاعتماد على دراسة الاطراد التام</div>
+            <div class="exam-question-title">تمرين 1: حساب لوغاريتمي للنسبة $a/b$</div>
+            <div class="exam-paper-text">
+                نفترض وجود عددين حقيقيين موجبين تماماً $a$ و $b$ يحققان العلاقة:
+                $$\ln\left(\frac{a+b}{3}\right) = \frac{\ln a + \ln b}{2}$$[span_6](start_span)[span_6](end_span)
+                1) أثبت أن $\frac{1}{2}(\ln a + \ln b) = \ln\sqrt{ab}$[span_7](start_span)[span_7](end_span).<br>
+                2) استنتج أن $a + b = 3\sqrt{ab}$ ومن ثم $a^2 + b^2 - 7ab = 0$[span_8](start_span)[span_8](end_span).<br>
+                3) احسب قيمة النسبة $\frac{a}{b}$[span_9](start_span)[span_9](end_span).
+            </div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-img-ex1')">عرض الحل السلمي التفصيلي</button>
+            <div class="solution-drawer" id="sol-img-ex1">
+                <div class="condition-box">
+                    <b>شرط الحل والوجود:</b> العددان موجبان تماماً: $a > 0$ و $b > 0$. ومنه فإن $\frac{a+b}{3} > 0$ واللوغاريتمات معرفة تماماً.
+                </div>
+                <div class="step-title">1) إثبات المطابقة بالخواص:</div>
+                بتطبيق خاصة تحويل مجموع اللوغاريتمات إلى لوغاريتم جداء وخواص القوى:
+                $$\frac{1}{2}(\ln a + \ln b) = \frac{1}{2}\ln(ab) = \ln\left((ab)^{1/2}\right) = \ln\sqrt{ab}$$[span_10](start_span)[span_10](end_span)
+                <div class="step-title" style="margin-top:14px;">2) إثبات العلاقة التربيعية:</div>
+                نعوض في العلاقة المعطاة:
+                $$\ln\left(\frac{a+b}{3}\right) = \ln\sqrt{ab}$$[span_11](start_span)[span_11](end_span)
+                وبما أن التابع اللوغاريتمي متباين (تقابل):
+                $$\frac{a+b}{3} = \sqrt{ab} \implies a+b = 3\sqrt{ab}$$[span_12](start_span)[span_12](end_span)
+                بتربيع الطرفين:
+                $$(a+b)^2 = (3\sqrt{ab})^2 \implies a^2 + 2ab + b^2 = 9ab$$
+                بطرح $9ab$ من الطرفين نجد:
+                $$a^2 - 7ab + b^2 = 0$$[span_13](start_span)[span_13](end_span)
+                <div class="step-title" style="margin-top:14px;">3) استنتاج وحسب قيمة النسبة $t = \frac{a}{b}$:</div>
+                نقسم طرفي المعادلة $a^2 - 7ab + b^2 = 0$ على المقدار غير المعدوم $b^2$ ($b > 0$):
+                $$\frac{a^2}{b^2} - 7\frac{ab}{b^2} + \frac{b^2}{b^2} = 0 \implies \left(\frac{a}{b}\right)^2 - 7\left(\frac{a}{b}\right) + 1 = 0$$
+                نضع المجهول المساعد $t = \frac{a}{b} > 0$ فتتحول إلى معادلة تربيعية:
+                $$t^2 - 7t + 1 = 0$$
+                نحسب المميز $\Delta$:
+                $$\Delta = (-7)^2 - 4(1)(1) = 49 - 4 = 45 > 0$$
+                جذرا المعادلة هما:
+                $$t = \frac{7 \pm \sqrt{45}}{2} = \frac{7 \pm 3\sqrt{5}}{2}$$
+                بما أن كلا الجذرين موجب تماماً ($7 > 3\sqrt{5} = \sqrt{45}$ لأن $49 > 45$), فإن قيمتي النسبة هما:
+                <div class="ans-badge">$\frac{a}{b} = \frac{7 + 3\sqrt{5}}{2} \quad \text{أو} \quad \frac{a}{b} = \frac{7 - 3\sqrt{5}}{2}$</div>
+            </div>
+        </div>
+
+        <!-- تمرين 2 -->
+        <div class="exam-block">
+            <div class="exam-question-title">تمرين 2: إثبات متراجحة $\ln x \le x - 1$ وحصر العدد النيبري $e$</div>
+            <div class="exam-paper-text">
+                <b>1)</b> أثبت أنه أياً كان $x > 0$ فإن: $\ln x \le x - 1$[span_14](start_span)[span_14](end_span).<br>
+                <b>2)</b> باختيار $x = e^{1/3}$ و $x = e^{-1/3}$ احصر العدد $e$[span_15](start_span)[span_15](end_span).
+            </div>
+            <button class="toggle-solution-btn" onclick="toggleSol('sol-img-ex2')">عرض الحل والبرهان السلمي</button>
+            <div class="solution-drawer" id="sol-img-ex2">
+                <div class="step-title">1) إثبات المتراجحة بدراسة اطراد تابع الفرق:</div>
+                نعرف تابع الفرق المساعد $h$ على المجال $]0, +\infty[$ وفق:
+                $$h(x) = \ln x - (x - 1) = \ln x - x + 1$$
+                التابع $h$ اشتقاقي على $]0, +\infty[$ ومشتقه:
+                $$h'(x) = \frac{1}{x} - 1 = \frac{1-x}{x}$$
+                بما أن المقام $x > 0$، فإن إشارة المشتق توافق إشارة البسط $1-x$:
+                - ينعدم المشتق عند $x = 1$.
+                - $h(1) = \ln(1) - 1 + 1 = 0$.
+                جدول تغيرات تابع الفرق $h(x)$:
+                <table class="var-grid">
+                    <tr><th>$x$</th><td>0</td><td></td><td>1</td><td></td><td>$+\infty$</td></tr>
+                    <tr><th>$h'(x)$</th><td style="background:#200505">||</td><td>+</td><td>0</td><td>-</td><td></td></tr>
+                    <tr><th>$h(x)$</th><td style="background:#200505">|| $-\infty$</td><td>$\nearrow$</td><td>0</td><td>$\searrow$</td><td>$-\infty$</td></tr>
+                </table>
+                نلاحظ من جدول التغيرات أن التابع $h$ يبلغ قيمة كبرى محلياً شاملة عند $x = 1$ هي $h(1) = 0$.<br>
+                إذن أياً كان $x > 0$ فإن:
+                $$h(x) \le 0 \implies \ln x - x + 1 \le 0 \implies \ln x \le x - 1$$[span_16](start_span)[span_16](end_span)
+
+                <div class="step-title" style="margin-top:14px;">2) حصر العدد $e$ بالتعويض والكسور حصراً:</div>
+                • <b>نعوض أولاً $x = e^{1/3}$ في المتراجحة:</b>[span_17](start_span)[span_17](end_span)
+                $$\ln\left(e^{1/3}\right) \le e^{1/3} - 1$$
+                $$\frac{1}{3} \le e^{1/3} - 1$$
+                نضيف $1$ إلى الطرفين:
+                $$\frac{1}{3} + 1 \le e^{1/3} \implies \frac{4}{3} \le e^{1/3}$$
+                بتكعيب الطرفين (تابع التكعيب متزايد تماماً على $\mathbb{R}$):
+                $$\left(\frac{4}{3}\right)^3 \le \left(e^{1/3}\right)^3 \implies \frac{64}{27} \le e$$
+                <br>
+                • <b>نعوض ثانياً $x = e^{-1/3}$ في المتراجحة:</b>[span_18](start_span)[span_18](end_span)
+                $$\ln\left(e^{-1/3}\right) \le e^{-1/3} - 1$$
+                $$-\frac{1}{3} \le \frac{1}{e^{1/3}} - 1$$
+                نضيف $1$ إلى الطرفين:
+                $$-\frac{1}{3} + 1 \le \frac{1}{e^{1/3}} \implies \frac{2}{3} \le \frac{1}{e^{1/3}}$$
+                نأخذ مقلوب الطرفين الموجبين (فتنقلب جهة التراجح):
+                $$e^{1/3} \le \frac{3}{2}$$
+                بتكعيب الطرفين:
+                $$\left(e^{1/3}\right)^3 \le \left(\frac{3}{2}\right)^3 \implies e \le \frac{27}{8}$$
+                <br>
+                من المتراجحتين السابقتين نجد حصر العدد $e$ بالكسور حصراً:
+                <div class="ans-badge">$$\frac{64}{27} \le e \le \frac{27}{8}$$</div>
+            </div>
+        </div>
+
+        <!-- تمرين 3 -->
+        <div class="exam-block">
+            <div class="exam-question-title">تمرين 3: إثبات صحة المتراجحة اللوغاريتمية بالاعتماد على دراسة الاطراد التام</div>
             <div class="exam-paper-text">
                 <b>المطلوب:</b> أثبت أنه أياً كان $x > 0$ فإن: $\ln(x+1) < x$ بالاعتماد على دراسة اطراد تابع مساعد مناسب.
             </div>
@@ -1199,9 +1292,9 @@
             </div>
         </div>
 
-        <!-- تمرين 2 -->
+        <!-- تمرين 4 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 2: معادلة ومتراجحة من الدرجة الثانية بالنسبة لـ $\ln x$ (مع المتحول $t$ وجدول الإشارة)</div>
+            <div class="exam-question-title">تمرين 4: معادلة ومتراجحة من الدرجة الثانية بالنسبة لـ $\ln x$ (مع المتحول $t$ وجدول الإشارة)</div>
             <div class="exam-paper-text">
                 <b>المطلوب 1:</b> حل في $\mathbb{R}$ المعادلة: $\ln^2(x) - 3\ln(x) + 2 = 0$.<br>
                 <b>المطلوب 2:</b> حل في $\mathbb{R}$ المتراجحة: $\ln^2(x) - 3\ln(x) + 2 \le 0$.
@@ -1243,9 +1336,9 @@
             </div>
         </div>
 
-        <!-- تمرين 3 -->
+        <!-- تمرين 5 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 3: المعادلة اللوغاريتمية الجذرية وتطبيق خواص القوى</div>
+            <div class="exam-question-title">تمرين 5: المعادلة اللوغاريتمية الجذرية وتطبيق خواص القوى</div>
             <div class="exam-paper-text">
                 حل في $\mathbb{R}$ المعادلة: $\ln\sqrt{2x-3} = \ln(6-x) - \frac{1}{2}\ln x$.
             </div>
@@ -1275,9 +1368,9 @@
             </div>
         </div>
 
-        <!-- تمرين 4 -->
+        <!-- تمرين 6 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 4: معادلات القيمة المطلقة اللوغاريتمية الثلاث</div>
+            <div class="exam-question-title">تمرين 6: معادلات القيمة المطلقة اللوغاريتمية الثلاث</div>
             <div class="exam-paper-text">
                 <b>1)</b> $\ln|2x+3| + \ln|x-1| = 2\ln|x|$<br>
                 <b>2)</b> $\ln|x-2| + \ln(x+4) = 3\ln(4)$<br>
@@ -1317,9 +1410,9 @@
             </div>
         </div>
 
-        <!-- تمرين 5 -->
+        <!-- تمرين 7 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 5: المتراجحة اللوغاريتمية الكسرية ومتراجحات الأس الطبيعي $n$</div>
+            <div class="exam-question-title">تمرين 7: المتراجحة اللوغاريتمية الكسرية ومتراجحات الأس الطبيعي $n$</div>
             <div class="exam-paper-text">
                 <b>1)</b> حل في $\mathbb{R}$ المتراجحة الكسرية: $\frac{\ln(2x) - 1}{\ln(x)} \ge 0$.<br>
                 <b>2)</b> أوجد قيم $n \in \mathbb{N}$ المحققة لـ: $2^n \le 100$ و $\left(\frac{2}{3}\right)^n > 10^{-3}$.
@@ -1347,9 +1440,9 @@
             </div>
         </div>
 
-        <!-- تمرين 6 -->
+        <!-- تمرين 8 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 6: جمل المعادلات اللوغاريتمية (طريقة الخواص وطريقة تغيير المتحول)</div>
+            <div class="exam-question-title">تمرين 8: جمل المعادلات اللوغاريتمية (طريقة الخواص وطريقة تغيير المتحول)</div>
             <div class="exam-paper-text">
                 <b>الجملة الأولى (تحل بالخواص وإرجاعها لمجموع وجداء):</b>
                 $$\begin{cases} x + y = 30 \\ \ln(x) + \ln(y) = 2\ln 3 + \ln 25 \end{cases}$$
@@ -1378,9 +1471,9 @@
             </div>
         </div>
 
-        <!-- تمرين 7 -->
+        <!-- تمرين 9 -->
         <div class="exam-block">
-            <div class="exam-question-title">تمرين 7: تحليل كثير الحدود $P(x)$ بالقسمة الإقليدية وربطه بالمتراجحة اللوغاريتمية</div>
+            <div class="exam-question-title">تمرين 9: تحليل كثير الحدود $P(x)$ بالقسمة الإقليدية وربطه بالمتراجحة اللوغاريتمية</div>
             <div class="exam-paper-text">
                 ليكن كثير الحدود $P(x) = 2x^3 + 5x^2 + x - 2$.<br>
                 1) تحقق أن $(-1)$ جذر لـ $P(x)$ وحلل $P(x)$ إلى جداء عوامل بإجراء القسمة الإقليدية تفصيلاً.<br>
@@ -1907,110 +2000,6 @@ function checkMCQ(qId, optIdx, isCorrect) {
     }
 }
 
-// ==================== محرك مولد أسئلة الأتمتة التفاعلي ====================
-let dynCurrentQuestion = null;
-
-function generateNewQuestion() {
-    const types = ['domain_sq', 'compare_pow', 'limit_basic', 'quadratic_ln'];
-    const selectedType = types[Math.floor(Math.random() * types.length)];
-    const box = document.getElementById('dynamic-question-box');
-    let qData = {};
-
-    if (selectedType === 'domain_sq') {
-        const a = Math.floor(Math.random() * 7) + 2;
-        qData = {
-            title: `مجموعة تعريف التابع $f(x) = \\ln\\left((x - ${a})^2\\right)$ هي:`,
-            options: [
-                `$]${a}, +\\infty[$`,
-                `$\\mathbb{R} \\setminus \\{${a}\\}$`,
-                `$[${a}, +\\infty[$`,
-                `$\\mathbb{R}$ كاملاً`
-            ],
-            correct: 1,
-            solution: `يشترط أن يكون ما داخل اللوغاريتم موجباً تماماً: $(x - ${a})^2 > 0$. المربع موجب دوماً لجميع الأعداد الحقيقية عدا القيمة التي تعدمه: $x - ${a} \\ne 0 \\iff x \\ne ${a}$. إذن المجموعة هي: $\\mathbb{R} \\setminus \\{${a}\\}$.`
-        };
-    } else if (selectedType === 'compare_pow') {
-        const k = Math.floor(Math.random() * 3) + 2;
-        qData = {
-            title: `قارن بين المقدارين $A = \\ln^3\\left(\\frac{1}{e^{${k}}}\\right)$ و $B = \\ln\\left[\\left(\\frac{1}{e^{${k}}}\\right)^3\\right]$:`,
-            options: [
-                `$A > B$`,
-                `$A = B$`,
-                `$A < B$ (أي $B > A$)`,
-                `المقداران غير معرفين`
-            ],
-            correct: 2,
-            solution: `• $A = [\\ln(e^{-${k}})]^3 = (-${k})^3 = -${k*k*k}$.<br>• $B = 3\\ln(e^{-${k}}) = 3(-${k}) = -${3*k}$.<br>بما أن $-${3*k} > -${k*k*k}$ فإن $B > A$ أي $A < B$.`
-        };
-    } else if (selectedType === 'limit_basic') {
-        const a = Math.floor(Math.random() * 5) + 2;
-        qData = {
-            title: `قيمة النهاية $\\lim_{x \\to +\\infty} \\frac{\\ln(x)}{x^{${a}}}$ تساوي:`,
-            options: [
-                `$+\\infty$`,
-                `$1$`,
-                `$0$`,
-                `$\\frac{1}{${a}}$`
-            ],
-            correct: 2,
-            solution: `نفكك الكسر: $\\frac{\\ln x}{x^{${a}}} = \\frac{1}{x^{${a-1}}} \\cdot \\frac{\\ln x}{x}$. بما أن $\\lim_{x \\to +\\infty} \\frac{1}{x^{${a-1}}} = 0$ ومبرهنة المنهاج الأساسية تعطي $\\lim_{x \\to +\\infty} \\frac{\\ln x}{x} = 0$، فإن الناتج هو $0 \\times 0 = 0$.`
-        };
-    } else {
-        const r1 = 1, r2 = 2;
-        qData = {
-            title: `مجموعة حلول المعادلة $\\ln^2(x) - 3\\ln(x) + 2 = 0$ في $\\mathbb{R}$ هي:`,
-            options: [
-                `$\\{1, 2\\}$`,
-                `$\\{e, e^2\\}$`,
-                `$\\{0, e\\}$`,
-                `$[e, e^2]$`
-            ],
-            correct: 1,
-            solution: `بالمتحول المساعد $t = \\ln x$ تصبح: $t^2 - 3t + 2 = 0 \\iff (t-1)(t-2) = 0$. إما $\\ln x = 1 \\implies x = e$ أو $\\ln x = 2 \\implies x = e^2$. إذن الحلول هي $\\{e, e^2\\}$.`
-        };
-    }
-
-    dynCurrentQuestion = qData;
-    let optsHtml = '';
-    qData.options.forEach((opt, idx) => {
-        optsHtml += `<div class="mcq-opt" id="dyn-opt-${idx}" onclick="checkDynamicMCQ(${idx})">${opt}</div>`;
-    });
-
-    box.innerHTML = `
-        <div class="mcq-question" style="background:#0f1115; border-color:#2ecc71; margin-bottom:0;">
-            <b style="color:#2ecc71;">مسألة أتمتة مولّدة حديثاً:</b>
-            <div style="font-size:15px; margin:10px 0;">${qData.title}</div>
-            <div class="mcq-options">${optsHtml}</div>
-            <div class="mcq-feedback" id="dyn-fb"></div>
-            <button class="toggle-solution-btn" onclick="toggleSol('dyn-sol')" style="margin-top:10px;">عرض التوضيح السلمي الكامل</button>
-            <div class="solution-drawer" id="dyn-sol">${qData.solution}</div>
-        </div>
-    `;
-
-    if (window.MathJax) {
-        MathJax.typesetPromise([box]);
-    }
-}
-
-function checkDynamicMCQ(chosenIdx) {
-    if (!dynCurrentQuestion) return;
-    const opts = document.querySelectorAll('[id^="dyn-opt-"]');
-    const fb = document.getElementById('dyn-fb');
-    opts.forEach(o => o.classList.remove('selected-correct', 'selected-wrong'));
-
-    if (chosenIdx === dynCurrentQuestion.correct) {
-        document.getElementById(`dyn-opt-${chosenIdx}`).classList.add('selected-correct');
-        fb.style.display = 'block';
-        fb.style.color = '#2ecc71';
-        fb.innerText = '✓ أحسنت! إجابة صحيحة تماماً.';
-    } else {
-        document.getElementById(`dyn-opt-${chosenIdx}`).classList.add('selected-wrong');
-        fb.style.display = 'block';
-        fb.style.color = '#e74c3c';
-        fb.innerText = '✗ إجابة غير صحيحة، حاول مجدداً أو راجع التوضيح السلمي.';
-    }
-}
-
 // خيارات موحدة فائقة الوضوح لجميع الرسوم البيانية لتناسب مخ الطالب
 const studentChartOptions = (xTitle, yTitle, yMin, yMax) => ({
     responsive: true,
@@ -2047,9 +2036,6 @@ const studentChartOptions = (xTitle, yTitle, yMin, yMax) => ({
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    // تشغيل المولد الافتراضي لأول سؤال
-    generateNewQuestion();
-
     // 1. رسم f(x) = (1+2ln x)/x^2 مع المقارب الأفقي y=0
     const ctx1 = document.getElementById('chartVar1');
     if (ctx1) {
@@ -2156,7 +2142,27 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. رسم f(x) = x ln x
+    // 6. رسم المسألة 5 الجديدة f(x) = ln((x+1)/ln x)
+    const ctxNew = document.getElementById('chartVarNew');
+    if (ctxNew) {
+        const xVNew = [], yVNew = [];
+        for (let x = 1.25; x <= 6.5; x += 0.15) {
+            xVNew.push(x.toFixed(2));
+            yVNew.push(Math.log((x + 1) / Math.log(x)));
+        }
+        chartInstances['cNew'] = new Chart(ctxNew.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: xVNew,
+                datasets: [
+                    { label: 'المنحني البياني f(x) = ln((x+1)/ln x)', data: yVNew, borderColor: '#ffd700', borderWidth: 4, fill: false, pointRadius: 0 }
+                ]
+            },
+            options: studentChartOptions('محور الفواصل x > 1', 'محور التراتيب y', 0, 3.5)
+        });
+    }
+
+    // 7. رسم f(x) = x ln x
     const ctx5 = document.getElementById('chartVar5');
     if (ctx5) {
         const xV5 = [], yV5 = [];
@@ -2174,7 +2180,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. رسم f(x) = ln(x) / x^2 مع المقارب الأفقي y=0
+    // 8. رسم f(x) = ln(x) / x^2 مع المقارب الأفقي y=0
     const ctx6 = document.getElementById('chartVar6');
     if (ctx6) {
         const xV6 = [], yV6 = [];
@@ -2195,7 +2201,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. رسم f(x) = (x+1)ln x
+    // 9. رسم f(x) = (x+1)ln x
     const ctx7 = document.getElementById('chartVar7');
     if (ctx7) {
         const xV7 = [], yV7 = [];
@@ -2213,7 +2219,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. مجموعات نقاط المستوي الثلاث
+    // 10. مجموعات نقاط المستوي الثلاث
     // الحالة I
     const ctxC1 = document.getElementById('chartPtsCase1');
     if (ctxC1) {
